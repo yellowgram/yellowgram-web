@@ -3,6 +3,14 @@
 import { FormEvent, useState } from "react";
 import { email, interests } from "@/lib/site";
 
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${email}`;
+
+function formSubmitSucceeded(payload: unknown): boolean {
+  if (!payload || typeof payload !== "object" || !("success" in payload)) return false;
+  const success = (payload as { success: unknown }).success;
+  return success === true || success === "true";
+}
+
 export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [error, setError] = useState("");
@@ -13,13 +21,36 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
     setError("");
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+    const sender = String(data.email || "").trim();
+    const interest = String(data.interest || "").trim();
+    const message = String(data.message || "").trim();
+
+    if (!sender || !sender.includes("@") || !interest || message.length < 20) {
+      setStatus("err");
+      setError(`Could not send. Email ${email} directly.`);
+      return;
+    }
+
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(FORMSUBMIT_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: sender,
+          interest,
+          message,
+          _subject: `[yellowgram] ${interest}`,
+          _replyto: sender,
+          _template: "table",
+          // Skip FormSubmit's redirect captcha so the JSON response stays in fetch.
+          _captcha: "false",
+        }),
       });
-      if (!res.ok) throw new Error("Request failed");
+      const payload: unknown = await res.json();
+      if (!formSubmitSucceeded(payload)) throw new Error("Request failed");
       setStatus("ok");
       form.reset();
     } catch {
