@@ -22,7 +22,7 @@ export default function HomePage() {
           <p className="mt-5 max-w-xl text-lg muted">
             yellowgram builds small, sharp software for global English product and platform teams —
             Polar- and Stripe-ready when paid offers launch, self-serve when it can be, honest when
-            it can&apos;t. Not an India-local MSME shop. Not AI-dashboard theater.
+            it can&apos;t. Not AI-dashboard theater.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a className="btn btn-primary" href="#contact">Contact us</a>
@@ -68,7 +68,6 @@ export default function HomePage() {
           <div className="card">
             <h3 className="font-semibold text-[var(--accent-2)]">Out</h3>
             <ul className="mt-3 space-y-2 muted list-disc pl-5">
-              <li>India-only MSME / WhatsApp CRM wedges</li>
               <li>“We’ll build your agent company” retainers as the homepage offer</li>
               <li>Fake traction claims</li>
             </ul>
