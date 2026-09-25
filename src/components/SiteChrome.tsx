@@ -1,23 +1,23 @@
 import Link from "next/link";
 import { ReactNode } from "react";
+import { email } from "@/lib/site";
 
 const nav = [
-  { href: "/#vision", label: "Vision" },
-  { href: "/current", label: "Current" },
-  { href: "/future", label: "Future" },
+  { href: "/current", label: "Products" },
+  { href: "/future", label: "In development" },
   { href: "/#contact", label: "Contact" },
 ];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[rgba(5,10,18,0.75)] backdrop-blur-md">
-      <div className="container flex items-center justify-between gap-4 py-4">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+    <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--bg)]">
+      <div className="container flex items-center justify-between gap-6 py-4">
+        <Link href="/" className="text-[1.05rem] font-medium tracking-tight">
           yellowgram
         </Link>
-        <nav className="flex flex-wrap items-center gap-4 text-sm text-[var(--muted)]">
+        <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 text-sm text-[var(--muted)]">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="hover:text-[var(--accent-2)]">
+            <Link key={item.href} href={item.href} className="hover:text-[var(--text)]">
               {item.label}
             </Link>
           ))}
@@ -29,11 +29,17 @@ export function SiteHeader() {
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--line)] mt-20">
-      <div className="container py-10 text-sm text-[var(--muted)] flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
-        <div>© {new Date().getFullYear()} yellowgram · Small tools. Global checkout. No theater.</div>
-        <div className="flex flex-wrap gap-4">
-          <a href="mailto:hello@yellowgram.dev">hello@yellowgram.dev</a>
+    <footer className="border-t border-[var(--line)]">
+      <div className="container py-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-sm font-medium">yellowgram</p>
+          <p className="mt-1 text-sm muted">Software product studio</p>
+        </div>
+        <div className="flex flex-col gap-2 text-sm muted sm:items-end">
+          <a className="text-link" href={`mailto:${email}`}>
+            {email}
+          </a>
+          <p>© {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>
