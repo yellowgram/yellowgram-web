@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const FORMSUBMIT_URL = "https://formsubmit.co/ajax/hello@yellowgram.dev";
+
 export async function POST(req: NextRequest) {
   let body: Record<string, unknown>;
   try {
@@ -24,14 +26,32 @@ export async function POST(req: NextRequest) {
   form.set("_replyto", email);
   form.set("_template", "table");
 
-  const res = await fetch("https://formsubmit.co/ajax/hello@yellowgram.dev", {
-    method: "POST",
-    body: form,
-    headers: { Accept: "application/json" },
-  });
-
-  if (!res.ok) {
+  let upstream: Response;
+  try {
+    upstream = await fetch(FORMSUBMIT_URL, {
+      method: "POST",
+      body: form,
+      headers: {
+        Accept: "application/json",
+        Origin: "https://www.yellowgram.dev",
+        Referer: "https://www.yellowgram.dev/",
+      },
+    });
+  } catch {
     return NextResponse.json({ ok: false }, { status: 502 });
   }
+
+  let payload: { success?: unknown };
+  try {
+    payload = await upstream.json();
+  } catch {
+    return NextResponse.json({ ok: false }, { status: 502 });
+  }
+
+  const succeeded = payload.success === true || payload.success === "true";
+  if (!succeeded) {
+    return NextResponse.json({ ok: false }, { status: 502 });
+  }
+
   return NextResponse.json({ ok: true });
 }
