@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "yellowgram — receipts for agent software",
+  title: "yellowgram — pin the surface, ship with receipts",
   description:
-    "Small, sharp tools for global product and platform teams. SurfacePin OSS now; more on the horizon.",
+    "Small, sharp tools for global agent/MCP teams. SurfacePin OSS now; planned setup and kits next.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

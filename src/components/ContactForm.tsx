@@ -11,8 +11,10 @@ const roles = [
 ];
 
 const interests = [
-  "Current tools (SurfacePin / what exists)",
-  "Future offerings / roadmap",
+  "SurfacePin / current tools",
+  "Surface Lock Setup (planned)",
+  "Surface Audit (planned)",
+  "Stripe credit-ledger kit (planned)",
   "Partnership / integrate",
   "Press / community",
   "Something else",
@@ -56,9 +58,7 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
     return (
       <div className="card">
         <p className="text-lg font-semibold">Got it.</p>
-        <p className="muted mt-2">
-          We reply from hello@ or support@ within a few business days.
-        </p>
+        <p className="muted mt-2">We reply from hello@ within a few business days.</p>
       </div>
     );
   }
@@ -119,7 +119,7 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
           required
           minLength={20}
           maxLength={2000}
-          placeholder="What you’re wiring (MCP, agent wallet, CI), what broke, and what a good outcome looks like in one week."
+          placeholder="What MCP/agent surface you’re wiring, what broke, and what good looks like in a week."
         />
       </div>
       <div className="field flex items-start gap-3">

@@ -34,7 +34,6 @@ export function SiteFooter() {
         <div>© {new Date().getFullYear()} yellowgram · Small tools. Global checkout. No theater.</div>
         <div className="flex flex-wrap gap-4">
           <a href="mailto:hello@yellowgram.dev">hello@yellowgram.dev</a>
-          <a href="mailto:support@yellowgram.dev">support@yellowgram.dev</a>
         </div>
       </div>
     </footer>

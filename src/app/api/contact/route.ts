@@ -15,7 +15,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
-  const ccCurrent = interest.toLowerCase().includes("current");
   const form = new FormData();
   form.set("name", name);
   form.set("email", email);
@@ -27,7 +26,6 @@ export async function POST(req: NextRequest) {
   form.set("_subject", `[yellowgram] ${interest} — ${name}`);
   form.set("_replyto", email);
   form.set("_template", "table");
-  if (ccCurrent) form.set("_cc", "support@yellowgram.dev");
 
   const res = await fetch("https://formsubmit.co/ajax/hello@yellowgram.dev", {
     method: "POST",
