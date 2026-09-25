@@ -1,55 +1,61 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
+import { email, exploring } from "@/lib/site";
 
-const future = [
-  {
-    name: "Surface Lock Setup",
-    interest: "Surface Lock Setup (planned)",
-    line: "Fixed-scope install of SurfacePin + CI + handoff for one MCP server/repo.",
+const description =
+  "What yellowgram is exploring: Surface Lock Setup, Surface Audit, and a Stripe credit-ledger kit.";
+
+export const metadata: Metadata = {
+  title: "In development",
+  description,
+  openGraph: {
+    title: "In development — yellowgram",
+    description,
   },
-  {
-    name: "Surface Audit",
-    interest: "Surface Audit (planned)",
-    line: "Setup plus a short risk review of the tools/list surface.",
-  },
-  {
-    name: "Stripe credit-ledger kit",
-    interest: "Stripe credit-ledger kit (planned)",
-    line: "One-shot cloneable kit you run on your own Stripe.",
-  },
-];
+};
 
 export default function FuturePage() {
   return (
     <PageShell>
-      <section className="container py-16">
-        <p className="eyebrow">Future</p>
-        <h1 className="text-4xl font-semibold mt-2">Future offerings</h1>
-        <p className="mt-4 max-w-3xl text-lg muted">
-          Coming / planned. Tease only — no buy buttons until Polar checkout links are live.
-        </p>
+      <section className="container py-20 md:py-28">
+        <p className="eyebrow">In development</p>
+        <h1 className="title mt-4">What we&apos;re exploring</h1>
+        <p className="lede mt-5 max-w-2xl muted">Early work, named plainly.</p>
 
-        <div className="mt-10 grid gap-4">
-          {future.map((item) => (
-            <div key={item.name} className="card">
-              <h2 className="text-xl font-semibold">{item.name}</h2>
-              <p className="mt-2 muted">{item.line}</p>
-              <a className="btn btn-ghost mt-4 inline-flex" href="#contact">
-                Tell us you’re interested
-              </a>
+        <div className="mt-12 border-b border-[var(--line)]">
+          {exploring.map((item) => (
+            <div
+              key={item.name}
+              className="grid gap-2 border-t border-[var(--line)] py-7 md:grid-cols-[18rem_1fr] md:items-baseline md:gap-10"
+            >
+              <h2 className="text-xl">{item.name}</h2>
+              <p className="muted">{item.line}</p>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 flex gap-3">
-          <Link className="btn btn-ghost" href="/current">Back to Current →</Link>
-        </div>
+        <p className="mt-8">
+          <Link className="text-link text-sm" href="/current">
+            SurfacePin
+          </Link>
+        </p>
       </section>
 
-      <section id="contact" className="container pb-16 max-w-2xl">
-        <h2 className="text-2xl font-semibold mb-4">Interest in the horizon</h2>
-        <ContactForm defaultInterest="Surface Lock Setup (planned)" />
+      <section id="contact" className="container py-20 md:py-28">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.1fr)] lg:gap-20">
+            <div>
+              <p className="eyebrow">Contact</p>
+              <h2 className="title mt-4">Get in touch</h2>
+              <p className="mt-5">
+                <a className="text-link" href={`mailto:${email}`}>
+                  {email}
+                </a>
+              </p>
+            </div>
+            <ContactForm />
+          </div>
       </section>
     </PageShell>
   );

@@ -1,29 +1,26 @@
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
-  const name = String(body.name || "").trim();
-  const email = String(body.email || "").trim();
-  const company = String(body.company || "").trim();
-  const role = String(body.role || "").trim();
-  const interest = String(body.interest || "").trim();
-  const source = String(body.source || "").trim();
-  const note = String(body.note || "").trim();
-  const consent = String(body.consent || "");
+  let body: Record<string, unknown>;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ ok: false }, { status: 400 });
+  }
 
-  if (!name || !email || !role || !interest || !note || consent !== "yes") {
+  const email = String(body.email || "").trim();
+  const interest = String(body.interest || "").trim();
+  const message = String(body.message || body.note || "").trim();
+
+  if (!email || !email.includes("@") || !interest || message.length < 20) {
     return NextResponse.json({ ok: false }, { status: 400 });
   }
 
   const form = new FormData();
-  form.set("name", name);
   form.set("email", email);
-  form.set("company", company);
-  form.set("role", role);
   form.set("interest", interest);
-  form.set("source", source);
-  form.set("note", note);
-  form.set("_subject", `[yellowgram] ${interest} — ${name}`);
+  form.set("message", message);
+  form.set("_subject", `[yellowgram] ${interest}`);
   form.set("_replyto", email);
   form.set("_template", "table");
 

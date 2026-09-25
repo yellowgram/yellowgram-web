@@ -1,16 +1,48 @@
 import type { Metadata } from "next";
+import { IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
+const sans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-mono",
+});
+
+const description =
+  "yellowgram is a software product studio. SurfacePin exact-hashes MCP tools, resources, and prompts, and fails CI when the surface changes. MIT, CLI, CI-ready.";
+
 export const metadata: Metadata = {
-  title: "yellowgram — pin the surface, ship with receipts",
-  description:
-    "Small, sharp tools for global agent/MCP teams. SurfacePin OSS now; planned setup and kits next.",
+  metadataBase: new URL("https://yellowgram.dev"),
+  title: {
+    default: "yellowgram — small software, sharp edges",
+    template: "%s — yellowgram",
+  },
+  description,
+  openGraph: {
+    title: "yellowgram — small software, sharp edges",
+    description,
+    siteName: "yellowgram",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "yellowgram — small software, sharp edges",
+    description,
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={mono.variable}>
+      <body className={sans.className}>{children}</body>
     </html>
   );
 }
