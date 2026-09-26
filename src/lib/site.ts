@@ -39,7 +39,7 @@ export const keel = {
   badge: "Current · Open source",
   tagline: "Observe first. Idle is success.",
   summary:
-    "A self-run Morpho Regime B toolkit: observe wstETH–WETH markets, score them, and draft REFERENCE_ONLY actions you sign yourself. DEMO defaults; no keys, no auto-ALLOW.",
+    "Self-run Morpho Regime B observe, score, and REFERENCE_ONLY draft for wstETH–WETH. DEMO defaults; you sign; idle with zero eligible is success.",
   facts: [
     "Morpho V1 · Regime B · wstETH–WETH",
     "IDLE_ALL with zero eligible is success",
@@ -66,6 +66,40 @@ export const keelHow = [
     step: "03",
     title: "Draft",
     body: "Write a REFERENCE_ONLY action for you to sign. Idle when none qualify.",
+  },
+];
+
+export const l2SendGuard = {
+  name: "L2 Send Guard",
+  badge: "Current · Open source",
+  tagline: "Simulate first. Abort definite reverts.",
+  summary:
+    "Multi-L2 pre-broadcast JSON-RPC proxy. Simulate eth_sendRawTransaction, abort definite reverts, optional thin allowlist/caps for agent wallets. No key custody.",
+  facts: [
+    "Multi-L2 · Arb/OP/Base Sepolia testnet",
+    "MIT · min-support · operator docs",
+    "No custody · not Safe · not hosted SaaS",
+  ],
+  install: "npx l2-send-guard@0.5.0",
+  repo: "yellowgram/l2-safety-proxy",
+  github: "https://github.com/yellowgram/l2-safety-proxy",
+};
+
+export const l2SendGuardHow = [
+  {
+    step: "01",
+    title: "Simulate",
+    body: "Simulate eth_sendRawTransaction before broadcast.",
+  },
+  {
+    step: "02",
+    title: "Abort",
+    body: "Abort a send that would definitely revert.",
+  },
+  {
+    step: "03",
+    title: "Caps",
+    body: "Optional thin allowlist and caps for agent wallets.",
   },
 ];
 
@@ -113,6 +147,19 @@ export const tools: CatalogTool[] = [
     whyTitle: "Observe, score, draft.",
     steps: keelHow,
   },
+  {
+    slug: "l2-send-guard",
+    name: l2SendGuard.name,
+    badge: l2SendGuard.badge,
+    tagline: l2SendGuard.tagline,
+    summary: l2SendGuard.summary,
+    repo: l2SendGuard.repo,
+    primary: { label: "View on GitHub", href: l2SendGuard.github },
+    install: l2SendGuard.install,
+    facts: l2SendGuard.facts,
+    whyTitle: "Simulate, abort, cap.",
+    steps: l2SendGuardHow,
+  },
 ];
 
 export const exploring = [
@@ -133,6 +180,7 @@ export const exploring = [
 export const interests = [
   "SurfacePin",
   "Keel",
+  "L2 Send Guard",
   "Surface Lock Setup",
   "Surface Audit",
   "Stripe credit-ledger kit",
