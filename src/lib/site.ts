@@ -34,6 +34,41 @@ export const howItWorks = [
   },
 ];
 
+export const keel = {
+  name: "Keel",
+  badge: "Current · Open source",
+  tagline: "Observe first. Idle is success.",
+  summary:
+    "A self-run Morpho Regime B toolkit: observe wstETH–WETH markets, score them, and draft REFERENCE_ONLY actions you sign yourself. DEMO defaults; no keys, no auto-ALLOW.",
+  facts: [
+    "Morpho V1 · Regime B · wstETH–WETH",
+    "IDLE_ALL with zero eligible is success",
+    "MIT · DEMO defaults · human signs ACTION",
+  ],
+  install:
+    "git clone https://github.com/yellowgram/keel-morpho && cd keel-morpho && cp config.example.json config.json",
+  repo: "yellowgram/keel-morpho",
+  github: "https://github.com/yellowgram/keel-morpho",
+};
+
+export const keelHow = [
+  {
+    step: "01",
+    title: "Observe",
+    body: "Read public wstETH–WETH markets on Morpho V1, Regime B.",
+  },
+  {
+    step: "02",
+    title: "Score",
+    body: "Score those markets against the sleeve rules.",
+  },
+  {
+    step: "03",
+    title: "Draft",
+    body: "Write a REFERENCE_ONLY action for you to sign. Idle when none qualify.",
+  },
+];
+
 export type CatalogTool = {
   slug: string;
   name: string;
@@ -65,6 +100,19 @@ export const tools: CatalogTool[] = [
     whyTitle: "A pin, a check, a failed build.",
     steps: howItWorks,
   },
+  {
+    slug: "keel",
+    name: keel.name,
+    badge: keel.badge,
+    tagline: keel.tagline,
+    summary: keel.summary,
+    repo: keel.repo,
+    primary: { label: "View on GitHub", href: keel.github },
+    install: keel.install,
+    facts: keel.facts,
+    whyTitle: "Observe, score, draft.",
+    steps: keelHow,
+  },
 ];
 
 export const exploring = [
@@ -84,6 +132,7 @@ export const exploring = [
 
 export const interests = [
   "SurfacePin",
+  "Keel",
   "Surface Lock Setup",
   "Surface Audit",
   "Stripe credit-ledger kit",
