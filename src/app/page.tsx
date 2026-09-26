@@ -53,10 +53,12 @@ export default function HomePage() {
           <ul className="tool-grid">
             {tools.map((tool) => (
               <li key={tool.slug} className="card tool-card">
-                <p className="badge">{tool.badge}</p>
-                <h3 className="mt-5 text-3xl tracking-tight">{tool.name}</h3>
-                <p className="mt-3 text-lg tracking-tight">{tool.tagline}</p>
-                <p className="mt-3 muted">{tool.summary}</p>
+                <div>
+                  <p className="badge">{tool.badge}</p>
+                  <h3 className="mt-5 text-3xl tracking-tight">{tool.name}</h3>
+                  <p className="mt-3 text-lg tracking-tight">{tool.tagline}</p>
+                  <p className="mt-3 max-w-xl muted">{tool.summary}</p>
+                </div>
                 <div className="tool-card-foot">
                   <div className="actions">
                     <a
@@ -118,11 +120,6 @@ export default function HomePage() {
               </p>
             </div>
           ) : null}
-          <div className="actions mt-10">
-            <a className="btn btn-primary" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
-              {tool.primary.label}
-            </a>
-          </div>
         </section>
       ))}
 

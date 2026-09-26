@@ -170,15 +170,14 @@ h3 {
   margin: 2.75rem 0 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 26rem));
+  grid-template-columns: 1fr;
   gap: 1rem;
-  justify-content: start;
 }
 
 .tool-card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
   margin: 0;
 }
 
@@ -187,12 +186,26 @@ h3 {
   flex-direction: column;
   align-items: stretch;
   gap: 0.9rem;
-  margin-top: auto;
-  padding-top: 1.75rem;
 }
 
 .tool-card-foot .actions {
   width: 100%;
+}
+
+@media (min-width: 800px) {
+  .tool-card {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 2rem 3rem;
+  }
+
+  .tool-card-foot {
+    align-items: flex-end;
+  }
+
+  .tool-card-foot .actions {
+    width: auto;
+  }
 }
 
 .input,
