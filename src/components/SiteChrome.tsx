@@ -20,20 +20,14 @@ export function SiteHeader() {
             aria-hidden="true"
             width="15"
             height="15"
-            viewBox="0 0 16 16"
+            viewBox="1.7 1.7 12.6 12.6"
             fill="none"
             className="shrink-0"
           >
             <path
-              d="M1.85 7.2 8 2.15 14.15 7.2"
+              d="M8 2.55 13.4 7.1V13.45H9.55V9.25H6.45V13.45H2.6V7.1L8 2.55Z"
               stroke="currentColor"
-              strokeWidth="1.15"
-              strokeLinejoin="miter"
-            />
-            <path
-              d="M3.2 6.65V13.7h3.05V9.05h3.5v4.65h3.05V6.65"
-              stroke="currentColor"
-              strokeWidth="1.15"
+              strokeWidth="1.05"
               strokeLinejoin="miter"
             />
           </svg>
