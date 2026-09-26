@@ -34,6 +34,39 @@ export const howItWorks = [
   },
 ];
 
+export type CatalogTool = {
+  slug: string;
+  name: string;
+  badge: string;
+  tagline: string;
+  summary: string;
+  repo: string;
+  productHref?: string;
+  primary: { label: string; href: string };
+  install?: string;
+  facts?: readonly string[];
+  whyTitle?: string;
+  steps?: readonly { step: string; title: string; body: string }[];
+};
+
+/** Shipped tools. Adding the next one is another entry here. */
+export const tools: CatalogTool[] = [
+  {
+    slug: "surfacepin",
+    name: surfacepin.name,
+    badge: surfacepin.badge,
+    tagline: surfacepin.tagline,
+    summary: surfacepin.summary,
+    repo: surfacepin.repo,
+    productHref: "/current",
+    primary: { label: "View on GitHub", href: surfacepin.github },
+    install: surfacepin.install,
+    facts: surfacepin.facts,
+    whyTitle: "A pin, a check, a failed build.",
+    steps: howItWorks,
+  },
+];
+
 export const exploring = [
   {
     name: "Surface Lock Setup",

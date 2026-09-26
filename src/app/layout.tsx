@@ -16,7 +16,7 @@ const mono = IBM_Plex_Mono({
 });
 
 const description =
-  "yellowgram is a software product studio. SurfacePin exact-hashes MCP tools, resources, and prompts, and fails CI when the surface changes. MIT, CLI, CI-ready.";
+  "yellowgram is a software product studio that ships small, sharp tools. SurfacePin exact-hashes MCP tools, resources, and prompts, and fails CI when the surface changes.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yellowgram.dev"),
