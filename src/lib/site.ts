@@ -72,13 +72,13 @@ export const keelHow = [
 export const l2SendGuard = {
   name: "L2 Send Guard",
   badge: "Current · Open source",
-  tagline: "Simulate first. Abort definite reverts.",
+  tagline: "Abort the bad send. Before it broadcasts.",
   summary:
-    "Multi-L2 pre-broadcast JSON-RPC proxy. Simulate eth_sendRawTransaction, abort definite reverts, optional thin allowlist/caps for agent wallets. No key custody.",
+    "A multi-L2 JSON-RPC proxy that simulates eth_sendRawTransaction, aborts definite reverts, and optionally fences agent spend with a thin allowlist and caps. No key custody.",
   facts: [
-    "Multi-L2 · Arb/OP/Base Sepolia testnet",
-    "MIT · min-support · operator docs",
-    "No custody · not Safe · not hosted SaaS",
+    "Sim abort · optional policy fence · Arb/OP/Base Sepolia",
+    "Offline dual-layer demo · MIT · npm pin",
+    "Not custody · not Safe · not mainnet SLA",
   ],
   install: "npx l2-send-guard@0.5.0",
   repo: "yellowgram/l2-safety-proxy",
@@ -88,18 +88,18 @@ export const l2SendGuard = {
 export const l2SendGuardHow = [
   {
     step: "01",
-    title: "Simulate",
-    body: "Simulate eth_sendRawTransaction before broadcast.",
+    title: "Proxy",
+    body: "Point the wallet HTTP transport at the local Guard.",
   },
   {
     step: "02",
-    title: "Abort",
-    body: "Abort a send that would definitely revert.",
+    title: "Simulate",
+    body: "Definite reverts abort before broadcast; policy can stop the rest.",
   },
   {
     step: "03",
-    title: "Caps",
-    body: "Optional thin allowlist and caps for agent wallets.",
+    title: "Halt",
+    body: "Agents treat policy deny as non-retryable and do not rebroadcast the same raw.",
   },
 ];
 
@@ -157,7 +157,7 @@ export const tools: CatalogTool[] = [
     primary: { label: "View on GitHub", href: l2SendGuard.github },
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
-    whyTitle: "Simulate, abort, cap.",
+    whyTitle: "Proxy, simulate, halt.",
     steps: l2SendGuardHow,
   },
 ];
