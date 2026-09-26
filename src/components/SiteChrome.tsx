@@ -12,7 +12,31 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[var(--bg)]">
       <div className="container flex items-center justify-between gap-6 py-4">
-        <Link href="/" className="text-[1.05rem] font-medium tracking-tight">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-[0.4rem] text-[1.05rem] font-medium tracking-tight"
+        >
+          <svg
+            aria-hidden="true"
+            width="15"
+            height="15"
+            viewBox="0 0 16 16"
+            fill="none"
+            className="shrink-0"
+          >
+            <path
+              d="M1.85 7.2 8 2.15 14.15 7.2"
+              stroke="currentColor"
+              strokeWidth="1.15"
+              strokeLinejoin="miter"
+            />
+            <path
+              d="M3.2 6.65V13.7h3.05V9.05h3.5v4.65h3.05V6.65"
+              stroke="currentColor"
+              strokeWidth="1.15"
+              strokeLinejoin="miter"
+            />
+          </svg>
           yellowgram
         </Link>
         <nav className="flex flex-wrap items-center justify-end gap-x-5 gap-y-1 text-sm text-[var(--muted)]">
