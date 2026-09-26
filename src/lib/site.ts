@@ -39,7 +39,7 @@ export const keel = {
   badge: "Current · Open source",
   tagline: "Observe first. Idle is success.",
   summary:
-    "A self-run Morpho Regime B toolkit: observe wstETH–WETH markets, score them, and draft REFERENCE_ONLY actions you sign yourself. DEMO defaults; no keys, no auto-ALLOW.",
+    "Self-run Morpho Regime B observe, score, and REFERENCE_ONLY draft for wstETH–WETH. DEMO defaults; you sign; idle with zero eligible is success.",
   facts: [
     "Morpho V1 · Regime B · wstETH–WETH",
     "IDLE_ALL with zero eligible is success",
@@ -66,6 +66,40 @@ export const keelHow = [
     step: "03",
     title: "Draft",
     body: "Write a REFERENCE_ONLY action for you to sign. Idle when none qualify.",
+  },
+];
+
+export const l2SendGuard = {
+  name: "L2 Send Guard",
+  badge: "Current · Open source",
+  tagline: "Abort the bad send. Before it broadcasts.",
+  summary:
+    "A multi-L2 JSON-RPC proxy that simulates eth_sendRawTransaction, aborts definite reverts, and optionally fences agent spend with a thin allowlist and caps. No key custody.",
+  facts: [
+    "Sim abort · optional policy fence · Arb/OP/Base Sepolia",
+    "Offline dual-layer demo · MIT · npm pin",
+    "Not custody · not Safe · not mainnet SLA",
+  ],
+  install: "npx l2-send-guard@0.5.0",
+  repo: "yellowgram/l2-safety-proxy",
+  github: "https://github.com/yellowgram/l2-safety-proxy",
+};
+
+export const l2SendGuardHow = [
+  {
+    step: "01",
+    title: "Proxy",
+    body: "Point the wallet HTTP transport at the local Guard.",
+  },
+  {
+    step: "02",
+    title: "Simulate",
+    body: "Definite reverts abort before broadcast; policy can stop the rest.",
+  },
+  {
+    step: "03",
+    title: "Halt",
+    body: "Agents treat policy deny as non-retryable and do not rebroadcast the same raw.",
   },
 ];
 
@@ -113,6 +147,19 @@ export const tools: CatalogTool[] = [
     whyTitle: "Observe, score, draft.",
     steps: keelHow,
   },
+  {
+    slug: "l2-send-guard",
+    name: l2SendGuard.name,
+    badge: l2SendGuard.badge,
+    tagline: l2SendGuard.tagline,
+    summary: l2SendGuard.summary,
+    repo: l2SendGuard.repo,
+    primary: { label: "View on GitHub", href: l2SendGuard.github },
+    install: l2SendGuard.install,
+    facts: l2SendGuard.facts,
+    whyTitle: "Proxy, simulate, halt.",
+    steps: l2SendGuardHow,
+  },
 ];
 
 export const exploring = [
@@ -133,6 +180,7 @@ export const exploring = [
 export const interests = [
   "SurfacePin",
   "Keel",
+  "L2 Send Guard",
   "Surface Lock Setup",
   "Surface Audit",
   "Stripe credit-ledger kit",
