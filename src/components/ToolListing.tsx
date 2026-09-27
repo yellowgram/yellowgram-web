@@ -44,6 +44,11 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
           <a className="btn btn-primary" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
             {tool.primary.label}
           </a>
+          {tool.secondary ? (
+            <a className="btn btn-ghost" href={tool.secondary.href} {...externalLinkProps(tool.secondary.href)}>
+              {tool.secondary.label}
+            </a>
+          ) : null}
         </div>
         {tool.whyTitle || tool.steps?.length ? (
           <a className="text-link text-sm" href={`#${tool.slug}`}>
@@ -101,6 +106,18 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
             <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.primary.label}
             </a>
+            {tool.secondary ? (
+              <>
+                <span className="muted"> · </span>
+                <a
+                  className="text-link"
+                  href={tool.secondary.href}
+                  {...externalLinkProps(tool.secondary.href)}
+                >
+                  {tool.secondary.label}
+                </a>
+              </>
+            ) : null}
           </p>
         </div>
       ) : null}
