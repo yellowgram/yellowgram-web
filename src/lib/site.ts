@@ -1,4 +1,5 @@
 import { burnbrakeContract } from "./burnbrake-copy";
+import { creditLedgerContract } from "./credit-ledger-copy";
 import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
 import { maydoContract, maydoHonesty } from "./maydo-copy";
 import { seattruthContract } from "./seattruth-copy";
@@ -253,7 +254,7 @@ export const creditLedger = {
   ],
   price: {
     amount: "$79",
-    detail: "Once · Soft-WTP off · no money-back",
+    detail: "Once · Soft-WTP off · no refund",
   },
   repo: "yellowgram/stripe-credit-ledger-kit",
   github: "https://github.com/yellowgram/stripe-credit-ledger-kit",
@@ -262,23 +263,7 @@ export const creditLedger = {
   howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
-export const creditLedgerHow = [
-  {
-    step: "01",
-    title: "Record",
-    body: "Write credits when your Stripe account is paid.",
-  },
-  {
-    step: "02",
-    title: "Draw",
-    body: "Spend them from the ledger.",
-  },
-  {
-    step: "03",
-    title: "Run",
-    body: "The ledger stays on your Stripe account. You run it.",
-  },
-];
+export const creditLedgerHow = creditLedgerContract;
 
 export type CatalogPrice = {
   amount: string;
@@ -410,7 +395,7 @@ export const tools: CatalogTool[] = [
     tagline: creditLedger.tagline,
     summary: creditLedger.summary,
     repo: creditLedger.repo,
-    productHref: "/current#credit-ledger",
+    productHref: "/credit-ledger",
     current: true,
     primary: { label: "Buy on Polar", href: creditLedger.checkout },
     source: { label: "Source", href: creditLedger.github },
