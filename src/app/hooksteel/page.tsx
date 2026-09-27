@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProductPage } from "@/components/ProductPage";
-import { externalLinkProps } from "@/components/ToolListing";
 import {
   hooksteelCommit,
   hooksteelContrast,
@@ -15,7 +14,7 @@ import {
   hooksteelZipSha256,
 } from "@/lib/hooksteel-copy";
 import { pageMetadata } from "@/lib/seo";
-import { email, hooksteel, toolBySlug } from "@/lib/site";
+import { email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("hooksteel");
 
@@ -82,9 +81,7 @@ export default function HookSteelPage() {
       </section>
 
       <p className="mt-16 max-w-3xl text-sm muted">
-        <a className="text-link" href={hooksteel.github} {...externalLinkProps(hooksteel.github)}>
-          {tool.repo}
-        </a>
+        {tool.repo}
         {" · "}
         {hooksteelVersion}
         {" · "}

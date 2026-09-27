@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProductPage } from "@/components/ProductPage";
-import { externalLinkProps } from "@/components/ToolListing";
 import {
   creditLedgerCommit,
   creditLedgerContrast,
@@ -15,7 +14,7 @@ import {
   creditLedgerZipSha256,
 } from "@/lib/credit-ledger-copy";
 import { pageMetadata } from "@/lib/seo";
-import { creditLedger, email, toolBySlug } from "@/lib/site";
+import { email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("credit-ledger");
 
@@ -82,9 +81,7 @@ export default function CreditLedgerPage() {
       </section>
 
       <p className="mt-16 max-w-3xl text-sm muted">
-        <a className="text-link" href={creditLedger.github} {...externalLinkProps(creditLedger.github)}>
-          {tool.repo}
-        </a>
+        {tool.repo}
         {" · "}
         {creditLedgerVersion}
         {" · "}

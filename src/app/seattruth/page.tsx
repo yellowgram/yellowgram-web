@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProductPage } from "@/components/ProductPage";
-import { externalLinkProps } from "@/components/ToolListing";
 import {
   seattruthCommit,
   seattruthContrast,
@@ -15,7 +14,7 @@ import {
   seattruthZipSha256,
 } from "@/lib/seattruth-copy";
 import { pageMetadata } from "@/lib/seo";
-import { email, seattruth, toolBySlug } from "@/lib/site";
+import { email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("seattruth");
 
@@ -82,9 +81,7 @@ export default function SeatTruthPage() {
       </section>
 
       <p className="mt-16 max-w-3xl text-sm muted">
-        <a className="text-link" href={seattruth.github} {...externalLinkProps(seattruth.github)}>
-          {tool.repo}
-        </a>
+        {tool.repo}
         {" · "}
         {seattruthVersion}
         {" · "}

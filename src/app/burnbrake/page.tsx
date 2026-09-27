@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProductPage } from "@/components/ProductPage";
-import { externalLinkProps } from "@/components/ToolListing";
 import {
   burnbrakeCommit,
   burnbrakeContrast,
@@ -15,7 +14,7 @@ import {
   burnbrakeZipSha256,
 } from "@/lib/burnbrake-copy";
 import { pageMetadata } from "@/lib/seo";
-import { burnbrake, email, toolBySlug } from "@/lib/site";
+import { email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("burnbrake");
 
@@ -82,9 +81,7 @@ export default function BurnBrakePage() {
       </section>
 
       <p className="mt-16 max-w-3xl text-sm muted">
-        <a className="text-link" href={burnbrake.github} {...externalLinkProps(burnbrake.github)}>
-          {tool.repo}
-        </a>
+        {tool.repo}
         {" · "}
         {burnbrakeVersion}
         {" · "}

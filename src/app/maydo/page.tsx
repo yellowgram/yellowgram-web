@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { ProductPage } from "@/components/ProductPage";
-import { externalLinkProps } from "@/components/ToolListing";
 import {
   maydoActor,
   maydoCommit,
@@ -16,7 +15,7 @@ import {
   maydoZipSha256,
 } from "@/lib/maydo-copy";
 import { pageMetadata } from "@/lib/seo";
-import { email, maydo, toolBySlug } from "@/lib/site";
+import { email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("maydo");
 
@@ -84,9 +83,7 @@ export default function MayDoPage() {
       </section>
 
       <p className="mt-16 max-w-3xl text-sm muted">
-        <a className="text-link" href={maydo.github} {...externalLinkProps(maydo.github)}>
-          {tool.repo}
-        </a>
+        {tool.repo}
         {" · "}
         {maydoVersion}
         {" · "}
