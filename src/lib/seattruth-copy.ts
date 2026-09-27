@@ -38,7 +38,7 @@ export const seattruthContract = [
 export const seattruthTerms = [
   {
     label: "Included",
-    body: "Kit zip seattruth-0.1.1.zip (SHA-256 8014dae2e692a727999c7b2f88aad15912503f5062f870741027a7b8e7b654f6) and the Suthirth one-org Commercial Grant for the named tag. Mapping, restricted keys, GitHub Actions, and a Slack path. Polar may still deliver the sealed 0.1.0 attachment per STATUS. Rights for sealed artifacts are not clawed back.",
+    body: "Kit zip seattruth-0.1.1.zip (SHA-256 8014dae2e692a727999c7b2f88aad15912503f5062f870741027a7b8e7b654f6) and the Suthirth one-org Commercial Grant for the named tag. Mapping, restricted keys, GitHub Actions, and a Slack path.",
   },
   {
     label: "Pricing",
