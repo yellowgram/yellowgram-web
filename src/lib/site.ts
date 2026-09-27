@@ -218,6 +218,9 @@ export const maydoHow = [
 export const burnbrakeCheckout =
   "https://buy.polar.sh/polar_cl_aI45vM73LZYjh4oF5nROcyiuV7glAIbhWKIwA3drJVK";
 
+export const burnbrakeHostedCheckout =
+  "https://buy.polar.sh/polar_cl_A2dCr3WcvuTv5lLvNlp8AaC9kziCr8apYfunr0f60ci";
+
 export const burnbrake = {
   name: "BurnBrake",
   badge: "Current · Commercial",
@@ -225,19 +228,20 @@ export const burnbrake = {
   summary:
     "Self-host spend gate. A request-path spend governor: cap and kill, then halt with HTTP 402.",
   facts: [
-    "$199 once · one org",
+    "$199 once · self-host · one org",
+    "Optional hosted $59/mo",
     "Soft-WTP off · 14-day purchase refund",
-    "Optional hosted $49/mo · not day-1 · no separate SKU yet",
     "Polar checkout · private delivery",
   ],
   price: {
     amount: "$199",
-    detail: "Once · one org",
-    note: "Optional hosted $49/mo is not day-1. No separate SKU yet.",
+    detail: "Self-host · once · one org",
+    note: "Optional hosted $59/mo",
   },
   repo: "yellowgram/burnbrake",
   delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/burnbrake. Questions: ${email}.`,
   checkout: burnbrakeCheckout,
+  hostedCheckout: burnbrakeHostedCheckout,
 };
 
 export const burnbrakeHow = [
@@ -332,6 +336,8 @@ export type CatalogTool = {
   repo: string;
   productHref?: string;
   primary: { label: string; href: string };
+  /** Quieter second offer, such as a hosted checkout beside the kit. */
+  secondary?: { label: string; href: string };
   install?: string;
   /** Private commercial delivery. Rendered in place of an install command. */
   delivery?: string;
@@ -418,6 +424,7 @@ export const tools: CatalogTool[] = [
     productHref: "/current#burnbrake",
     current: true,
     primary: { label: "Buy on Polar", href: burnbrake.checkout },
+    secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
     delivery: burnbrake.delivery,
     facts: burnbrake.facts,
     price: burnbrake.price,
