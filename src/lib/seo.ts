@@ -25,6 +25,7 @@ export const publicRoutes: readonly {
   { path: "/spec/surfacepin", priority: 0.9, changeFrequency: "monthly" },
   { path: "/", priority: 0.8, changeFrequency: "weekly" },
   { path: "/current", priority: 0.4, changeFrequency: "weekly" },
+  { path: "/oss", priority: 0.4, changeFrequency: "weekly" },
 ];
 
 export function absoluteUrl(path: string): string {

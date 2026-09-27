@@ -3,7 +3,8 @@ import { ReactNode } from "react";
 import { email } from "@/lib/site";
 
 const nav = [
-  { href: "/current", label: "Products" },
+  { href: "/current", label: "Paid" },
+  { href: "/oss", label: "OSS" },
   { href: "/future", label: "In development" },
   { href: "/#contact", label: "Contact" },
 ];
@@ -52,6 +53,14 @@ export function SiteFooter() {
         <div>
           <p className="text-sm font-medium">yellowgram</p>
           <p className="mt-1 text-sm muted">Software product studio</p>
+          <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm">
+            <Link className="text-link" href="/current">
+              Paid
+            </Link>
+            <Link className="text-link" href="/oss">
+              OSS
+            </Link>
+          </p>
         </div>
         <div className="flex flex-col gap-2 text-sm muted sm:items-end">
           <a className="text-link" href={`mailto:${email}`}>
