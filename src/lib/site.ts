@@ -111,6 +111,10 @@ export const l2SendGuardHow = [
 export const hooksteelCheckout =
   "https://polar.sh/checkout/polar_c_VIoAf3jzTPL4N9dhuc2UxEuGfd23bmDvR9QhD3VdNTC";
 
+/** Approved 60-second HookSteel demo clip. */
+export const hooksteelDemo =
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-approved/hooksteel-60s-demo.mp4";
+
 export const hooksteel = {
   name: "HookSteel",
   badge: "Current · Source available · Commercial grant",
@@ -378,6 +382,7 @@ export const tools: CatalogTool[] = [
     productHref: "/current#hooksteel",
     current: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
+    secondary: { label: "Watch demo", href: hooksteelDemo },
     source: { label: "Source", href: hooksteel.github },
     delivery: hooksteel.delivery,
     facts: hooksteel.facts,
