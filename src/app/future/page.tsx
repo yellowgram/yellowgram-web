@@ -38,7 +38,7 @@ export default function FuturePage() {
 
         <p className="mt-8">
           <Link className="text-link text-sm" href="/current">
-            SurfacePin
+            Products
           </Link>
         </p>
       </section>
