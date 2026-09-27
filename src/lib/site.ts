@@ -289,27 +289,29 @@ export const seattruthHow = [
   },
 ];
 
+/** Live Polar checkout for the $79 grant. */
 export const creditLedgerCheckout =
-  "https://buy.polar.sh/polar_cl_RI1erdjByTvdqMVZo4M22AqJIsnlccg47NbXl0fWxFG";
+  "https://polar.sh/checkout/polar_c_soeDA7IyZrCOUxK5YEnX6F2QUHE4bzC3qJcpF35pi4b";
 
 export const creditLedger = {
   name: "Credit Ledger",
-  badge: "Current · Commercial",
+  badge: "Current · Source available · Commercial grant",
   tagline: "Run the ledger. On your Stripe.",
   summary:
-    "Stripe credit ledger kit. A cloneable credit ledger you run on your own Stripe account.",
+    "Stripe credit ledger kit. A credit ledger you run on your own Stripe account. Source is readable for audit and eval. Production use needs the Polar grant. Cloning is not that grant.",
   facts: [
-    "$79 once · Soft-WTP off",
-    "Polar checkout · private zip",
-    "No public clone",
+    "$79 once · Soft-WTP off · no refund",
+    "PolyForm NC + grant · not MIT/OSI",
   ],
   price: {
     amount: "$79",
-    detail: "Once · Soft-WTP off",
+    detail: "Once · Soft-WTP off · no money-back",
   },
-  repo: "private",
-  delivery: `Private zip via Polar. No public clone. Questions: ${email}.`,
+  repo: "yellowgram/stripe-credit-ledger-kit",
+  github: "https://github.com/yellowgram/stripe-credit-ledger-kit",
+  delivery: `Polar checkout is the paid grant. Public repo is for audit. Questions: ${email}.`,
   checkout: creditLedgerCheckout,
+  howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
 export const creditLedgerHow = [
@@ -460,11 +462,13 @@ export const tools: CatalogTool[] = [
     productHref: "/current#credit-ledger",
     current: true,
     primary: { label: "Buy on Polar", href: creditLedger.checkout },
+    source: { label: "Source", href: creditLedger.github },
     delivery: creditLedger.delivery,
     facts: creditLedger.facts,
     price: creditLedger.price,
     whyTitle: "Record, draw, run.",
     steps: creditLedgerHow,
+    stepsNote: creditLedger.howNote,
   },
   {
     slug: "keel",
