@@ -215,6 +215,49 @@ export const maydoHow = [
   },
 ];
 
+export const burnbrakeCheckout =
+  "https://buy.polar.sh/polar_cl_aI45vM73LZYjh4oF5nROcyiuV7glAIbhWKIwA3drJVK";
+
+export const burnbrake = {
+  name: "BurnBrake",
+  badge: "Current · Commercial",
+  tagline: "Cap the spend. Halt the request.",
+  summary:
+    "Self-host spend gate. A request-path spend governor: cap and kill, then halt with HTTP 402.",
+  facts: [
+    "$199 once · one org",
+    "Soft-WTP off · 14-day purchase refund",
+    "Optional hosted $49/mo · not day-1 · no separate SKU yet",
+    "Polar checkout · private delivery",
+  ],
+  price: {
+    amount: "$199",
+    detail: "Once · one org",
+    note: "Optional hosted $49/mo is not day-1. No separate SKU yet.",
+  },
+  repo: "yellowgram/burnbrake",
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/burnbrake. Questions: ${email}.`,
+  checkout: burnbrakeCheckout,
+};
+
+export const burnbrakeHow = [
+  {
+    step: "01",
+    title: "Cap",
+    body: "Set the spend cap on the request path.",
+  },
+  {
+    step: "02",
+    title: "Kill",
+    body: "The governor stops spend that would pass the cap.",
+  },
+  {
+    step: "03",
+    title: "Halt",
+    body: "The request ends with HTTP 402.",
+  },
+];
+
 export const seattruthHow = [
   {
     step: "01",
@@ -325,6 +368,22 @@ export const tools: CatalogTool[] = [
     steps: maydoHow,
   },
   {
+    slug: "burnbrake",
+    name: burnbrake.name,
+    badge: burnbrake.badge,
+    tagline: burnbrake.tagline,
+    summary: burnbrake.summary,
+    repo: burnbrake.repo,
+    productHref: "/current#burnbrake",
+    current: true,
+    primary: { label: "Buy on Polar", href: burnbrake.checkout },
+    delivery: burnbrake.delivery,
+    facts: burnbrake.facts,
+    price: burnbrake.price,
+    whyTitle: "Cap, kill, halt.",
+    steps: burnbrakeHow,
+  },
+  {
     slug: "keel",
     name: keel.name,
     badge: keel.badge,
@@ -375,6 +434,7 @@ export const interests = [
   "HookSteel",
   "SeatTruth",
   "MayDo",
+  "BurnBrake",
   "Keel",
   "L2 Send Guard",
   "Surface Lock Setup",
