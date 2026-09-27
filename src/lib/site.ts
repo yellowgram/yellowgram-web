@@ -1,4 +1,5 @@
 import { burnbrakeContract } from "./burnbrake-copy";
+import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
 
 export const email = "hello@yellowgram.dev";
 
@@ -139,23 +140,10 @@ export const hooksteel = {
   howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
-export const hooksteelHow = [
-  {
-    step: "01",
-    title: "Record",
-    body: "Write the billing event to the outbox.",
-  },
-  {
-    step: "02",
-    title: "Deliver",
-    body: "Send it from that record.",
-  },
-  {
-    step: "03",
-    title: "Keep",
-    body: "The outbox stays yours. Use Hookdeck for ingress.",
-  },
-];
+export const hooksteelHow = hooksteelContract;
+
+/** Under the Record / Deliver / Keep steps on Current and /hooksteel. */
+export const hooksteelStepsNote = `${hooksteelHttp} ${hooksteel.howNote}`;
 
 /** Live Polar checkout for SeatTruth v0.1.1. */
 export const seattruthCheckout =
@@ -379,7 +367,7 @@ export const tools: CatalogTool[] = [
     tagline: hooksteel.tagline,
     summary: hooksteel.summary,
     repo: hooksteel.repo,
-    productHref: "/current#hooksteel",
+    productHref: "/hooksteel",
     current: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
     secondary: { label: "Watch demo", href: hooksteelDemo },
@@ -389,7 +377,7 @@ export const tools: CatalogTool[] = [
     price: hooksteel.price,
     whyTitle: "Record, deliver, keep.",
     steps: hooksteelHow,
-    stepsNote: hooksteel.howNote,
+    stepsNote: hooksteelStepsNote,
   },
   {
     slug: "seattruth",
