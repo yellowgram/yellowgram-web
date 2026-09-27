@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { email, exploring } from "@/lib/site";
 
 const description =
-  "What yellowgram is exploring: Surface Lock Setup, Surface Audit, and a Stripe credit-ledger kit.";
+  "What yellowgram is exploring: Surface Lock Setup and Surface Audit.";
 
 export const metadata: Metadata = {
   title: "In development",
