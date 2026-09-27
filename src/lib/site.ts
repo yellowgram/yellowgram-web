@@ -146,32 +146,36 @@ export const hooksteelHow = [
   },
 ];
 
+export const seattruthCheckout =
+  "https://buy.polar.sh/polar_cl_hFI9lvr11kdo78saho5Giy5PJd0wKjr9or14F2ccmqg";
+
 export const seattruth = {
   name: "SeatTruth",
   badge: "Current · Commercial",
   tagline: "Reconcile both rails. Report the mismatch.",
   summary:
-    "Dual-rail access contract: Stripe and Polar against the product database. Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
+    "Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix.",
   facts: [
-    "Founding $79, then $99",
+    "Founding $79, then $99 once per org",
     "First 10 orgs at founding",
     "One SKU · Soft-WTP off · 14-day purchase refund",
-    "Polar zip · private GitHub delivery",
+    "Polar checkout · private delivery",
   ],
   price: {
     amount: "$79",
     detail: "Founding · then $99",
-    note: "First 10 orgs at founding",
+    note: "First 10 orgs at founding, then $99 once per org",
   },
   repo: "yellowgram/seattruth",
-  delivery: `Private. Polar zip seattruth-0.1.0.zip and GitHub access to yellowgram/seattruth (Release v0.1.0). Questions: ${email}.`,
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/seattruth. Questions: ${email}.`,
+  checkout: seattruthCheckout,
 };
 
 export const seattruthHow = [
   {
     step: "01",
     title: "Read",
-    body: "Read Stripe, Polar, and the product database.",
+    body: "Read Stripe, Polar, and is_pro / seats in the product database.",
   },
   {
     step: "02",
@@ -181,7 +185,7 @@ export const seattruthHow = [
   {
     step: "03",
     title: "Report",
-    body: "List paid-but-locked-out and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
+    body: "Report paid-but-locked-out and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
   },
 ];
 
@@ -253,7 +257,7 @@ export const tools: CatalogTool[] = [
     repo: seattruth.repo,
     productHref: "/current#seattruth",
     current: true,
-    primary: { label: "Contact", href: "?interest=SeatTruth#contact" },
+    primary: { label: "Buy on Polar", href: seattruth.checkout },
     delivery: seattruth.delivery,
     facts: seattruth.facts,
     price: seattruth.price,
