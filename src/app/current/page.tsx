@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { currentProducts, email } from "@/lib/site";
 
 const description =
-  "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a billing-event outbox, source available, founding $89. SeatTruth reconciles Stripe and Polar against the product database. Source is readable for audit. The founding grant is $79, then $99, on Polar. MayDo is an entitlement kernel, founding $99. BurnBrake is a spend gate. Source is readable for audit and eval. The $199 one-org grant is on Polar. Hosted $59/mo is a separate SKU. Credit Ledger is a credit ledger on your own Stripe account. Source is readable for audit and eval. The $79 grant is on Polar. No refund. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast.";
+  "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a billing-event outbox, source available, founding $89. SeatTruth reconciles Stripe and Polar against the product database. Source is readable for audit. The founding grant is $79, then $99, on Polar. MayDo is an entitlement kernel, source available, founding $99 then $149. The grant is on Polar. BurnBrake is a spend gate. Source is readable for audit and eval. The $199 one-org grant is on Polar. Hosted $59/mo is a separate SKU. Credit Ledger is a credit ledger on your own Stripe account. Source is readable for audit and eval. The $79 grant is on Polar. No refund. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Products",
