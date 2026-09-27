@@ -297,8 +297,12 @@ export type CatalogTool = {
   /** Line under the how-it-works steps. */
   stepsNote?: string;
   price?: CatalogPrice;
-  /** Listed on the homepage and on /current. */
+  /** Shipped. */
   current?: boolean;
+  /** Commercial grant. Homepage catalog and /current. */
+  paid?: boolean;
+  /** Free open source. /oss only. */
+  oss?: boolean;
 };
 
 /** Shipped tools. Adding the next one is another entry here. */
@@ -312,6 +316,7 @@ export const tools: CatalogTool[] = [
     repo: surfacepin.repo,
     productHref: "/surfacepin",
     current: true,
+    oss: true,
     primary: { label: "View on GitHub", href: surfacepin.github },
     install: surfacepin.install,
     facts: surfacepin.facts,
@@ -327,6 +332,7 @@ export const tools: CatalogTool[] = [
     repo: hooksteel.repo,
     productHref: "/hooksteel",
     current: true,
+    paid: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
     secondary: { label: "Watch demo", href: hooksteelDemo },
     source: { label: "Source", href: hooksteel.github },
@@ -346,6 +352,7 @@ export const tools: CatalogTool[] = [
     repo: seattruth.repo,
     productHref: "/seattruth",
     current: true,
+    paid: true,
     primary: { label: "Buy on Polar", href: seattruth.checkout },
     secondary: { label: "Watch demo", href: seattruthDemo },
     source: { label: "Source", href: seattruth.github },
@@ -365,6 +372,7 @@ export const tools: CatalogTool[] = [
     repo: maydo.repo,
     productHref: "/maydo",
     current: true,
+    paid: true,
     primary: { label: "Buy on Polar", href: maydo.checkout },
     source: { label: "Source", href: maydo.github },
     delivery: maydo.delivery,
@@ -383,6 +391,7 @@ export const tools: CatalogTool[] = [
     repo: burnbrake.repo,
     productHref: "/burnbrake",
     current: true,
+    paid: true,
     primary: { label: "Buy on Polar", href: burnbrake.checkout },
     secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
     source: { label: "Source", href: burnbrake.github },
@@ -402,6 +411,7 @@ export const tools: CatalogTool[] = [
     repo: creditLedger.repo,
     productHref: "/credit-ledger",
     current: true,
+    paid: true,
     primary: { label: "Buy on Polar", href: creditLedger.checkout },
     source: { label: "Source", href: creditLedger.github },
     delivery: creditLedger.delivery,
@@ -419,6 +429,7 @@ export const tools: CatalogTool[] = [
     summary: keel.summary,
     repo: keel.repo,
     current: true,
+    oss: true,
     primary: { label: "View on GitHub", href: keel.github },
     install: keel.install,
     facts: keel.facts,
@@ -433,6 +444,7 @@ export const tools: CatalogTool[] = [
     summary: l2SendGuard.summary,
     repo: l2SendGuard.repo,
     current: true,
+    oss: true,
     primary: { label: "View on GitHub", href: l2SendGuard.github },
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
@@ -441,8 +453,14 @@ export const tools: CatalogTool[] = [
   },
 ];
 
-/** Products on /current, in the same order as the homepage. */
-export const currentProducts = tools.filter((tool) => tool.current);
+/** Paid fleet. Homepage catalog and /current, catalog order. */
+export const paidProducts = tools.filter((tool) => tool.paid);
+
+/** Free open source. /oss, catalog order. */
+export const ossProducts = tools.filter((tool) => tool.oss);
+
+/** Paid fleet on /current. Same list and order as the homepage. */
+export const currentProducts = paidProducts;
 
 export function toolBySlug(slug: string): CatalogTool {
   const tool = tools.find((item) => item.slug === slug);

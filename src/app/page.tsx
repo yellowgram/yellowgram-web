@@ -1,10 +1,10 @@
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
-import { email, tools } from "@/lib/site";
+import { email, paidProducts } from "@/lib/site";
 
 export default function HomePage() {
-  const explained = tools.filter(
+  const explained = paidProducts.filter(
     (tool) => tool.whyTitle || tool.install || tool.delivery || tool.steps?.length,
   );
 
@@ -54,7 +54,7 @@ export default function HomePage() {
           <p className="eyebrow">Catalog</p>
           <h2 className="title mt-4">Tools</h2>
           <ul className="tool-grid">
-            {tools.map((tool) => (
+            {paidProducts.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
             ))}
           </ul>
