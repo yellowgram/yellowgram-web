@@ -347,7 +347,7 @@ export type CatalogTool = {
   whyTitle?: string;
   steps?: readonly { step: string; title: string; body: string }[];
   price?: CatalogPrice;
-  /** Included on /current. Homepage catalog still lists every tool. */
+  /** Listed on the homepage and on /current. */
   current?: boolean;
 };
 
@@ -456,6 +456,7 @@ export const tools: CatalogTool[] = [
     tagline: keel.tagline,
     summary: keel.summary,
     repo: keel.repo,
+    current: true,
     primary: { label: "View on GitHub", href: keel.github },
     install: keel.install,
     facts: keel.facts,
@@ -469,6 +470,7 @@ export const tools: CatalogTool[] = [
     tagline: l2SendGuard.tagline,
     summary: l2SendGuard.summary,
     repo: l2SendGuard.repo,
+    current: true,
     primary: { label: "View on GitHub", href: l2SendGuard.github },
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
@@ -477,7 +479,7 @@ export const tools: CatalogTool[] = [
   },
 ];
 
-/** Products on /current, in catalog order. Not every homepage tool. Credit Ledger stays here. */
+/** Products on /current, in the same order as the homepage. */
 export const currentProducts = tools.filter((tool) => tool.current);
 
 export function toolBySlug(slug: string): CatalogTool {

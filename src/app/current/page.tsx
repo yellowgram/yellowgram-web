@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { currentProducts, email } from "@/lib/site";
 
 const description =
-  "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a private billing-event outbox, founding $89. SeatTruth reconciles Stripe and Polar against the product database, founding $79. MayDo is an entitlement kernel, founding $99. BurnBrake is a self-host spend gate, $199 once, with hosted $59/mo live. Credit Ledger is a cloneable credit ledger on your own Stripe account, $79 once.";
+  "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a private billing-event outbox, founding $89. SeatTruth reconciles Stripe and Polar against the product database, founding $79. MayDo is an entitlement kernel, founding $99. BurnBrake is a self-host spend gate, $199 once, with hosted $59/mo live. Credit Ledger is a cloneable credit ledger on your own Stripe account, $79 once. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Products",
@@ -40,7 +40,7 @@ export default function CurrentPage() {
             <p className="eyebrow">Contact</p>
             <h2 className="title mt-4">Ask about a product</h2>
             <p className="mt-5 max-w-sm muted">
-              SurfacePin, HookSteel, SeatTruth, MayDo, BurnBrake, or Credit Ledger. Email{" "}
+              SurfacePin, HookSteel, SeatTruth, MayDo, BurnBrake, Credit Ledger, Keel, or L2 Send Guard. Email{" "}
               <a className="text-link" href={`mailto:${email}`}>
                 {email}
               </a>{" "}

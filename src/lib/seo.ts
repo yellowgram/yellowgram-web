@@ -23,7 +23,7 @@ export const publicRoutes: readonly {
 }[] = [
   { path: "/surfacepin", priority: 1, changeFrequency: "weekly" },
   { path: "/spec/surfacepin", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/", priority: 0.6, changeFrequency: "weekly" },
+  { path: "/", priority: 0.8, changeFrequency: "weekly" },
   { path: "/current", priority: 0.4, changeFrequency: "weekly" },
 ];
 
