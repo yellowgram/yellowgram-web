@@ -152,6 +152,10 @@ export const hooksteelStepsNote = `${hooksteelHttp} ${hooksteel.howNote}`;
 export const seattruthCheckout =
   "https://polar.sh/checkout/polar_c_WbCVRq0zYFyodtuebOYF4bZzMKaJY6LM11vzX0nKDpA";
 
+/** Approved 60-second SeatTruth demo clip. */
+export const seattruthDemo =
+  "https://github.com/yellowgram/seattruth/releases/download/clip-60s-approved/seattruth-60s-approved.mp4";
+
 export const seattruth = {
   name: "SeatTruth",
   badge: "Current · Source available · Commercial grant",
@@ -343,6 +347,7 @@ export const tools: CatalogTool[] = [
     productHref: "/seattruth",
     current: true,
     primary: { label: "Buy on Polar", href: seattruth.checkout },
+    secondary: { label: "Watch demo", href: seattruthDemo },
     source: { label: "Source", href: seattruth.github },
     delivery: seattruth.delivery,
     facts: seattruth.facts,
