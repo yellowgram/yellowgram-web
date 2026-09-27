@@ -2,12 +2,13 @@
 
 export const seattruthTitle = "SeatTruth — Reconcile both rails. Report the mismatch.";
 
-export const seattruthDescription =
-  "Reconcile both rails. Report the mismatch. Stripe and Polar against product is_pro / seats. Read-only. No charges. No auto-fix. Founding $79, then $99 once per org. Soft-WTP off. Source is readable for audit. Production needs the one-org grant.";
+/** Above-the-fold kit lock. First screen on /seattruth and the Current card. */
+export const seattruthKitLock = "You run this. Not a managed service.";
+
+export const seattruthDescription = `Reconcile both rails. Report the mismatch. ${seattruthKitLock} Stripe and Polar against product is_pro / seats. Read-only. No charges. No auto-fix. Founding $79, then $99 once per org. Soft-WTP off. Source is readable for audit. Production needs the one-org grant.`;
 
 /** First body under the locked H2. */
-export const seattruthIntro =
-  "Dual-rail access contract: Stripe and Polar against product is_pro / seats. Read-only. No charges. No auto-fix. Founding $79, then $99. Soft-WTP off. Source readable for audit; production needs the one-org grant.";
+export const seattruthIntro = `${seattruthKitLock} Dual-rail access contract: Stripe and Polar against product is_pro / seats. Read-only. No charges. No auto-fix. Founding $79, then $99. Soft-WTP off. Source readable for audit; production needs the one-org grant.`;
 
 export const seattruthContrastTitle = "Stripe and Polar. Not Stripe alone.";
 

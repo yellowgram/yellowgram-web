@@ -1,8 +1,8 @@
 import { burnbrakeContract } from "./burnbrake-copy";
 import { creditLedgerContract } from "./credit-ledger-copy";
 import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
-import { maydoContract, maydoHonesty } from "./maydo-copy";
-import { seattruthContract } from "./seattruth-copy";
+import { maydoContract, maydoHonesty, maydoKitLock } from "./maydo-copy";
+import { seattruthContract, seattruthKitLock } from "./seattruth-copy";
 
 export const email = "hello@yellowgram.dev";
 
@@ -160,8 +160,7 @@ export const seattruth = {
   name: "SeatTruth",
   badge: "Current · Source available · Commercial grant",
   tagline: "Reconcile both rails. Report the mismatch.",
-  summary:
-    "Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix. Source is readable for audit. Production use needs the commercial grant. Cloning is not that grant.",
+  summary: `${seattruthKitLock} Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix. Source is readable for audit. Production use needs the commercial grant. Cloning is not that grant.`,
   facts: [
     "Founding $79, then $99 once per org",
     "First 10 orgs at founding",
@@ -188,11 +187,10 @@ export const maydo = {
   name: "MayDo",
   badge: "Current · Source available · Commercial grant",
   tagline: "Allow the action. Decide only.",
-  summary: `Entitlement kernel: allow(actor, action). Verified Stripe and Polar webhooks, plus local grants. Decision only. Fail-closed deny on outage. Source is readable for audit. Production use needs the one-org grant. ${maydoHonesty}`,
+  summary: `${maydoKitLock} Entitlement kernel: allow(actor, action). Verified Stripe and Polar webhooks, plus local grants. Decision only. When the buyer's MayDo process is down, allow denies (maydo_unavailable). Source is readable for audit. Production use needs the one-org grant. ${maydoHonesty}`,
   facts: [
     "Founding $99 for the first 20, then $149. Same SKU.",
     "Soft-WTP off · 14-day purchase refund",
-    "Status · https://status.yellowgram.dev/maydo",
   ],
   price: {
     amount: "$99",
