@@ -1,6 +1,6 @@
-import { seattruthContract } from "./seattruth-copy";
 import { burnbrakeContract } from "./burnbrake-copy";
 import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
+import { seattruthContract } from "./seattruth-copy";
 
 export const email = "hello@yellowgram.dev";
 
