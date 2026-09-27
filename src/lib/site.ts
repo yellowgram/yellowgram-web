@@ -1,5 +1,6 @@
 import { burnbrakeContract } from "./burnbrake-copy";
 import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
+import { seattruthContract } from "./seattruth-copy";
 
 export const email = "hello@yellowgram.dev";
 
@@ -250,23 +251,7 @@ export const burnbrake = {
 
 export const burnbrakeHow = burnbrakeContract;
 
-export const seattruthHow = [
-  {
-    step: "01",
-    title: "Read",
-    body: "Read Stripe, Polar, and is_pro / seats in the product database.",
-  },
-  {
-    step: "02",
-    title: "Diff",
-    body: "Compare what was paid with what the product still grants.",
-  },
-  {
-    step: "03",
-    title: "Report",
-    body: "Report paid-but-locked-out and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
-  },
-];
+export const seattruthHow = seattruthContract;
 
 /** Live Polar checkout for the $79 grant. */
 export const creditLedgerCheckout =
@@ -386,7 +371,7 @@ export const tools: CatalogTool[] = [
     tagline: seattruth.tagline,
     summary: seattruth.summary,
     repo: seattruth.repo,
-    productHref: "/current#seattruth",
+    productHref: "/seattruth",
     current: true,
     primary: { label: "Buy on Polar", href: seattruth.checkout },
     source: { label: "Source", href: seattruth.github },
