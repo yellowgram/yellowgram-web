@@ -217,13 +217,9 @@ export const maydoHow = [
   },
 ];
 
-/**
- * CoS License Gate: source is public at v0.1.1.
- * The $199 one-org grant stays unlinked until Polar is live.
- * Do not point a checkout href at burnbrakeCheckout.
- */
+/** Live Polar checkout for the $199 one-org grant. */
 export const burnbrakeCheckout =
-  "https://buy.polar.sh/polar_cl_aI45vM73LZYjh4oF5nROcyiuV7glAIbhWKIwA3drJVK";
+  "https://buy.polar.sh/polar_cl_rmfMvzYZNR2T6E12i2UKYdukFKNPrqm8y3GBT09FgCT";
 
 export const burnbrakeHostedCheckout =
   "https://buy.polar.sh/polar_cl_A2dCr3WcvuTv5lLvNlp8AaC9kziCr8apYfunr0f60ci";
@@ -236,17 +232,17 @@ export const burnbrake = {
     "Cap, kill, halt. Exhaust ends in HTTP 402. Source is readable for audit and eval. Production and company use needs a $199 one-org grant. Cloning is not that grant.",
   facts: [
     "$199 once · one org · Soft-WTP off · 14-day purchase refund",
-    "$199 unavailable",
     "Optional hosted $59/mo live · separate SKU · not the kit",
   ],
   price: {
     amount: "$199",
     detail: "once · one org · Soft-WTP off · 14-day purchase refund",
-    note: "$199 unavailable. Optional hosted $59/mo live · separate SKU · not the kit.",
+    note: "Optional hosted $59/mo live · separate SKU · not the kit.",
   },
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
-  delivery: `The $199 one-org grant is unavailable. Hosted $59/mo is live, a separate SKU, not the kit. Questions: ${email}.`,
+  delivery: `Polar checkout is the $199 one-org grant. Hosted $59/mo is a separate SKU, not the kit. Questions: ${email}.`,
+  checkout: burnbrakeCheckout,
   hostedCheckout: burnbrakeHostedCheckout,
   howNote: "Public repo is the contract. Polar is the paid grant.",
 };
@@ -345,6 +341,8 @@ export type CatalogTool = {
   primary: { label: string; href: string };
   /** Optional second link beside the primary action. */
   secondary?: { label: string; href: string };
+  /** Source link. Not a production license. */
+  source?: { label: string; href: string };
   install?: string;
   /** Shown in place of an install command. */
   delivery?: string;
@@ -432,8 +430,9 @@ export const tools: CatalogTool[] = [
     repo: burnbrake.repo,
     productHref: "/current#burnbrake",
     current: true,
-    primary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
-    secondary: { label: "Source", href: burnbrake.github },
+    primary: { label: "Buy on Polar", href: burnbrake.checkout },
+    secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
+    source: { label: "Source", href: burnbrake.github },
     delivery: burnbrake.delivery,
     facts: burnbrake.facts,
     price: burnbrake.price,
