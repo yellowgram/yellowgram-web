@@ -289,8 +289,9 @@ export const seattruthHow = [
   },
 ];
 
+/** Live Polar checkout for the $79 grant. */
 export const creditLedgerCheckout =
-  "https://buy.polar.sh/polar_cl_RI1erdjByTvdqMVZo4M22AqJIsnlccg47NbXl0fWxFG";
+  "https://polar.sh/checkout/polar_c_soeDA7IyZrCOUxK5YEnX6F2QUHE4bzC3qJcpF35pi4b";
 
 export const creditLedger = {
   name: "Credit Ledger",
@@ -298,7 +299,10 @@ export const creditLedger = {
   tagline: "Run the ledger. On your Stripe.",
   summary:
     "Stripe credit ledger kit. A credit ledger you run on your own Stripe account. Source is readable for audit and eval. Production use needs the Polar grant. Cloning is not that grant.",
-  facts: ["$79 once · Soft-WTP off · no refund"],
+  facts: [
+    "$79 once · Soft-WTP off · no refund",
+    "PolyForm NC + grant · not MIT/OSI",
+  ],
   price: {
     amount: "$79",
     detail: "Once · Soft-WTP off · no money-back",
