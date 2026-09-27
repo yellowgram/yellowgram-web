@@ -103,6 +103,55 @@ export const l2SendGuardHow = [
   },
 ];
 
+export const hooksteelCheckout =
+  "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
+
+export const hooksteel = {
+  name: "HookSteel",
+  badge: "Current · Commercial",
+  tagline: "Keep the outbox. Deliver the billing event.",
+  summary:
+    "Billing Event Reliability Kit: a private outbox for billing webhooks. Use Hookdeck for ingress; HookSteel is the outbox you keep.",
+  facts: [
+    "Founding $89, then $129",
+    "First 10 licenses or 30 days after go-live, whichever first",
+    "One SKU · Soft-WTP off · 30-day purchase refund",
+    "Polar checkout · private delivery",
+  ],
+  price: {
+    amount: "$89",
+    detail: "Founding · then $129",
+    note: "First 10 licenses or 30 days after go-live, whichever first",
+  },
+  repo: "yellowgram/hooksteel",
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/hooksteel. Questions: ${email}.`,
+  checkout: hooksteelCheckout,
+};
+
+export const hooksteelHow = [
+  {
+    step: "01",
+    title: "Record",
+    body: "Write the billing event to the outbox.",
+  },
+  {
+    step: "02",
+    title: "Deliver",
+    body: "Send it from that record.",
+  },
+  {
+    step: "03",
+    title: "Keep",
+    body: "The outbox stays yours. Use Hookdeck for ingress.",
+  },
+];
+
+export type CatalogPrice = {
+  amount: string;
+  detail: string;
+  note?: string;
+};
+
 export type CatalogTool = {
   slug: string;
   name: string;
@@ -113,9 +162,14 @@ export type CatalogTool = {
   productHref?: string;
   primary: { label: string; href: string };
   install?: string;
+  /** Private commercial delivery. Rendered in place of an install command. */
+  delivery?: string;
   facts?: readonly string[];
   whyTitle?: string;
   steps?: readonly { step: string; title: string; body: string }[];
+  price?: CatalogPrice;
+  /** Included on /current. Homepage catalog still lists every tool. */
+  current?: boolean;
 };
 
 /** Shipped tools. Adding the next one is another entry here. */
@@ -128,11 +182,28 @@ export const tools: CatalogTool[] = [
     summary: surfacepin.summary,
     repo: surfacepin.repo,
     productHref: "/current",
+    current: true,
     primary: { label: "View on GitHub", href: surfacepin.github },
     install: surfacepin.install,
     facts: surfacepin.facts,
     whyTitle: "A pin, a check, a failed build.",
     steps: howItWorks,
+  },
+  {
+    slug: "hooksteel",
+    name: hooksteel.name,
+    badge: hooksteel.badge,
+    tagline: hooksteel.tagline,
+    summary: hooksteel.summary,
+    repo: hooksteel.repo,
+    productHref: "/current#hooksteel",
+    current: true,
+    primary: { label: "Buy on Polar", href: hooksteel.checkout },
+    delivery: hooksteel.delivery,
+    facts: hooksteel.facts,
+    price: hooksteel.price,
+    whyTitle: "Record, deliver, keep.",
+    steps: hooksteelHow,
   },
   {
     slug: "keel",
@@ -162,6 +233,9 @@ export const tools: CatalogTool[] = [
   },
 ];
 
+/** Products on /current, in catalog order. Not every homepage tool. */
+export const currentProducts = tools.filter((tool) => tool.current);
+
 export const exploring = [
   {
     name: "Surface Lock Setup",
@@ -179,6 +253,7 @@ export const exploring = [
 
 export const interests = [
   "SurfacePin",
+  "HookSteel",
   "Keel",
   "L2 Send Guard",
   "Surface Lock Setup",

@@ -1,9 +1,12 @@
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
+import { ToolCard, ToolDetail } from "@/components/ToolListing";
 import { email, tools } from "@/lib/site";
 
 export default function HomePage() {
-  const explained = tools.filter((tool) => tool.whyTitle || tool.install || tool.steps?.length);
+  const explained = tools.filter(
+    (tool) => tool.whyTitle || tool.install || tool.delivery || tool.steps?.length,
+  );
 
   return (
     <PageShell>
@@ -52,75 +55,14 @@ export default function HomePage() {
           <h2 className="title mt-4">Tools</h2>
           <ul className="tool-grid">
             {tools.map((tool) => (
-              <li key={tool.slug} className="card tool-card">
-                <div>
-                  <p className="badge">{tool.badge}</p>
-                  <h3 className="mt-5 text-3xl tracking-tight">{tool.name}</h3>
-                  <p className="mt-3 text-lg tracking-tight">{tool.tagline}</p>
-                  <p className="mt-3 max-w-xl muted">{tool.summary}</p>
-                </div>
-                <div className="tool-card-foot">
-                  <div className="actions">
-                    <a
-                      className="btn btn-primary"
-                      href={tool.primary.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {tool.primary.label}
-                    </a>
-                  </div>
-                  {tool.whyTitle || tool.steps?.length ? (
-                    <a className="text-link text-sm" href={`#${tool.slug}`}>
-                      How it works
-                    </a>
-                  ) : null}
-                </div>
-              </li>
+              <ToolCard key={tool.slug} tool={tool} />
             ))}
           </ul>
         </div>
       </section>
 
       {explained.map((tool) => (
-        <section key={tool.slug} id={tool.slug} className="container py-20 md:py-28">
-          <p className="eyebrow">{tool.name}</p>
-          {tool.whyTitle ? <h2 className="title mt-4 max-w-xl">{tool.whyTitle}</h2> : null}
-          <p className="lede mt-5 max-w-2xl muted">{tool.summary}</p>
-          {tool.steps?.length ? (
-            <div className="mt-12 grid gap-0 md:grid-cols-3">
-              {tool.steps.map((item) => (
-                <div key={item.step} className="border-t border-[var(--line)] py-6 md:pr-10">
-                  <p className="step-index">{item.step}</p>
-                  <h3 className="mt-3 text-xl">{item.title}</h3>
-                  <p className="mt-2 muted">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          ) : null}
-          {tool.facts?.length ? (
-            <ul className="mt-12 max-w-xl">
-              {tool.facts.map((fact) => (
-                <li key={fact} className="border-t border-[var(--line)] py-3 text-sm muted">
-                  {fact}
-                </li>
-              ))}
-            </ul>
-          ) : null}
-          {tool.install ? (
-            <div className="mt-12 max-w-xl">
-              <p className="label">Install</p>
-              <pre className="install">
-                <code>{tool.install}</code>
-              </pre>
-              <p className="mt-4 text-sm">
-                <a className="text-link" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
-                  {tool.repo}
-                </a>
-              </p>
-            </div>
-          ) : null}
-        </section>
+        <ToolDetail key={tool.slug} tool={tool} />
       ))}
 
       <section id="contact" className="container py-20 md:py-28">
