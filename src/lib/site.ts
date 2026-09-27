@@ -385,7 +385,6 @@ export const tools: CatalogTool[] = [
     current: true,
     primary: { label: "Buy on Polar", href: burnbrake.checkout },
     secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
-    source: { label: "Source", href: burnbrake.github },
     delivery: burnbrake.delivery,
     facts: burnbrake.facts,
     price: burnbrake.price,
