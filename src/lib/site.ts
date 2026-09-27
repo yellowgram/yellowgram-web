@@ -1,3 +1,5 @@
+import { burnbrakeContract } from "./burnbrake-copy";
+
 export const email = "hello@yellowgram.dev";
 
 export const surfacepin = {
@@ -253,23 +255,7 @@ export const burnbrake = {
   howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
-export const burnbrakeHow = [
-  {
-    step: "01",
-    title: "Cap",
-    body: "Set the spend cap on the request path.",
-  },
-  {
-    step: "02",
-    title: "Kill",
-    body: "The governor stops spend that would pass the cap.",
-  },
-  {
-    step: "03",
-    title: "Halt",
-    body: "The request ends with HTTP 402.",
-  },
-];
+export const burnbrakeHow = burnbrakeContract;
 
 export const seattruthHow = [
   {
@@ -440,7 +426,7 @@ export const tools: CatalogTool[] = [
     tagline: burnbrake.tagline,
     summary: burnbrake.summary,
     repo: burnbrake.repo,
-    productHref: "/current#burnbrake",
+    productHref: "/burnbrake",
     current: true,
     primary: { label: "Buy on Polar", href: burnbrake.checkout },
     secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },

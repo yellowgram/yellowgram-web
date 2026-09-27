@@ -7,11 +7,14 @@ export function ProductPage({
   tool,
   intro,
   extraActions,
+  beforeBody,
   children,
 }: {
   tool: CatalogTool;
   intro?: ReactNode;
   extraActions?: ReactNode;
+  /** Renders after the buy row and before the catalog body. */
+  beforeBody?: ReactNode;
   children?: ReactNode;
 }) {
   return (
@@ -32,8 +35,19 @@ export function ProductPage({
           <a className="btn btn-primary" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
             {tool.primary.label}
           </a>
+          {tool.secondary ? (
+            <a className="btn btn-ghost" href={tool.secondary.href} {...externalLinkProps(tool.secondary.href)}>
+              {tool.secondary.label}
+            </a>
+          ) : null}
+          {tool.source ? (
+            <a className="btn btn-ghost" href={tool.source.href} {...externalLinkProps(tool.source.href)}>
+              {tool.source.label}
+            </a>
+          ) : null}
           {extraActions}
         </div>
+        {beforeBody}
         <ToolBody tool={tool} />
         {children}
       </article>
