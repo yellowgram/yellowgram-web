@@ -1,5 +1,6 @@
 import { burnbrakeContract } from "./burnbrake-copy";
 import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
+import { maydoContract, maydoHonesty } from "./maydo-copy";
 import { seattruthContract } from "./seattruth-copy";
 
 export const email = "hello@yellowgram.dev";
@@ -182,8 +183,7 @@ export const maydo = {
   name: "MayDo",
   badge: "Current · Source available · Commercial grant",
   tagline: "Allow the action. Decide only.",
-  summary:
-    "Entitlement kernel: allow(actor, action). A hosted API and a thin TypeScript SDK. Stripe and Polar webhooks, plus local grants. Decision-only. Source is readable for audit. Production use needs the Polar grant.",
+  summary: `Entitlement kernel: allow(actor, action). Verified Stripe and Polar webhooks, plus local grants. Decision only. Fail-closed deny on outage. Source is readable for audit. Production use needs the one-org grant. ${maydoHonesty}`,
   facts: [
     "Founding $99 for the first 20, then $149. Same SKU.",
     "Soft-WTP off · 14-day purchase refund",
@@ -191,7 +191,7 @@ export const maydo = {
   ],
   price: {
     amount: "$99",
-    detail: "Founding · then $149 · Soft-WTP off · 14-day refund",
+    detail: "Founding · then $149 · Soft-WTP off · 14-day purchase refund",
     note: "First 20 orgs at founding, then $149. Same SKU.",
   },
   repo: "yellowgram/maydo",
@@ -201,23 +201,7 @@ export const maydo = {
   howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
-export const maydoHow = [
-  {
-    step: "01",
-    title: "Ingest",
-    body: "Take Stripe and Polar webhooks, and local grants.",
-  },
-  {
-    step: "02",
-    title: "Decide",
-    body: "Answer allow(actor, action). Decision-only.",
-  },
-  {
-    step: "03",
-    title: "Return",
-    body: "The hosted API and thin TypeScript SDK return that decision.",
-  },
-];
+export const maydoHow = maydoContract;
 
 /** Live Polar checkout for the $199 one-org grant. */
 export const burnbrakeCheckout =
@@ -389,7 +373,7 @@ export const tools: CatalogTool[] = [
     tagline: maydo.tagline,
     summary: maydo.summary,
     repo: maydo.repo,
-    productHref: "/current#maydo",
+    productHref: "/maydo",
     current: true,
     primary: { label: "Buy on Polar", href: maydo.checkout },
     source: { label: "Source", href: maydo.github },
