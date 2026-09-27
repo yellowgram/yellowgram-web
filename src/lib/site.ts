@@ -146,6 +146,136 @@ export const hooksteelHow = [
   },
 ];
 
+export const seattruthCheckout =
+  "https://buy.polar.sh/polar_cl_hFI9lvr11kdo78saho5Giy5PJd0wKjr9or14F2ccmqg";
+
+export const seattruth = {
+  name: "SeatTruth",
+  badge: "Current · Commercial",
+  tagline: "Reconcile both rails. Report the mismatch.",
+  summary:
+    "Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix.",
+  facts: [
+    "Founding $79, then $99 once per org",
+    "First 10 orgs at founding",
+    "One SKU · Soft-WTP off · 14-day purchase refund",
+    "Polar checkout · private delivery",
+  ],
+  price: {
+    amount: "$79",
+    detail: "Founding · then $99",
+    note: "First 10 orgs at founding, then $99 once per org",
+  },
+  repo: "yellowgram/seattruth",
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/seattruth. Questions: ${email}.`,
+  checkout: seattruthCheckout,
+};
+
+export const maydoCheckout =
+  "https://buy.polar.sh/polar_cl_YZCdOXteqwYLupwzMsHnYeFHFTVcIShtPJzWZ3VArcd";
+
+export const maydo = {
+  name: "MayDo",
+  badge: "Current · Commercial",
+  tagline: "Allow the action. Decide only.",
+  summary:
+    "Entitlement kernel: allow(actor, action). A hosted API and a thin TypeScript SDK. Stripe and Polar webhooks, plus local grants. Decision-only.",
+  facts: [
+    "Founding $99, then $149 once per org",
+    "First 20 orgs at founding",
+    "One SKU · Soft-WTP off · 14-day purchase refund",
+    "Polar checkout · private delivery",
+    "Status · https://status.yellowgram.dev/maydo",
+  ],
+  price: {
+    amount: "$99",
+    detail: "Founding · then $149",
+    note: "First 20 orgs at founding, then $149 once per org",
+  },
+  repo: "yellowgram/maydo",
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/maydo. Questions: ${email}.`,
+  checkout: maydoCheckout,
+};
+
+export const maydoHow = [
+  {
+    step: "01",
+    title: "Ingest",
+    body: "Take Stripe and Polar webhooks, and local grants.",
+  },
+  {
+    step: "02",
+    title: "Decide",
+    body: "Answer allow(actor, action). Decision-only.",
+  },
+  {
+    step: "03",
+    title: "Return",
+    body: "The hosted API and thin TypeScript SDK return that decision.",
+  },
+];
+
+export const burnbrakeCheckout =
+  "https://buy.polar.sh/polar_cl_aI45vM73LZYjh4oF5nROcyiuV7glAIbhWKIwA3drJVK";
+
+export const burnbrake = {
+  name: "BurnBrake",
+  badge: "Current · Commercial",
+  tagline: "Cap the spend. Halt the request.",
+  summary:
+    "Self-host spend gate. A request-path spend governor: cap and kill, then halt with HTTP 402.",
+  facts: [
+    "$199 once · one org",
+    "Soft-WTP off · 14-day purchase refund",
+    "Optional hosted $49/mo · not day-1 · no separate SKU yet",
+    "Polar checkout · private delivery",
+  ],
+  price: {
+    amount: "$199",
+    detail: "Once · one org",
+    note: "Optional hosted $49/mo is not day-1. No separate SKU yet.",
+  },
+  repo: "yellowgram/burnbrake",
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/burnbrake. Questions: ${email}.`,
+  checkout: burnbrakeCheckout,
+};
+
+export const burnbrakeHow = [
+  {
+    step: "01",
+    title: "Cap",
+    body: "Set the spend cap on the request path.",
+  },
+  {
+    step: "02",
+    title: "Kill",
+    body: "The governor stops spend that would pass the cap.",
+  },
+  {
+    step: "03",
+    title: "Halt",
+    body: "The request ends with HTTP 402.",
+  },
+];
+
+export const seattruthHow = [
+  {
+    step: "01",
+    title: "Read",
+    body: "Read Stripe, Polar, and is_pro / seats in the product database.",
+  },
+  {
+    step: "02",
+    title: "Diff",
+    body: "Compare what was paid with what the product still grants.",
+  },
+  {
+    step: "03",
+    title: "Report",
+    body: "Report paid-but-locked-out and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
+  },
+];
+
 export type CatalogPrice = {
   amount: string;
   detail: string;
@@ -206,6 +336,54 @@ export const tools: CatalogTool[] = [
     steps: hooksteelHow,
   },
   {
+    slug: "seattruth",
+    name: seattruth.name,
+    badge: seattruth.badge,
+    tagline: seattruth.tagline,
+    summary: seattruth.summary,
+    repo: seattruth.repo,
+    productHref: "/current#seattruth",
+    current: true,
+    primary: { label: "Buy on Polar", href: seattruth.checkout },
+    delivery: seattruth.delivery,
+    facts: seattruth.facts,
+    price: seattruth.price,
+    whyTitle: "Read, diff, report.",
+    steps: seattruthHow,
+  },
+  {
+    slug: "maydo",
+    name: maydo.name,
+    badge: maydo.badge,
+    tagline: maydo.tagline,
+    summary: maydo.summary,
+    repo: maydo.repo,
+    productHref: "/current#maydo",
+    current: true,
+    primary: { label: "Buy on Polar", href: maydo.checkout },
+    delivery: maydo.delivery,
+    facts: maydo.facts,
+    price: maydo.price,
+    whyTitle: "Ingest, decide, return.",
+    steps: maydoHow,
+  },
+  {
+    slug: "burnbrake",
+    name: burnbrake.name,
+    badge: burnbrake.badge,
+    tagline: burnbrake.tagline,
+    summary: burnbrake.summary,
+    repo: burnbrake.repo,
+    productHref: "/current#burnbrake",
+    current: true,
+    primary: { label: "Buy on Polar", href: burnbrake.checkout },
+    delivery: burnbrake.delivery,
+    facts: burnbrake.facts,
+    price: burnbrake.price,
+    whyTitle: "Cap, kill, halt.",
+    steps: burnbrakeHow,
+  },
+  {
     slug: "keel",
     name: keel.name,
     badge: keel.badge,
@@ -254,6 +432,9 @@ export const exploring = [
 export const interests = [
   "SurfacePin",
   "HookSteel",
+  "SeatTruth",
+  "MayDo",
+  "BurnBrake",
   "Keel",
   "L2 Send Guard",
   "Surface Lock Setup",

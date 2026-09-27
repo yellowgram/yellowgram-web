@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { email, interests } from "@/lib/site";
 
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${email}`;
@@ -11,9 +11,20 @@ function formSubmitSucceeded(payload: unknown): boolean {
   return success === true || success === "true";
 }
 
+function listedInterest(value: string | undefined): string {
+  const interest = value?.trim() ?? "";
+  return interests.includes(interest) ? interest : "";
+}
+
 export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [error, setError] = useState("");
+  const [interest, setInterest] = useState(listedInterest(defaultInterest));
+
+  useEffect(() => {
+    const fromUrl = listedInterest(new URLSearchParams(window.location.search).get("interest") ?? undefined);
+    if (fromUrl) setInterest(fromUrl);
+  }, []);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -85,7 +96,8 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
           id="interest"
           name="interest"
           required
-          defaultValue={defaultInterest || ""}
+          value={interest}
+          onChange={(event) => setInterest(event.target.value)}
         >
           <option value="" disabled>
             Select…

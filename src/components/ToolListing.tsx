@@ -1,5 +1,28 @@
 import type { CatalogTool } from "@/lib/site";
 
+function externalLinkProps(href: string): { target?: "_blank"; rel?: string } {
+  if (/^https?:\/\//.test(href)) {
+    return { target: "_blank", rel: "noopener noreferrer" };
+  }
+  return {};
+}
+
+function FactText({ fact }: { fact: string }) {
+  const match = fact.match(/https:\/\/[^\s]+/);
+  if (!match || match.index === undefined) return fact;
+  const url = match[0];
+  const start = match.index;
+  return (
+    <>
+      {fact.slice(0, start)}
+      <a className="text-link" href={url} {...externalLinkProps(url)}>
+        {url}
+      </a>
+      {fact.slice(start + url.length)}
+    </>
+  );
+}
+
 export function ToolCard({ tool }: { tool: CatalogTool }) {
   return (
     <li className="card tool-card">
@@ -18,7 +41,7 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
           </p>
         ) : null}
         <div className="actions">
-          <a className="btn btn-primary" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-primary" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
             {tool.primary.label}
           </a>
         </div>
@@ -53,7 +76,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
         <ul className="mt-12 max-w-xl">
           {tool.facts.map((fact) => (
             <li key={fact} className="border-t border-[var(--line)] py-3 text-sm muted">
-              {fact}
+              <FactText fact={fact} />
             </li>
           ))}
         </ul>
@@ -65,7 +88,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
             <code>{tool.install}</code>
           </pre>
           <p className="mt-4 text-sm">
-            <a className="text-link" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
+            <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.repo}
             </a>
           </p>
@@ -75,7 +98,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
           <p className="label">Delivery</p>
           <p className="muted">{tool.delivery}</p>
           <p className="mt-4 text-sm">
-            <a className="text-link" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
+            <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.primary.label}
             </a>
           </p>
