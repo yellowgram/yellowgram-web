@@ -113,7 +113,7 @@ export const l2SendGuardHow = [
 
 /** Live Polar checkout for the HookSteel one-org grant. */
 export const hooksteelCheckout =
-  "https://polar.sh/checkout/polar_c_VIoAf3jzTPL4N9dhuc2UxEuGfd23bmDvR9QhD3VdNTC";
+  "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
 
 /** Approved 60-second HookSteel demo clip. */
 export const hooksteelDemo =
@@ -242,7 +242,7 @@ export const seattruthHow = seattruthContract;
 
 /** Live Polar checkout for the $79 grant. */
 export const creditLedgerCheckout =
-  "https://polar.sh/checkout/polar_c_soeDA7IyZrCOUxK5YEnX6F2QUHE4bzC3qJcpF35pi4b";
+  "https://buy.polar.sh/polar_cl_RI1erdjByTvdqMVZo4M22AqJIsnlccg47NbXl0fWxFG";
 
 export const creditLedger = {
   name: "Credit Ledger",
