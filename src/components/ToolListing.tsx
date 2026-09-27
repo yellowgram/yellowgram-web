@@ -71,6 +71,11 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
               How it works
             </a>
           ) : null}
+          {tool.source ? (
+            <a className="text-link text-sm" href={tool.source.href} {...externalLinkProps(tool.source.href)}>
+              {tool.source.label}
+            </a>
+          ) : null}
         </div>
       </div>
     </li>
@@ -91,6 +96,7 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
           ))}
         </div>
       ) : null}
+      {tool.stepsNote ? <p className="mt-8 max-w-2xl">{tool.stepsNote}</p> : null}
       {tool.facts?.length ? (
         <ul className="mt-12 max-w-xl">
           {tool.facts.map((fact) => (
@@ -125,6 +131,14 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
                 <span className="muted"> · </span>
                 <a className="text-link" href={tool.secondary.href} {...externalLinkProps(tool.secondary.href)}>
                   {tool.secondary.label}
+                </a>
+              </>
+            ) : null}
+            {tool.source ? (
+              <>
+                <span className="muted"> · </span>
+                <a className="text-link" href={tool.source.href} {...externalLinkProps(tool.source.href)}>
+                  {tool.source.label}
                 </a>
               </>
             ) : null}

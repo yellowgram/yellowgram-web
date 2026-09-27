@@ -217,33 +217,34 @@ export const maydoHow = [
   },
 ];
 
-/** CoS License Gate: $199 self-host checkout stays unlinked until v0.1.1 is republished. */
+/** Live Polar checkout for the $199 one-org grant. */
 export const burnbrakeCheckout =
-  "https://buy.polar.sh/polar_cl_aI45vM73LZYjh4oF5nROcyiuV7glAIbhWKIwA3drJVK";
+  "https://buy.polar.sh/polar_cl_rmfMvzYZNR2T6E12i2UKYdukFKNPrqm8y3GBT09FgCT";
 
 export const burnbrakeHostedCheckout =
   "https://buy.polar.sh/polar_cl_A2dCr3WcvuTv5lLvNlp8AaC9kziCr8apYfunr0f60ci";
 
 export const burnbrake = {
   name: "BurnBrake",
-  badge: "Current · Commercial",
+  badge: "Current · Source available · Commercial grant",
   tagline: "Cap the spend. Halt the request.",
   summary:
-    "Self-host spend gate. A request-path spend governor: cap and kill, then halt with HTTP 402.",
+    "Cap, kill, halt. Exhaust ends in HTTP 402. Source is readable for audit and eval. Production and company use needs a $199 one-org grant. Cloning is not that grant.",
   facts: [
-    "$199 Self-host · unavailable",
-    "Hosted $59/mo, live",
-    "Soft-WTP off · 14-day purchase refund",
-    "Polar checkout · private delivery",
+    "$199 once · one org · Soft-WTP off · 14-day purchase refund",
+    "Optional hosted $59/mo live · separate SKU · not the kit",
   ],
   price: {
     amount: "$199",
-    detail: "Self-host · unavailable",
-    note: "Hosted $59/mo, live",
+    detail: "once · one org · Soft-WTP off · 14-day purchase refund",
+    note: "Optional hosted $59/mo live · separate SKU · not the kit.",
   },
   repo: "yellowgram/burnbrake",
-  delivery: `Self-host kit unavailable. Hosted $59/mo is live on Polar. Questions: ${email}.`,
+  github: "https://github.com/yellowgram/burnbrake",
+  delivery: `Polar checkout is the $199 one-org grant. Hosted $59/mo is a separate SKU, not the kit. Questions: ${email}.`,
+  checkout: burnbrakeCheckout,
   hostedCheckout: burnbrakeHostedCheckout,
+  howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
 export const burnbrakeHow = [
@@ -340,12 +341,16 @@ export type CatalogTool = {
   primary: { label: string; href: string };
   /** Optional second link beside the primary action. */
   secondary?: { label: string; href: string };
+  /** Source link. Not a production license. */
+  source?: { label: string; href: string };
   install?: string;
-  /** Private commercial delivery. Rendered in place of an install command. */
+  /** Shown in place of an install command. */
   delivery?: string;
   facts?: readonly string[];
   whyTitle?: string;
   steps?: readonly { step: string; title: string; body: string }[];
+  /** Line under the how-it-works steps. */
+  stepsNote?: string;
   price?: CatalogPrice;
   /** Listed on the homepage and on /current. */
   current?: boolean;
@@ -425,12 +430,15 @@ export const tools: CatalogTool[] = [
     repo: burnbrake.repo,
     productHref: "/current#burnbrake",
     current: true,
-    primary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
+    primary: { label: "Buy on Polar", href: burnbrake.checkout },
+    secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
+    source: { label: "Source", href: burnbrake.github },
     delivery: burnbrake.delivery,
     facts: burnbrake.facts,
     price: burnbrake.price,
     whyTitle: "Cap, kill, halt.",
     steps: burnbrakeHow,
+    stepsNote: burnbrake.howNote,
   },
   {
     slug: "credit-ledger",
