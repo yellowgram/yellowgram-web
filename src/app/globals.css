@@ -289,6 +289,55 @@ h3 {
   color: var(--accent);
 }
 
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2.75rem;
+}
+
+.spec-table th,
+.spec-table td {
+  text-align: left;
+  vertical-align: top;
+  border-top: 1px solid var(--line);
+  padding: 0.95rem 1.25rem 0.95rem 0;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.spec-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.spec-table td {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 720px) {
+  .spec-table,
+  .spec-table thead,
+  .spec-table tbody,
+  .spec-table tr,
+  .spec-table th,
+  .spec-table td {
+    display: block;
+  }
+
+  .spec-table th {
+    padding-bottom: 0.35rem;
+  }
+
+  .spec-table td + td {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+
 .text-link {
   color: var(--accent);
 }

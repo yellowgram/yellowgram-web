@@ -3,19 +3,17 @@ import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
+import { pageMetadata } from "@/lib/seo";
 import { currentProducts, email } from "@/lib/site";
 
 const description =
   "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a private billing-event outbox, founding $89. SeatTruth reconciles Stripe and Polar against the product database, founding $79. MayDo is an entitlement kernel, founding $99. BurnBrake is a self-host spend gate, $199 once. Credit Ledger is a cloneable credit ledger on your own Stripe account, $79 once.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Products",
   description,
-  openGraph: {
-    title: "Products — yellowgram",
-    description,
-  },
-};
+  path: "/current",
+});
 
 export default function CurrentPage() {
   return (
@@ -23,7 +21,7 @@ export default function CurrentPage() {
       <section className="panel">
         <div className="container py-20 md:py-28">
           <p className="eyebrow">Products</p>
-          <h1 className="title mt-4">Current</h1>
+          <h1 className="title mt-4">Tools</h1>
           <ul className="tool-grid">
             {currentProducts.map((tool) => (
               <ToolCard key={tool.slug} tool={tool} />
