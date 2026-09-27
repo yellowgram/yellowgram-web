@@ -146,6 +146,45 @@ export const hooksteelHow = [
   },
 ];
 
+export const seattruth = {
+  name: "SeatTruth",
+  badge: "Current · Commercial",
+  tagline: "Reconcile both rails. Report the mismatch.",
+  summary:
+    "Dual-rail access contract: Stripe and Polar against the product database. Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
+  facts: [
+    "Founding $79, then $99",
+    "First 10 orgs at founding",
+    "One SKU · Soft-WTP off · 14-day purchase refund",
+    "Polar zip · private GitHub delivery",
+  ],
+  price: {
+    amount: "$79",
+    detail: "Founding · then $99",
+    note: "First 10 orgs at founding",
+  },
+  repo: "yellowgram/seattruth",
+  delivery: `Private. Polar zip seattruth-0.1.0.zip and GitHub access to yellowgram/seattruth (Release v0.1.0). Questions: ${email}.`,
+};
+
+export const seattruthHow = [
+  {
+    step: "01",
+    title: "Read",
+    body: "Read Stripe, Polar, and the product database.",
+  },
+  {
+    step: "02",
+    title: "Diff",
+    body: "Compare what was paid with what the product still grants.",
+  },
+  {
+    step: "03",
+    title: "Report",
+    body: "List paid-but-locked-out and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.",
+  },
+];
+
 export type CatalogPrice = {
   amount: string;
   detail: string;
@@ -206,6 +245,22 @@ export const tools: CatalogTool[] = [
     steps: hooksteelHow,
   },
   {
+    slug: "seattruth",
+    name: seattruth.name,
+    badge: seattruth.badge,
+    tagline: seattruth.tagline,
+    summary: seattruth.summary,
+    repo: seattruth.repo,
+    productHref: "/current#seattruth",
+    current: true,
+    primary: { label: "Contact", href: "?interest=SeatTruth#contact" },
+    delivery: seattruth.delivery,
+    facts: seattruth.facts,
+    price: seattruth.price,
+    whyTitle: "Read, diff, report.",
+    steps: seattruthHow,
+  },
+  {
     slug: "keel",
     name: keel.name,
     badge: keel.badge,
@@ -254,6 +309,7 @@ export const exploring = [
 export const interests = [
   "SurfacePin",
   "HookSteel",
+  "SeatTruth",
   "Keel",
   "L2 Send Guard",
   "Surface Lock Setup",

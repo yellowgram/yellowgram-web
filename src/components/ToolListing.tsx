@@ -1,5 +1,12 @@
 import type { CatalogTool } from "@/lib/site";
 
+function externalLinkProps(href: string): { target?: "_blank"; rel?: string } {
+  if (/^https?:\/\//.test(href)) {
+    return { target: "_blank", rel: "noopener noreferrer" };
+  }
+  return {};
+}
+
 export function ToolCard({ tool }: { tool: CatalogTool }) {
   return (
     <li className="card tool-card">
@@ -18,7 +25,7 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
           </p>
         ) : null}
         <div className="actions">
-          <a className="btn btn-primary" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
+          <a className="btn btn-primary" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
             {tool.primary.label}
           </a>
         </div>
@@ -65,7 +72,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
             <code>{tool.install}</code>
           </pre>
           <p className="mt-4 text-sm">
-            <a className="text-link" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
+            <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.repo}
             </a>
           </p>
@@ -75,7 +82,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
           <p className="label">Delivery</p>
           <p className="muted">{tool.delivery}</p>
           <p className="mt-4 text-sm">
-            <a className="text-link" href={tool.primary.href} target="_blank" rel="noopener noreferrer">
+            <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.primary.label}
             </a>
           </p>
