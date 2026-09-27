@@ -105,29 +105,32 @@ export const l2SendGuardHow = [
   },
 ];
 
+/** Live Polar checkout for the HookSteel one-org grant. */
 export const hooksteelCheckout =
-  "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
+  "https://polar.sh/checkout/polar_c_VIoAf3jzTPL4N9dhuc2UxEuGfd23bmDvR9QhD3VdNTC";
 
 export const hooksteel = {
   name: "HookSteel",
-  badge: "Current · Commercial",
+  badge: "Current · Source available · Commercial grant",
   tagline: "Keep the outbox. Deliver the billing event.",
   summary:
-    "Billing Event Reliability Kit: a private outbox for billing webhooks. Use Hookdeck for ingress; HookSteel is the outbox you keep.",
+    "Billing Event Reliability Kit: the outbox you keep. Use Hookdeck for ingress. Source is readable for audit. It is not a production license. Production use needs the one-org grant.",
   facts: [
     "Founding $89, then $129",
     "First 10 licenses or 30 days after go-live, whichever first",
-    "One SKU · Soft-WTP off · 30-day purchase refund",
-    "Polar checkout · private delivery",
+    "One SKU · Soft-WTP off · 14-day purchase refund",
+    "PolyForm Noncommercial · Suthirth one-org grant",
   ],
   price: {
     amount: "$89",
-    detail: "Founding · then $129",
+    detail: "Founding · then $129 · Soft-WTP off · 14-day purchase refund",
     note: "First 10 licenses or 30 days after go-live, whichever first",
   },
   repo: "yellowgram/hooksteel",
-  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/hooksteel. Questions: ${email}.`,
+  github: "https://github.com/yellowgram/hooksteel",
+  delivery: `Polar checkout is the one-org grant. The public repo is for audit. It is not a production license. Questions: ${email}.`,
   checkout: hooksteelCheckout,
+  howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
 export const hooksteelHow = [
@@ -383,11 +386,13 @@ export const tools: CatalogTool[] = [
     productHref: "/current#hooksteel",
     current: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
+    source: { label: "Source", href: hooksteel.github },
     delivery: hooksteel.delivery,
     facts: hooksteel.facts,
     price: hooksteel.price,
     whyTitle: "Record, deliver, keep.",
     steps: hooksteelHow,
+    stepsNote: hooksteel.howNote,
   },
   {
     slug: "seattruth",
