@@ -2,19 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
+import { pageMetadata } from "@/lib/seo";
 import { email, exploring } from "@/lib/site";
 
 const description =
   "What yellowgram is exploring: Surface Lock Setup and Surface Audit.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "In development",
   description,
-  openGraph: {
-    title: "In development — yellowgram",
-    description,
-  },
-};
+  path: "/future",
+  index: false,
+});
 
 export default function FuturePage() {
   return (

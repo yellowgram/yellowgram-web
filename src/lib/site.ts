@@ -14,6 +14,8 @@ export const surfacepin = {
   install: "npx surfacepin@1.4.0",
   repo: "yellowgram/surfacepin",
   github: "https://github.com/yellowgram/surfacepin",
+  npm: "https://www.npmjs.com/package/surfacepin",
+  spec: "https://github.com/yellowgram/surfacepin/blob/main/SPEC.md",
 };
 
 export const howItWorks = [
@@ -229,14 +231,14 @@ export const burnbrake = {
     "Self-host spend gate. A request-path spend governor: cap and kill, then halt with HTTP 402.",
   facts: [
     "$199 once · self-host · one org",
-    "Optional hosted $59/mo",
+    "Hosted $59/mo, live",
     "Soft-WTP off · 14-day purchase refund",
     "Polar checkout · private delivery",
   ],
   price: {
     amount: "$199",
     detail: "Self-host · once · one org",
-    note: "Optional hosted $59/mo",
+    note: "Hosted $59/mo, live",
   },
   repo: "yellowgram/burnbrake",
   delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/burnbrake. Questions: ${email}.`,
@@ -336,7 +338,7 @@ export type CatalogTool = {
   repo: string;
   productHref?: string;
   primary: { label: string; href: string };
-  /** Quieter second offer, such as a hosted checkout beside the kit. */
+  /** Second checkout, such as hosted BurnBrake beside the self-host kit. */
   secondary?: { label: string; href: string };
   install?: string;
   /** Private commercial delivery. Rendered in place of an install command. */
@@ -345,7 +347,7 @@ export type CatalogTool = {
   whyTitle?: string;
   steps?: readonly { step: string; title: string; body: string }[];
   price?: CatalogPrice;
-  /** Included on /current. Homepage catalog still lists every tool. */
+  /** Listed on the homepage and on /current. */
   current?: boolean;
 };
 
@@ -358,7 +360,7 @@ export const tools: CatalogTool[] = [
     tagline: surfacepin.tagline,
     summary: surfacepin.summary,
     repo: surfacepin.repo,
-    productHref: "/current",
+    productHref: "/surfacepin",
     current: true,
     primary: { label: "View on GitHub", href: surfacepin.github },
     install: surfacepin.install,
@@ -454,6 +456,7 @@ export const tools: CatalogTool[] = [
     tagline: keel.tagline,
     summary: keel.summary,
     repo: keel.repo,
+    current: true,
     primary: { label: "View on GitHub", href: keel.github },
     install: keel.install,
     facts: keel.facts,
@@ -467,6 +470,7 @@ export const tools: CatalogTool[] = [
     tagline: l2SendGuard.tagline,
     summary: l2SendGuard.summary,
     repo: l2SendGuard.repo,
+    current: true,
     primary: { label: "View on GitHub", href: l2SendGuard.github },
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
@@ -475,8 +479,14 @@ export const tools: CatalogTool[] = [
   },
 ];
 
-/** Products on /current, in catalog order. Not every homepage tool. */
+/** Products on /current, in the same order as the homepage. */
 export const currentProducts = tools.filter((tool) => tool.current);
+
+export function toolBySlug(slug: string): CatalogTool {
+  const tool = tools.find((item) => item.slug === slug);
+  if (!tool) throw new Error(`Missing tool: ${slug}`);
+  return tool;
+}
 
 export const exploring = [
   {

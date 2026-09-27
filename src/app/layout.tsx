@@ -16,25 +16,33 @@ const mono = IBM_Plex_Mono({
 });
 
 const description =
-  "yellowgram is a software product studio that ships small, sharp tools. SurfacePin exact-hashes MCP tools, resources, and prompts, and fails CI when the surface changes.";
+  "yellowgram is a software product studio that ships small, sharp tools. SurfacePin is an MCP list-lock: an exact hash of tools, resources, and prompts that fails CI when the surface changes.";
+
+const title = "yellowgram — small software, sharp edges";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://yellowgram.dev"),
+  metadataBase: new URL("https://www.yellowgram.dev"),
   title: {
-    default: "yellowgram — small software, sharp edges",
+    default: title,
     template: "%s — yellowgram",
   },
   description,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "yellowgram — small software, sharp edges",
+    title,
     description,
+    url: "https://www.yellowgram.dev",
     siteName: "yellowgram",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    card: "summary",
-    title: "yellowgram — small software, sharp edges",
+    card: "summary_large_image",
+    site: "@yellowgram",
+    creator: "@yellowgram",
+    title,
     description,
   },
 };

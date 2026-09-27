@@ -1,6 +1,7 @@
+import Link from "next/link";
 import type { CatalogTool } from "@/lib/site";
 
-function externalLinkProps(href: string): { target?: "_blank"; rel?: string } {
+export function externalLinkProps(href: string): { target?: "_blank"; rel?: string } {
   if (/^https?:\/\//.test(href)) {
     return { target: "_blank", rel: "noopener noreferrer" };
   }
@@ -23,12 +24,21 @@ function FactText({ fact }: { fact: string }) {
   );
 }
 
+function productRoute(tool: CatalogTool): string | null {
+  const href = tool.productHref;
+  if (!href || href.includes("#") || !href.startsWith("/")) return null;
+  return href;
+}
+
 export function ToolCard({ tool }: { tool: CatalogTool }) {
+  const route = productRoute(tool);
   return (
     <li className="card tool-card">
       <div>
         <p className="badge">{tool.badge}</p>
-        <h3 className="mt-5 text-3xl tracking-tight">{tool.name}</h3>
+        <h3 className="mt-5 text-3xl tracking-tight">
+          {route ? <Link href={route}>{tool.name}</Link> : tool.name}
+        </h3>
         <p className="mt-3 text-lg tracking-tight">{tool.tagline}</p>
         <p className="mt-3 max-w-xl muted">{tool.summary}</p>
         {tool.price?.note ? <p className="mt-4 max-w-xl text-sm muted">{tool.price.note}</p> : null}
@@ -50,22 +60,26 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
             </a>
           ) : null}
         </div>
-        {tool.whyTitle || tool.steps?.length ? (
-          <a className="text-link text-sm" href={`#${tool.slug}`}>
-            How it works
-          </a>
-        ) : null}
+        <div className="flex flex-wrap gap-x-4 gap-y-1">
+          {route ? (
+            <Link className="text-link text-sm" href={route}>
+              Product page
+            </Link>
+          ) : null}
+          {tool.whyTitle || tool.steps?.length ? (
+            <a className="text-link text-sm" href={`#${tool.slug}`}>
+              How it works
+            </a>
+          ) : null}
+        </div>
       </div>
     </li>
   );
 }
 
-export function ToolDetail({ tool }: { tool: CatalogTool }) {
+export function ToolBody({ tool }: { tool: CatalogTool }) {
   return (
-    <section id={tool.slug} className="container py-20 md:py-28">
-      <p className="eyebrow">{tool.name}</p>
-      {tool.whyTitle ? <h2 className="title mt-4 max-w-xl">{tool.whyTitle}</h2> : null}
-      <p className="lede mt-5 max-w-2xl muted">{tool.summary}</p>
+    <>
       {tool.steps?.length ? (
         <div className="mt-12 grid gap-0 md:grid-cols-3">
           {tool.steps.map((item) => (
@@ -109,11 +123,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
             {tool.secondary ? (
               <>
                 <span className="muted"> · </span>
-                <a
-                  className="text-link"
-                  href={tool.secondary.href}
-                  {...externalLinkProps(tool.secondary.href)}
-                >
+                <a className="text-link" href={tool.secondary.href} {...externalLinkProps(tool.secondary.href)}>
                   {tool.secondary.label}
                 </a>
               </>
@@ -121,6 +131,17 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
           </p>
         </div>
       ) : null}
+    </>
+  );
+}
+
+export function ToolDetail({ tool }: { tool: CatalogTool }) {
+  return (
+    <section id={tool.slug} className="container py-20 md:py-28">
+      <p className="eyebrow">{tool.name}</p>
+      {tool.whyTitle ? <h2 className="title mt-4 max-w-xl">{tool.whyTitle}</h2> : null}
+      <p className="lede mt-5 max-w-2xl muted">{tool.summary}</p>
+      <ToolBody tool={tool} />
     </section>
   );
 }
