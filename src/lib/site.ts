@@ -156,24 +156,26 @@ export const seattruthCheckout =
 
 export const seattruth = {
   name: "SeatTruth",
-  badge: "Current · Commercial",
+  badge: "Current · Source available · Commercial grant",
   tagline: "Reconcile both rails. Report the mismatch.",
   summary:
-    "Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix.",
+    "Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix. Source is readable for audit. Production use needs the commercial grant. Cloning is not that grant.",
   facts: [
     "Founding $79, then $99 once per org",
     "First 10 orgs at founding",
     "One SKU · Soft-WTP off · 14-day purchase refund",
-    "Polar checkout · private delivery",
+    "PolyForm Noncommercial · Suthirth commercial grant",
   ],
   price: {
     amount: "$79",
-    detail: "Founding · then $99",
+    detail: "Founding · then $99 · Soft-WTP off · 14-day purchase refund",
     note: "First 10 orgs at founding, then $99 once per org",
   },
   repo: "yellowgram/seattruth",
-  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/seattruth. Questions: ${email}.`,
+  github: "https://github.com/yellowgram/seattruth",
+  delivery: `Public repo v0.1.1 is readable for audit. Polar checkout is the commercial grant. Questions: ${email}.`,
   checkout: seattruthCheckout,
+  howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
 export const maydoCheckout =
@@ -404,11 +406,13 @@ export const tools: CatalogTool[] = [
     productHref: "/current#seattruth",
     current: true,
     primary: { label: "Buy on Polar", href: seattruth.checkout },
+    source: { label: "Source", href: seattruth.github },
     delivery: seattruth.delivery,
     facts: seattruth.facts,
     price: seattruth.price,
     whyTitle: "Read, diff, report.",
     steps: seattruthHow,
+    stepsNote: seattruth.howNote,
   },
   {
     slug: "maydo",
