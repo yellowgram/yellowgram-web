@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { currentProducts, email } from "@/lib/site";
 
 const description =
-  "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a private billing-event outbox, founding $89. SeatTruth reconciles Stripe and Polar against the product database, founding $79. MayDo is an entitlement kernel, founding $99. BurnBrake is a spend gate. The $199 self-host kit is unavailable. Hosted $59/mo is live. Credit Ledger is a cloneable credit ledger on your own Stripe account, $79 once. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast.";
+  "Current yellowgram products. SurfacePin pins an MCP surface and fails CI on drift. HookSteel is a private billing-event outbox, founding $89. SeatTruth reconciles Stripe and Polar against the product database, founding $79. MayDo is an entitlement kernel, founding $99. BurnBrake is a spend gate. Source is readable for audit and eval. The $199 one-org grant is unavailable. Hosted $59/mo is live, a separate SKU. Credit Ledger is a cloneable credit ledger on your own Stripe account, $79 once. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Products",

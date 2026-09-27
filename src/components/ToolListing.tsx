@@ -91,6 +91,7 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
           ))}
         </div>
       ) : null}
+      {tool.stepsNote ? <p className="mt-8 max-w-2xl">{tool.stepsNote}</p> : null}
       {tool.facts?.length ? (
         <ul className="mt-12 max-w-xl">
           {tool.facts.map((fact) => (
