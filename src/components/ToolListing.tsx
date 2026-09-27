@@ -7,6 +7,22 @@ function externalLinkProps(href: string): { target?: "_blank"; rel?: string } {
   return {};
 }
 
+function FactText({ fact }: { fact: string }) {
+  const match = fact.match(/https:\/\/[^\s]+/);
+  if (!match || match.index === undefined) return fact;
+  const url = match[0];
+  const start = match.index;
+  return (
+    <>
+      {fact.slice(0, start)}
+      <a className="text-link" href={url} {...externalLinkProps(url)}>
+        {url}
+      </a>
+      {fact.slice(start + url.length)}
+    </>
+  );
+}
+
 export function ToolCard({ tool }: { tool: CatalogTool }) {
   return (
     <li className="card tool-card">
@@ -60,7 +76,7 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
         <ul className="mt-12 max-w-xl">
           {tool.facts.map((fact) => (
             <li key={fact} className="border-t border-[var(--line)] py-3 text-sm muted">
-              {fact}
+              <FactText fact={fact} />
             </li>
           ))}
         </ul>

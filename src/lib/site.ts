@@ -171,6 +171,50 @@ export const seattruth = {
   checkout: seattruthCheckout,
 };
 
+export const maydoCheckout =
+  "https://buy.polar.sh/polar_cl_YZCdOXteqwYLupwzMsHnYeFHFTVcIShtPJzWZ3VArcd";
+
+export const maydo = {
+  name: "MayDo",
+  badge: "Current · Commercial",
+  tagline: "Allow the action. Decide only.",
+  summary:
+    "Entitlement kernel: allow(actor, action). A hosted API and a thin TypeScript SDK. Stripe and Polar webhooks, plus local grants. Decision-only.",
+  facts: [
+    "Founding $99, then $149 once per org",
+    "First 20 orgs at founding",
+    "One SKU · Soft-WTP off · 14-day purchase refund",
+    "Polar checkout · private delivery",
+    "Status · https://status.yellowgram.dev/maydo",
+  ],
+  price: {
+    amount: "$99",
+    detail: "Founding · then $149",
+    note: "First 20 orgs at founding, then $149 once per org",
+  },
+  repo: "yellowgram/maydo",
+  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/maydo. Questions: ${email}.`,
+  checkout: maydoCheckout,
+};
+
+export const maydoHow = [
+  {
+    step: "01",
+    title: "Ingest",
+    body: "Take Stripe and Polar webhooks, and local grants.",
+  },
+  {
+    step: "02",
+    title: "Decide",
+    body: "Answer allow(actor, action). Decision-only.",
+  },
+  {
+    step: "03",
+    title: "Return",
+    body: "The hosted API and thin TypeScript SDK return that decision.",
+  },
+];
+
 export const seattruthHow = [
   {
     step: "01",
@@ -265,6 +309,22 @@ export const tools: CatalogTool[] = [
     steps: seattruthHow,
   },
   {
+    slug: "maydo",
+    name: maydo.name,
+    badge: maydo.badge,
+    tagline: maydo.tagline,
+    summary: maydo.summary,
+    repo: maydo.repo,
+    productHref: "/current#maydo",
+    current: true,
+    primary: { label: "Buy on Polar", href: maydo.checkout },
+    delivery: maydo.delivery,
+    facts: maydo.facts,
+    price: maydo.price,
+    whyTitle: "Ingest, decide, return.",
+    steps: maydoHow,
+  },
+  {
     slug: "keel",
     name: keel.name,
     badge: keel.badge,
@@ -314,6 +374,7 @@ export const interests = [
   "SurfacePin",
   "HookSteel",
   "SeatTruth",
+  "MayDo",
   "Keel",
   "L2 Send Guard",
   "Surface Lock Setup",
