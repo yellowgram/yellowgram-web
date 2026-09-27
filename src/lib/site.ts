@@ -181,8 +181,9 @@ export const seattruth = {
   howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
+/** Live Polar checkout for the MayDo founding grant. */
 export const maydoCheckout =
-  "https://buy.polar.sh/polar_cl_YZCdOXteqwYLupwzMsHnYeFHFTVcIShtPJzWZ3VArcd";
+  "https://polar.sh/checkout/polar_c_XiTvxibj1qZII2tGjraQbhYb9IH8bBUPyO0yE262cA2";
 
 export const maydo = {
   name: "MayDo",
@@ -191,15 +192,14 @@ export const maydo = {
   summary:
     "Entitlement kernel: allow(actor, action). A hosted API and a thin TypeScript SDK. Stripe and Polar webhooks, plus local grants. Decision-only. Source is readable for audit. Production use needs the Polar grant.",
   facts: [
-    "Founding $99, then $149 once per org",
-    "First 20 orgs at founding",
-    "One SKU · Soft-WTP off · 14-day purchase refund",
+    "Founding $99 for the first 20, then $149. Same SKU.",
+    "Soft-WTP off · 14-day purchase refund",
     "Status · https://status.yellowgram.dev/maydo",
   ],
   price: {
     amount: "$99",
     detail: "Founding · then $149 · Soft-WTP off · 14-day refund",
-    note: "First 20 orgs at founding, then $149 once per org",
+    note: "First 20 orgs at founding, then $149. Same SKU.",
   },
   repo: "yellowgram/maydo",
   github: "https://github.com/yellowgram/maydo",
