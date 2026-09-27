@@ -2,8 +2,12 @@
 
 export const maydoTitle = "MayDo — Allow the action. Decide only.";
 
-export const maydoDescription =
-  "Allow the action. Decide only. allow(actor, action) from verified Stripe and Polar webhooks and local grants. Fail-closed deny on outage. MayDo does not add a signed actor assertion. Founding $99, then $149. Soft-WTP off.";
+/**
+ * Kit lock. First screen on /maydo and the lede on Current #maydo.
+ * This SKU is a zip the buyer runs. There is no yellowgram-hosted endpoint.
+ */
+export const maydoKitLock =
+  "Source-available kit (zip). You run this. We do not operate a hosted endpoint for this SKU.";
 
 /**
  * Shared honesty line. First screen on /maydo and the lede on Current #maydo.
@@ -12,14 +16,16 @@ export const maydoDescription =
 export const maydoHonesty =
   "The actor is buyer-server Checkout or order metadata, or an operator map. MayDo does not add a signed actor assertion. There is no signed actor assertion.";
 
+export const maydoDescription = `${maydoKitLock} Allow the action. Decide only. allow(actor, action) from verified Stripe and Polar webhooks and local grants. When the buyer's MayDo process is down, allow denies (maydo_unavailable). MayDo does not add a signed actor assertion. Founding $99, then $149. Soft-WTP off.`;
+
 /** First body under the locked H2. */
-export const maydoIntro = `Allow the action. Decide only. Entitlement kernel: allow(actor, action). Fail-closed deny on outage. ${maydoHonesty} Founding $99, then $149. Soft-WTP off.`;
+export const maydoIntro = `${maydoKitLock} Allow the action. Decide only. Entitlement kernel: allow(actor, action). When the buyer's MayDo process is down, allow denies (maydo_unavailable). ${maydoHonesty} Founding $99, then $149. Soft-WTP off.`;
 
 export const maydoContrastTitle = "You mint the actor.";
 
 /** Decision-only wedge. Not a billing system of record, and not SeatTruth. */
 export const maydoContrast =
-  "Decision-only entitlement kernel. allow(actor, action) from signed Stripe and Polar webhooks, plus local grants. An outage denies (maydo_unavailable). Not Chargebee. Not Schematic. Not Autumn as a system of record. Not SeatTruth.";
+  "Decision-only entitlement kernel. allow(actor, action) from signed Stripe and Polar webhooks, plus local grants. When the buyer's MayDo process is down, allow denies (maydo_unavailable). Not Chargebee. Not Schematic. Not Autumn as a system of record. Not SeatTruth.";
 
 /** Metadata trust. Provider signatures are not an identity proof. */
 export const maydoActor =
@@ -47,7 +53,7 @@ export const maydoContract = [
 export const maydoTerms = [
   {
     label: "Included",
-    body: "Public PolyForm Noncommercial source for audit. A Polar purchase is the Suthirth one-org Commercial Grant and the kit zip maydo-0.1.1.zip (SHA-256 6175707689f2f6a3a88c818e700e2ad72e3193c3b31cb573ed29055f8bf83587). Decision API and a thin TypeScript SDK.",
+    body: "Public PolyForm Noncommercial source for audit. A Polar purchase is the Suthirth one-org Commercial Grant and the kit zip maydo-0.1.1.zip (SHA-256 6175707689f2f6a3a88c818e700e2ad72e3193c3b31cb573ed29055f8bf83587). You run the Decision API and a thin TypeScript SDK from that zip.",
   },
   {
     label: "Pricing",
@@ -76,7 +82,7 @@ export const maydoFaq = [
   },
   {
     q: "What happens when MayDo is down?",
-    a: "allow denies. The reason is maydo_unavailable. Do not wrap the SDK with a fail-open default. The return is the decision only. No invoice.",
+    a: "When the buyer's MayDo process is down, allow denies. The reason is maydo_unavailable. We do not operate that process. Do not wrap the SDK with a fail-open default. The return is the decision only. No invoice. Soft-WTP is off.",
   },
   {
     q: "Is this Cerbos, Autumn, or OpenFGA?",
