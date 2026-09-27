@@ -186,25 +186,26 @@ export const maydoCheckout =
 
 export const maydo = {
   name: "MayDo",
-  badge: "Current · Commercial",
+  badge: "Current · Source available · Commercial grant",
   tagline: "Allow the action. Decide only.",
   summary:
-    "Entitlement kernel: allow(actor, action). A hosted API and a thin TypeScript SDK. Stripe and Polar webhooks, plus local grants. Decision-only.",
+    "Entitlement kernel: allow(actor, action). A hosted API and a thin TypeScript SDK. Stripe and Polar webhooks, plus local grants. Decision-only. Source is readable for audit. Production use needs the Polar grant.",
   facts: [
     "Founding $99, then $149 once per org",
     "First 20 orgs at founding",
     "One SKU · Soft-WTP off · 14-day purchase refund",
-    "Polar checkout · private delivery",
     "Status · https://status.yellowgram.dev/maydo",
   ],
   price: {
     amount: "$99",
-    detail: "Founding · then $149",
+    detail: "Founding · then $149 · Soft-WTP off · 14-day refund",
     note: "First 20 orgs at founding, then $149 once per org",
   },
   repo: "yellowgram/maydo",
-  delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/maydo. Questions: ${email}.`,
+  github: "https://github.com/yellowgram/maydo",
+  delivery: `Polar checkout is the paid grant. The public repo is for audit. Questions: ${email}.`,
   checkout: maydoCheckout,
+  howNote: "Public repo is the contract. Polar is the paid grant.",
 };
 
 export const maydoHow = [
@@ -413,11 +414,13 @@ export const tools: CatalogTool[] = [
     productHref: "/current#maydo",
     current: true,
     primary: { label: "Buy on Polar", href: maydo.checkout },
+    source: { label: "Source", href: maydo.github },
     delivery: maydo.delivery,
     facts: maydo.facts,
     price: maydo.price,
     whyTitle: "Ingest, decide, return.",
     steps: maydoHow,
+    stepsNote: maydo.howNote,
   },
   {
     slug: "burnbrake",
