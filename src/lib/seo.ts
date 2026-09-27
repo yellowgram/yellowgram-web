@@ -13,8 +13,8 @@ const shareImage = {
 };
 
 /**
- * Public crawl targets. /future is intentionally absent.
- * SurfacePin outranks Keel and L2 Send Guard; those two must not share its priority.
+ * Wedge crawl targets only. /future is absent.
+ * Billing and labs product routes are not in this sitemap.
  */
 export const publicRoutes: readonly {
   path: string;
@@ -23,10 +23,7 @@ export const publicRoutes: readonly {
 }[] = [
   { path: "/surfacepin", priority: 1, changeFrequency: "weekly" },
   { path: "/spec/surfacepin", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/hooksteel", priority: 0.7, changeFrequency: "monthly" },
   { path: "/", priority: 0.6, changeFrequency: "weekly" },
-  { path: "/keel", priority: 0.5, changeFrequency: "monthly" },
-  { path: "/l2-send-guard", priority: 0.5, changeFrequency: "monthly" },
   { path: "/current", priority: 0.4, changeFrequency: "weekly" },
 ];
 

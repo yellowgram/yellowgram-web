@@ -123,11 +123,7 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
             {tool.secondary ? (
               <>
                 <span className="muted"> · </span>
-                <a
-                  className="text-link"
-                  href={tool.secondary.href}
-                  {...externalLinkProps(tool.secondary.href)}
-                >
+                <a className="text-link" href={tool.secondary.href} {...externalLinkProps(tool.secondary.href)}>
                   {tool.secondary.label}
                 </a>
               </>

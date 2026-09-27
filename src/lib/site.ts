@@ -231,14 +231,14 @@ export const burnbrake = {
     "Self-host spend gate. A request-path spend governor: cap and kill, then halt with HTTP 402.",
   facts: [
     "$199 once · self-host · one org",
-    "Optional hosted $59/mo",
+    "Hosted $59/mo, live",
     "Soft-WTP off · 14-day purchase refund",
     "Polar checkout · private delivery",
   ],
   price: {
     amount: "$199",
     detail: "Self-host · once · one org",
-    note: "Optional hosted $59/mo",
+    note: "Hosted $59/mo, live",
   },
   repo: "yellowgram/burnbrake",
   delivery: `Private. Polar checkout returns a zip and GitHub access to yellowgram/burnbrake. Questions: ${email}.`,
@@ -338,7 +338,7 @@ export type CatalogTool = {
   repo: string;
   productHref?: string;
   primary: { label: string; href: string };
-  /** Quieter second offer, such as a hosted checkout beside the kit. */
+  /** Second checkout, such as hosted BurnBrake beside the self-host kit. */
   secondary?: { label: string; href: string };
   install?: string;
   /** Private commercial delivery. Rendered in place of an install command. */
@@ -375,7 +375,7 @@ export const tools: CatalogTool[] = [
     tagline: hooksteel.tagline,
     summary: hooksteel.summary,
     repo: hooksteel.repo,
-    productHref: "/hooksteel",
+    productHref: "/current#hooksteel",
     current: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
     delivery: hooksteel.delivery,
@@ -456,7 +456,6 @@ export const tools: CatalogTool[] = [
     tagline: keel.tagline,
     summary: keel.summary,
     repo: keel.repo,
-    productHref: "/keel",
     primary: { label: "View on GitHub", href: keel.github },
     install: keel.install,
     facts: keel.facts,
@@ -470,7 +469,6 @@ export const tools: CatalogTool[] = [
     tagline: l2SendGuard.tagline,
     summary: l2SendGuard.summary,
     repo: l2SendGuard.repo,
-    productHref: "/l2-send-guard",
     primary: { label: "View on GitHub", href: l2SendGuard.github },
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
