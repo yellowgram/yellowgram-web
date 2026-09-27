@@ -276,6 +276,47 @@ export const seattruthHow = [
   },
 ];
 
+export const creditLedgerCheckout =
+  "https://buy.polar.sh/polar_cl_RI1erdjByTvdqMVZo4M22AqJIsnlccg47NbXl0fWxFG";
+
+export const creditLedger = {
+  name: "Credit Ledger",
+  badge: "Current · Commercial",
+  tagline: "Run the ledger. On your Stripe.",
+  summary:
+    "Stripe credit ledger kit. A cloneable credit ledger you run on your own Stripe account.",
+  facts: [
+    "$79 once · Soft-WTP off",
+    "Polar checkout · private zip",
+    "No public clone",
+  ],
+  price: {
+    amount: "$79",
+    detail: "Once · Soft-WTP off",
+  },
+  repo: "private",
+  delivery: `Private zip via Polar. No public clone. Questions: ${email}.`,
+  checkout: creditLedgerCheckout,
+};
+
+export const creditLedgerHow = [
+  {
+    step: "01",
+    title: "Record",
+    body: "Write credits when your Stripe account is paid.",
+  },
+  {
+    step: "02",
+    title: "Draw",
+    body: "Spend them from the ledger.",
+  },
+  {
+    step: "03",
+    title: "Run",
+    body: "The ledger stays on your Stripe account. You run it.",
+  },
+];
+
 export type CatalogPrice = {
   amount: string;
   detail: string;
@@ -384,6 +425,22 @@ export const tools: CatalogTool[] = [
     steps: burnbrakeHow,
   },
   {
+    slug: "credit-ledger",
+    name: creditLedger.name,
+    badge: creditLedger.badge,
+    tagline: creditLedger.tagline,
+    summary: creditLedger.summary,
+    repo: creditLedger.repo,
+    productHref: "/current#credit-ledger",
+    current: true,
+    primary: { label: "Buy on Polar", href: creditLedger.checkout },
+    delivery: creditLedger.delivery,
+    facts: creditLedger.facts,
+    price: creditLedger.price,
+    whyTitle: "Record, draw, run.",
+    steps: creditLedgerHow,
+  },
+  {
     slug: "keel",
     name: keel.name,
     badge: keel.badge,
@@ -423,10 +480,6 @@ export const exploring = [
     name: "Surface Audit",
     line: "The setup, plus a short review of the tools, resources, and prompts.",
   },
-  {
-    name: "Stripe credit-ledger kit",
-    line: "A cloneable credit ledger you run on your own Stripe account.",
-  },
 ];
 
 export const interests = [
@@ -435,10 +488,10 @@ export const interests = [
   "SeatTruth",
   "MayDo",
   "BurnBrake",
+  "Credit Ledger",
   "Keel",
   "L2 Send Guard",
   "Surface Lock Setup",
   "Surface Audit",
-  "Stripe credit-ledger kit",
   "Something else",
 ];
