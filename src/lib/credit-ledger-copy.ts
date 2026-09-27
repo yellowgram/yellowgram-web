@@ -45,7 +45,7 @@ export const creditLedgerTerms = [
   },
   {
     label: "License",
-    body: "Source-available · PolyForm Noncommercial 1.0.0 · Suthirth one-org Commercial Grant · not MIT / not OSI / not open source for this commercial path · cloning ≠ grant. Tags v0.1.0 and v0.1.1 keep their sealed MIT carve-out. Those artifacts are not rewritten.",
+    body: "Source-available · PolyForm Noncommercial 1.0.0 · Suthirth one-org Commercial Grant · not MIT / not OSI / not open source · cloning ≠ grant.",
   },
 ] as const;
 
@@ -72,6 +72,6 @@ export const creditLedgerFaq = [
 
 export const creditLedgerVersion = "v0.1.2";
 
-export const creditLedgerCommit = "9188a987ebb563751bf652fa316ad2112ed6056c";
+export const creditLedgerCommit = "593a2d139bbe37d0623a7cfd7229c798bbfdb819";
 
-export const creditLedgerZipSha256 = "49f6d2e8d40c5a01718ace7a4efa3b370676936129110c0af6de5f5db9e0b925";
+export const creditLedgerZipSha256 = "b63b1c834646030c0e201db9a0b2240cb1b8ac547fb1fb610794431491955832";
