@@ -151,8 +151,9 @@ export const hooksteelHow = [
   },
 ];
 
+/** Live Polar checkout for SeatTruth v0.1.1. */
 export const seattruthCheckout =
-  "https://buy.polar.sh/polar_cl_hFI9lvr11kdo78saho5Giy5PJd0wKjr9or14F2ccmqg";
+  "https://polar.sh/checkout/polar_c_WbCVRq0zYFyodtuebOYF4bZzMKaJY6LM11vzX0nKDpA";
 
 export const seattruth = {
   name: "SeatTruth",
