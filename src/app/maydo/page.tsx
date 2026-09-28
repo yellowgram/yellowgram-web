@@ -58,7 +58,7 @@ export default function MayDoPage() {
             </div>
           ))}
           <div className="border-t border-[var(--line)] py-7">
-            <h3 className="text-xl">Seller</h3>
+            <h3 className="text-xl">Legal seller</h3>
             <p className="mt-3 max-w-2xl muted">
               {maydoSeller}
               {" · "}

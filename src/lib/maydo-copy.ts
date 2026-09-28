@@ -1,21 +1,22 @@
-/** MayDo one-pager. Buyer facts. Soft-WTP stays off. Metadata trust, not a signed actor. */
+/** MayDo one-pager. Buyer facts. Soft-WTP stays off. MayDo MD-ID-AE. Metadata trust, not a signed actor. */
 
-import {
-  commercialLicenseLine,
-  commercialLicenseTerm,
-  listedPriceFaq,
-  maydoOutcome,
-} from "./site";
+import { listedPriceFaq, maydoOutcome } from "./site";
 import { maydoHonesty, maydoKitLock } from "./catalog-contracts";
+
+/** MD-ID-AE license_sentence (MayDo-only; do not change shared fleet maydoLicenseSentence). */
+export const maydoLicenseSentence =
+  "Commercial production use requires a paid MayDo commercial grant from Suthirth Solutions, operating as yellowgram.";
+
+export const maydoLicenseTerm = `${maydoLicenseSentence} Not MIT. Not an OSI-approved license. Public brand: MayDo · yellowgram.`;
 
 export { maydoContract, maydoHonesty, maydoKitLock } from "./catalog-contracts";
 
 export const maydoTitle = "MayDo — Allow the action. Decide only.";
 
-export const maydoDescription = `${maydoKitLock} ${maydoOutcome} allow(actor, action) from verified Stripe and Polar webhooks and local grants. MayDo does not add a signed actor assertion. Early price $99, then $149. ${commercialLicenseLine}`;
+export const maydoDescription = `${maydoKitLock} ${maydoOutcome} allow(actor, action) from verified Stripe and Polar webhooks and local grants. MayDo does not add a signed actor assertion. Early price $99, then $149. ${maydoLicenseSentence}`;
 
 /** First body under the locked H2. */
-export const maydoIntro = `${maydoKitLock} ${maydoOutcome} Entitlement kernel: allow(actor, action). ${maydoHonesty} Early price $99, then $149. ${commercialLicenseLine}`;
+export const maydoIntro = `${maydoKitLock} ${maydoOutcome} Entitlement kernel: allow(actor, action). ${maydoHonesty} Early price $99, then $149. ${maydoLicenseSentence}`;
 
 export const maydoContrastTitle = "You mint the actor.";
 
@@ -29,7 +30,7 @@ export const maydoActor =
 export const maydoTerms = [
   {
     label: "Included",
-    body: `${commercialLicenseLine} Kit zip maydo-0.1.1.zip (SHA-256 6175707689f2f6a3a88c818e700e2ad72e3193c3b31cb573ed29055f8bf83587). You run the Decision API and a thin TypeScript SDK from that zip.`,
+    body: `${maydoLicenseSentence} The MayDo commercial grant is for the named tag. Kit zip maydo-0.1.1.zip (SHA-256 6175707689f2f6a3a88c818e700e2ad72e3193c3b31cb573ed29055f8bf83587). You run the Decision API and a thin TypeScript SDK from that zip.`,
   },
   {
     label: "Pricing",
@@ -37,11 +38,11 @@ export const maydoTerms = [
   },
   {
     label: "License",
-    body: commercialLicenseTerm,
+    body: maydoLicenseTerm,
   },
 ] as const;
 
-export const maydoSeller = "Suthirth solutions";
+export const maydoSeller = "Suthirth Solutions, operating as yellowgram";
 
 export const maydoFaq = [
   listedPriceFaq,
