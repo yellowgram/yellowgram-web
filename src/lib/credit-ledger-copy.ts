@@ -27,7 +27,7 @@ export const creditLedgerContrast =
 export const creditLedgerTerms = [
   {
     label: "Included",
-    body: `${creditLedgerLicenseSentence} The grant is perpetual for that named tag. Kit zip stripe-credit-ledger-kit-0.1.2.zip. Tests, a hold reaper, and the public free chapter. GitHub Issues for 60 days, best-effort, no SLA, about two hours a week, after a collaborator invite. Not a hosted wallet. Not Connect. Not plans.`,
+    body: `${creditLedgerLicenseSentence} The grant is perpetual for that named tag. Kit zip stripe-credit-ledger-kit-0.2.0.zip. Tests, a hold reaper, and the public free chapter. Public GitHub Issues only, for 60 days, best-effort, no SLA, about two hours a week. Not a hosted wallet. Not Connect. Not plans.`,
   },
   {
     label: "Pricing",
@@ -57,8 +57,8 @@ export const creditLedgerFaq = [
   },
 ] as const;
 
-export const creditLedgerVersion = "v0.1.2";
+export const creditLedgerVersion = "v0.2.0";
 
-export const creditLedgerCommit = "593a2d139bbe37d0623a7cfd7229c798bbfdb819";
+export const creditLedgerCommit = "ed435e2bf04bc483b9fee918ccb183da5eb41f9b";
 
-export const creditLedgerZipSha256 = "b63b1c834646030c0e201db9a0b2240cb1b8ac547fb1fb610794431491955832";
+export const creditLedgerZipSha256 = "2e6d6088f93a79c7b141982cb0c06e26eeb6ad28af5cc4135532a30677b734c5";
