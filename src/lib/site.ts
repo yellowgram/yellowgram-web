@@ -1,10 +1,46 @@
-import { burnbrakeContract } from "./burnbrake-copy";
-import { creditLedgerContract } from "./credit-ledger-copy";
-import { hooksteelContract, hooksteelHttp } from "./hooksteel-copy";
-import { maydoContract, maydoHonesty, maydoKitLock } from "./maydo-copy";
-import { seattruthContract, seattruthKitLock } from "./seattruth-copy";
+import {
+  burnbrakeContract,
+  creditLedgerContract,
+  hooksteelContract,
+  hooksteelHttp,
+  maydoContract,
+  maydoHonesty,
+  maydoKitLock,
+  seattruthContract,
+  seattruthKitLock,
+} from "./catalog-contracts";
 
 export const email = "hello@yellowgram.dev";
+
+/**
+ * FROZEN_LICENSE. Paid kit License terms, catalog summaries, delivery,
+ * howNote, and /current reuse this sentence. Do not paraphrase.
+ */
+export const commercialLicenseLine =
+  "Pay unlocks one-organization commercial use under PolyForm Noncommercial and the Suthirth grant. Reading or cloning the public repo is not a commercial right.";
+
+/** License term body. Frozen sentence, then the clarification. */
+export const commercialLicenseTerm = `${commercialLicenseLine} Not MIT. Not OSI. Not open source.`;
+
+export const listedPriceFaq = {
+  q: "Do you offer discount codes or deal pricing?",
+  a: "No. The listed price is the price.",
+} as const;
+
+export const hooksteelOutcome =
+  "The same signed billing event, many times, is still one side effect and one grant.";
+
+export const seattruthOutcome =
+  "Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled, before support piles up. Read-only. No charges. No auto-fix.";
+
+export const maydoOutcome =
+  "When your MayDo process is down, allow denies — no silent allow.";
+
+export const burnbrakeOutcome =
+  "When the budget is gone, the next completion is refused (HTTP 402), not a soft email.";
+
+export const creditLedgerOutcome =
+  "Empty balance stops the next expensive call on your Stripe — not only at invoice finalize.";
 
 export const surfacepin = {
   name: "SurfacePin",
@@ -123,24 +159,21 @@ export const hooksteel = {
   name: "HookSteel",
   badge: "Current · Source available · Commercial grant",
   tagline: "Keep the outbox. Deliver the billing event.",
-  summary:
-    "Billing Event Reliability Kit: the outbox you keep. Use Hookdeck for ingress. Source is readable for audit. It is not a production license. Production use needs the one-org grant.",
+  summary: `${hooksteelOutcome} Billing Event Reliability Kit: the outbox you keep. Use Hookdeck for ingress. ${commercialLicenseLine}`,
   facts: [
-    "Founding $89, then $129",
-    "First 10 licenses or 30 days after go-live, whichever first",
-    "One SKU · Soft-WTP off · 14-day purchase refund",
-    "PolyForm Noncommercial · Suthirth one-org grant",
+    "Early price $89, then $129",
+    "One SKU · 14-day purchase refund",
+    commercialLicenseLine,
   ],
   price: {
     amount: "$89",
-    detail: "Founding · then $129 · Soft-WTP off · 14-day purchase refund",
-    note: "First 10 licenses or 30 days after go-live, whichever first",
+    detail: "Early price $89, then $129 · 14-day purchase refund",
   },
   repo: "yellowgram/hooksteel",
   github: "https://github.com/yellowgram/hooksteel",
-  delivery: `Polar checkout is the one-org grant. The public repo is for audit. It is not a production license. Questions: ${email}.`,
+  delivery: `${commercialLicenseLine} Questions: ${email}.`,
   checkout: hooksteelCheckout,
-  howNote: "Public repo is the contract. Polar is the paid grant.",
+  howNote: commercialLicenseLine,
 };
 
 export const hooksteelHow = hooksteelContract;
@@ -160,26 +193,24 @@ export const seattruth = {
   name: "SeatTruth",
   badge: "Current · Source available · Commercial grant",
   tagline: "Reconcile both rails. Report the mismatch.",
-  summary: `${seattruthKitLock} Dual-rail access contract: Stripe and Polar against the product database (is_pro / seats). Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only mismatch detect. No charges. No auto-fix. Source is readable for audit. Production use needs the commercial grant. Cloning is not that grant.`,
+  summary: `${seattruthKitLock} ${seattruthOutcome} Stripe and Polar against the product database (is_pro / seats). ${commercialLicenseLine}`,
   facts: [
-    "Founding $79, then $99 once per org",
-    "First 10 orgs at founding",
-    "One SKU · Soft-WTP off · 14-day purchase refund",
-    "PolyForm Noncommercial · Suthirth commercial grant",
+    "Early price $79, then $99 once per org",
+    "One SKU · 14-day purchase refund",
+    commercialLicenseLine,
   ],
   price: {
     amount: "$79",
-    detail: "Founding · then $99 · Soft-WTP off · 14-day purchase refund",
-    note: "First 10 orgs at founding, then $99 once per org",
+    detail: "Early price $79, then $99 once per org · 14-day purchase refund",
   },
   repo: "yellowgram/seattruth",
   github: "https://github.com/yellowgram/seattruth",
-  delivery: `Public repo v0.1.1 is readable for audit. Polar checkout is the commercial grant. Questions: ${email}.`,
+  delivery: `${commercialLicenseLine} Questions: ${email}.`,
   checkout: seattruthCheckout,
-  howNote: "Public repo is the contract. Polar is the paid grant.",
+  howNote: commercialLicenseLine,
 };
 
-/** Live Polar checkout for the MayDo founding grant. */
+/** Live Polar checkout for the MayDo one-org grant. */
 export const maydoCheckout =
   "https://polar.sh/checkout/polar_c_XiTvxibj1qZII2tGjraQbhYb9IH8bBUPyO0yE262cA2";
 
@@ -187,21 +218,21 @@ export const maydo = {
   name: "MayDo",
   badge: "Current · Source available · Commercial grant",
   tagline: "Allow the action. Decide only.",
-  summary: `${maydoKitLock} Entitlement kernel: allow(actor, action). Verified Stripe and Polar webhooks, plus local grants. Decision only. When the buyer's MayDo process is down, allow denies (maydo_unavailable). Source is readable for audit. Production use needs the one-org grant. ${maydoHonesty}`,
+  summary: `${maydoKitLock} ${maydoOutcome} Entitlement kernel: allow(actor, action). Verified Stripe and Polar webhooks, plus local grants. Decision only. ${commercialLicenseLine} ${maydoHonesty}`,
   facts: [
-    "Founding $99 for the first 20, then $149. Same SKU.",
-    "Soft-WTP off · 14-day purchase refund",
+    "Early price $99, then $149. Same SKU.",
+    "14-day purchase refund",
+    commercialLicenseLine,
   ],
   price: {
     amount: "$99",
-    detail: "Founding · then $149 · Soft-WTP off · 14-day purchase refund",
-    note: "First 20 orgs at founding, then $149. Same SKU.",
+    detail: "Early price $99, then $149 · 14-day purchase refund",
   },
   repo: "yellowgram/maydo",
   github: "https://github.com/yellowgram/maydo",
-  delivery: `Polar checkout is the paid grant. The public repo is for audit. Questions: ${email}.`,
+  delivery: `${commercialLicenseLine} Questions: ${email}.`,
   checkout: maydoCheckout,
-  howNote: "Public repo is the contract. Polar is the paid grant.",
+  howNote: commercialLicenseLine,
 };
 
 export const maydoHow = maydoContract;
@@ -217,23 +248,23 @@ export const burnbrake = {
   name: "BurnBrake",
   badge: "Current · Source available · Commercial grant",
   tagline: "Cap the spend. Halt the request.",
-  summary:
-    "Cap, kill, halt. Exhaust ends in HTTP 402. Source is readable for audit and eval. Production and company use needs a $199 one-org grant. Cloning is not that grant.",
+  summary: `${burnbrakeOutcome} Cap, kill, halt. ${commercialLicenseLine}`,
   facts: [
-    "$199 once · one org · Soft-WTP off · 14-day purchase refund",
+    "$199 once · one org · 14-day purchase refund",
     "Optional hosted $59/mo live · separate SKU · not the kit",
+    commercialLicenseLine,
   ],
   price: {
     amount: "$199",
-    detail: "once · one org · Soft-WTP off · 14-day purchase refund",
+    detail: "once · one org · 14-day purchase refund",
     note: "Optional hosted $59/mo live · separate SKU · not the kit.",
   },
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
-  delivery: `Polar checkout is the $199 one-org grant. Hosted $59/mo is a separate SKU, not the kit. Questions: ${email}.`,
+  delivery: `${commercialLicenseLine} Hosted $59/mo is a separate SKU, not the kit. Questions: ${email}.`,
   checkout: burnbrakeCheckout,
   hostedCheckout: burnbrakeHostedCheckout,
-  howNote: "Public repo is the contract. Polar is the paid grant.",
+  howNote: commercialLicenseLine,
 };
 
 export const burnbrakeHow = burnbrakeContract;
@@ -248,21 +279,17 @@ export const creditLedger = {
   name: "Credit Ledger",
   badge: "Current · Source available · Commercial grant",
   tagline: "Run the ledger. On your Stripe.",
-  summary:
-    "Stripe credit ledger kit. A credit ledger you run on your own Stripe account. Source is readable for audit and eval. Production use needs the Polar grant. Cloning is not that grant.",
-  facts: [
-    "$79 once · Soft-WTP off · no refund",
-    "PolyForm NC + grant · not MIT/OSI",
-  ],
+  summary: `${creditLedgerOutcome} A credit ledger you run on your own Stripe account. ${commercialLicenseLine}`,
+  facts: ["$79 once · no refund", commercialLicenseLine],
   price: {
     amount: "$79",
-    detail: "Once · Soft-WTP off · no refund",
+    detail: "Once · no refund",
   },
   repo: "yellowgram/stripe-credit-ledger-kit",
   github: "https://github.com/yellowgram/stripe-credit-ledger-kit",
-  delivery: `Polar checkout is the paid grant. Public repo is for audit. Questions: ${email}.`,
+  delivery: `${commercialLicenseLine} Questions: ${email}.`,
   checkout: creditLedgerCheckout,
-  howNote: "Public repo is the contract. Polar is the paid grant.",
+  howNote: commercialLicenseLine,
 };
 
 export const creditLedgerHow = creditLedgerContract;
