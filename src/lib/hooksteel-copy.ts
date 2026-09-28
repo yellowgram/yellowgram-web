@@ -1,20 +1,21 @@
-/** HookSteel one-pager. Buyer facts. Soft-WTP stays off. */
+/** HookSteel one-pager. Buyer facts. Soft-WTP stays off. HookSteel HS-ID-AE. */
 
-import {
-  commercialLicenseLine,
-  commercialLicenseTerm,
-  hooksteelOutcome,
-  listedPriceFaq,
-} from "./site";
+import { hooksteelOutcome, listedPriceFaq } from "./site";
 
 export { hooksteelContract, hooksteelHttp } from "./catalog-contracts";
 
+/** HS-ID-AE license_sentence (HookSteel-only; do not change shared fleet commercialLicenseLine). */
+export const hooksteelLicenseSentence =
+  "Commercial production use requires a paid HookSteel commercial grant from Suthirth Solutions, operating as yellowgram.";
+
+export const hooksteelLicenseTerm = `${hooksteelLicenseSentence} Not MIT. Not an OSI-approved license. Public brand: HookSteel · yellowgram.`;
+
 export const hooksteelTitle = "HookSteel — Keep the outbox. Deliver the billing event.";
 
-export const hooksteelDescription = `Keep the outbox. Deliver the billing event. ${hooksteelOutcome} Early price $89, then $129. ${commercialLicenseLine} Use Hookdeck for ingress.`;
+export const hooksteelDescription = `Keep the outbox. Deliver the billing event. ${hooksteelOutcome} Early price $89, then $129. ${hooksteelLicenseSentence} Use Hookdeck for ingress.`;
 
 /** First body under the locked H2. */
-export const hooksteelIntro = `Keep the outbox. Deliver the billing event. ${hooksteelOutcome} Early price $89, then $129. ${commercialLicenseLine} Use Hookdeck for ingress.`;
+export const hooksteelIntro = `Keep the outbox. Deliver the billing event. ${hooksteelOutcome} Early price $89, then $129. ${hooksteelLicenseSentence} Use Hookdeck for ingress.`;
 
 export const hooksteelContrastTitle = "The outbox you keep.";
 
@@ -25,7 +26,7 @@ export const hooksteelContrast =
 export const hooksteelTerms = [
   {
     label: "Included",
-    body: `${commercialLicenseLine} Kit zip hooksteel-0.1.1.zip (SHA-256 e5fb3c1117b954f344fb27e7b1bf7be89d46e120839e238983d017a50e08e4d9) and GitHub Issues for 60 days, best-effort, no SLA. Stripe handle and Polar handlePolar, drain, replay CLI, five chaos scenarios, and adapter stubs. Not a hosted webhook gateway.`,
+    body: `${hooksteelLicenseSentence} The HookSteel commercial grant is for the named tag. Kit zip hooksteel-0.1.1.zip (SHA-256 e5fb3c1117b954f344fb27e7b1bf7be89d46e120839e238983d017a50e08e4d9) and GitHub Issues for 60 days, best-effort, no SLA. Stripe handle and Polar handlePolar, drain, replay CLI, five chaos scenarios, and adapter stubs. Not a hosted webhook gateway.`,
   },
   {
     label: "Pricing",
@@ -33,11 +34,11 @@ export const hooksteelTerms = [
   },
   {
     label: "License",
-    body: commercialLicenseTerm,
+    body: hooksteelLicenseTerm,
   },
 ] as const;
 
-export const hooksteelSeller = "Suthirth solutions";
+export const hooksteelSeller = "Suthirth Solutions, operating as yellowgram";
 
 export const hooksteelFaq = [
   {
@@ -47,7 +48,7 @@ export const hooksteelFaq = [
   listedPriceFaq,
   {
     q: "What does the grant cover?",
-    a: `${commercialLicenseLine} One organization. Not multi-org.`,
+    a: `${hooksteelLicenseSentence} One organization. Not multi-org. Grant product-name: HookSteel commercial grant.`,
   },
   {
     q: "Is this a hosted webhook gateway?",
