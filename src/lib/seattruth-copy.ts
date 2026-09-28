@@ -1,21 +1,22 @@
-/** SeatTruth one-pager. Buyer facts. Soft-WTP stays off. */
+/** SeatTruth one-pager. Buyer facts. Soft-WTP stays off. SeatTruth ST-ID-AE pilot. */
 
-import {
-  commercialLicenseLine,
-  commercialLicenseTerm,
-  listedPriceFaq,
-  seattruthOutcome,
-} from "./site";
+import { listedPriceFaq, seattruthOutcome } from "./site";
 import { seattruthKitLock } from "./catalog-contracts";
 
 export { seattruthContract, seattruthKitLock } from "./catalog-contracts";
 
+/** ST-ID-AE license_sentence (SeatTruth-only; do not change shared fleet commercialLicenseLine). */
+export const seattruthLicenseSentence =
+  "Commercial production use requires a paid SeatTruth commercial grant from Suthirth Solutions, operating as yellowgram.";
+
+export const seattruthLicenseTerm = `${seattruthLicenseSentence} Not MIT. Not an OSI-approved license. Public brand: SeatTruth · yellowgram.`;
+
 export const seattruthTitle = "SeatTruth — Reconcile both rails. Report the mismatch.";
 
-export const seattruthDescription = `Reconcile both rails. Report the mismatch. ${seattruthKitLock} ${seattruthOutcome} Early price $79, then $99 once per org. ${commercialLicenseLine}`;
+export const seattruthDescription = `Reconcile both rails. Report the mismatch. ${seattruthKitLock} ${seattruthOutcome} Early price $79, then $99 once per org. ${seattruthLicenseSentence}`;
 
 /** First body under the locked H2. */
-export const seattruthIntro = `${seattruthKitLock} ${seattruthOutcome} Stripe and Polar against product is_pro / seats. Early price $79, then $99 once per org. ${commercialLicenseLine}`;
+export const seattruthIntro = `${seattruthKitLock} ${seattruthOutcome} Stripe and Polar against product is_pro / seats. Early price $79, then $99 once per org. ${seattruthLicenseSentence}`;
 
 export const seattruthContrastTitle = "Stripe and Polar. Not Stripe alone.";
 
@@ -26,7 +27,7 @@ export const seattruthContrast =
 export const seattruthTerms = [
   {
     label: "Included",
-    body: `${commercialLicenseLine} The grant is for the named tag. Kit zip seattruth-0.1.1.zip (SHA-256 8014dae2e692a727999c7b2f88aad15912503f5062f870741027a7b8e7b654f6). Mapping, restricted keys, GitHub Actions, and a Slack path.`,
+    body: `${seattruthLicenseSentence} The SeatTruth commercial grant is for the named tag. Kit zip seattruth-0.1.1.zip (SHA-256 8014dae2e692a727999c7b2f88aad15912503f5062f870741027a7b8e7b654f6). Mapping, restricted keys, GitHub Actions, and a Slack path.`,
   },
   {
     label: "Pricing",
@@ -34,11 +35,11 @@ export const seattruthTerms = [
   },
   {
     label: "License",
-    body: commercialLicenseTerm,
+    body: seattruthLicenseTerm,
   },
 ] as const;
 
-export const seattruthSeller = "Suthirth solutions";
+export const seattruthSeller = "Suthirth Solutions, operating as yellowgram";
 
 export const seattruthFaq = [
   {
@@ -48,7 +49,7 @@ export const seattruthFaq = [
   listedPriceFaq,
   {
     q: "What does the grant cover?",
-    a: `${commercialLicenseLine} One organization. Not multi-org.`,
+    a: `${seattruthLicenseSentence} One organization. Not multi-org. Grant product-name: SeatTruth commercial grant.`,
   },
   {
     q: "Is this a DriftExact twin without Polar?",
