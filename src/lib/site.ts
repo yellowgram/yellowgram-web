@@ -53,7 +53,7 @@ export const surfacepin = {
     "Fails CI on unexpected surface change",
     "MIT · CLI · CI-ready",
   ],
-  install: "npx surfacepin@1.4.0",
+  install: "npx surfacepin@1.5.0",
   repo: "yellowgram/surfacepin",
   github: "https://github.com/yellowgram/surfacepin",
   npm: "https://www.npmjs.com/package/surfacepin",

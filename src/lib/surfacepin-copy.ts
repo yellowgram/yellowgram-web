@@ -97,7 +97,7 @@ export const surfacepinJsonLd = {
       "@type": "SoftwareApplication",
       "@id": "https://www.yellowgram.dev/surfacepin#software",
       name: "SurfacePin",
-      softwareVersion: "1.4.0",
+      softwareVersion: "1.5.0",
       operatingSystem: "Node.js 20+",
       license: "https://spdx.org/licenses/MIT.html",
       url: "https://www.yellowgram.dev/surfacepin",
