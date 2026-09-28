@@ -1,20 +1,22 @@
-/** BurnBrake one-pager. Buyer facts. Soft-WTP stays off. */
+/** BurnBrake one-pager. Buyer facts. Soft-WTP stays off. BurnBrake BB-ID-AE. */
 
-import {
-  burnbrakeOutcome,
-  commercialLicenseLine,
-  commercialLicenseTerm,
-  listedPriceFaq,
-} from "./site";
+import { burnbrakeOutcome, listedPriceFaq } from "./site";
+
+/** BB-ID-AE license_sentence (BurnBrake-only; do not change shared fleet commercialLicenseLine). */
+export const burnbrakeLicenseSentence =
+  "Commercial production use requires a paid BurnBrake commercial grant from Suthirth Solutions, operating as yellowgram.";
+
+export const burnbrakeLicenseTerm = `${burnbrakeLicenseSentence} Not MIT. Not an OSI-approved license. Public brand: BurnBrake · yellowgram.`;
+
 
 export { burnbrakeContract } from "./catalog-contracts";
 
 export const burnbrakeTitle = "BurnBrake — Cap the spend. Halt the request.";
 
-export const burnbrakeDescription = `Cap the spend. Halt the request. ${burnbrakeOutcome} ${commercialLicenseLine} Hosted $59/mo is a separate SKU.`;
+export const burnbrakeDescription = `Cap the spend. Halt the request. ${burnbrakeOutcome} ${burnbrakeLicenseSentence} Hosted $59/mo is a separate SKU.`;
 
 /** First body under the locked H2. */
-export const burnbrakeIntro = `Cap the spend. Halt the request. ${burnbrakeOutcome} ${commercialLicenseLine} Optional hosted $59/mo is a separate SKU.`;
+export const burnbrakeIntro = `Cap the spend. Halt the request. ${burnbrakeOutcome} ${burnbrakeLicenseSentence} Optional hosted $59/mo is a separate SKU.`;
 
 export const burnbrakeContrastTitle = "The next completion stops.";
 
@@ -25,7 +27,7 @@ export const burnbrakeContrast =
 export const burnbrakeTerms = [
   {
     label: "Included",
-    body: `${commercialLicenseLine} Public source for audit and eval. Hosted $59/mo is a separate SKU, not the self-host grant.`,
+    body: `${burnbrakeLicenseSentence} Public source for audit and eval. Hosted $59/mo is a separate SKU, not the self-host grant.`,
   },
   {
     label: "Pricing",
@@ -33,11 +35,11 @@ export const burnbrakeTerms = [
   },
   {
     label: "License",
-    body: commercialLicenseTerm,
+    body: burnbrakeLicenseTerm,
   },
 ] as const;
 
-export const burnbrakeSeller = "Suthirth solutions";
+export const burnbrakeSeller = "Suthirth Solutions, operating as yellowgram";
 
 export const burnbrakeFaq = [
   {
@@ -46,7 +48,7 @@ export const burnbrakeFaq = [
   },
   {
     q: "What does the kit cover?",
-    a: `${commercialLicenseLine} One org. Not multi-org. Production and company use.`,
+    a: `${burnbrakeLicenseSentence} One org. Not multi-org. Production and company use.`,
   },
   {
     q: "Is hosted the self-host grant?",
