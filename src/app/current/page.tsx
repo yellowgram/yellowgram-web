@@ -4,10 +4,18 @@ import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
 import { pageMetadata } from "@/lib/seo";
-import { currentProducts, email } from "@/lib/site";
+import {
+  burnbrakeOutcome,
+  commercialLicenseLine,
+  creditLedgerOutcome,
+  currentProducts,
+  email,
+  hooksteelOutcome,
+  maydoOutcome,
+  seattruthOutcome,
+} from "@/lib/site";
 
-const description =
-  "Paid yellowgram tools. HookSteel is a billing-event outbox, source available, founding $89. SeatTruth reconciles Stripe and Polar against the product database. Source is readable for audit. The founding grant is $79, then $99, on Polar. MayDo is an entitlement kernel, source available, founding $99 then $149. The grant is on Polar. BurnBrake is a spend gate. Source is readable for audit and eval. The $199 one-org grant is on Polar. Hosted $59/mo is a separate SKU. Credit Ledger is a credit ledger on your own Stripe account. Source is readable for audit and eval. The $79 grant is on Polar. No refund. Soft-WTP off.";
+const description = `Paid yellowgram tools. HookSteel: ${hooksteelOutcome} Early price $89, then $129. SeatTruth: ${seattruthOutcome} Early price $79, then $99 once per org. MayDo: ${maydoOutcome} Early price $99, then $149. BurnBrake: ${burnbrakeOutcome} $199 once. Hosted $59/mo is a separate SKU. Credit Ledger: ${creditLedgerOutcome} $79 once. No refund. ${commercialLicenseLine}`;
 
 export const metadata: Metadata = pageMetadata({
   title: "Paid",
