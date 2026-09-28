@@ -1,20 +1,22 @@
-/** Credit Ledger one-pager. Buyer facts. Soft-WTP stays off. No kit refund. */
+/** Credit Ledger one-pager. Buyer facts. Soft-WTP stays off. Credit Ledger CL-ID-AE. No kit refund. */
 
-import {
-  commercialLicenseLine,
-  commercialLicenseTerm,
-  creditLedgerOutcome,
-  listedPriceFaq,
-} from "./site";
+import { creditLedgerOutcome, listedPriceFaq } from "./site";
+
+/** CL-ID-AE license_sentence (Credit Ledger-only; do not change shared fleet commercialLicenseLine). */
+export const creditLedgerLicenseSentence =
+  "Commercial production use requires a paid Credit Ledger commercial grant from Suthirth Solutions, operating as yellowgram.";
+
+export const creditLedgerLicenseTerm = `${creditLedgerLicenseSentence} Not MIT. Not an OSI-approved license. Public brand: Credit Ledger · yellowgram.`;
+
 
 export { creditLedgerContract } from "./catalog-contracts";
 
 export const creditLedgerTitle = "Credit Ledger — Run the ledger. On your Stripe.";
 
-export const creditLedgerDescription = `Run the ledger. On your Stripe. ${creditLedgerOutcome} $79 once. No refund. ${commercialLicenseLine}`;
+export const creditLedgerDescription = `Run the ledger. On your Stripe. ${creditLedgerOutcome} $79 once. No refund. ${creditLedgerLicenseSentence}`;
 
 /** First body under the locked H2. */
-export const creditLedgerIntro = `Run the ledger. On your Stripe. ${creditLedgerOutcome} Checkout packs grant a balance you own. $79 once. No refund. ${commercialLicenseLine}`;
+export const creditLedgerIntro = `Run the ledger. On your Stripe. ${creditLedgerOutcome} Checkout packs grant a balance you own. $79 once. No refund. ${creditLedgerLicenseSentence}`;
 
 export const creditLedgerContrastTitle = "Invoice-time is not a hard gate.";
 
@@ -25,7 +27,7 @@ export const creditLedgerContrast =
 export const creditLedgerTerms = [
   {
     label: "Included",
-    body: `${commercialLicenseLine} The grant is perpetual for that named tag. Kit zip stripe-credit-ledger-kit-0.1.2.zip. Tests, a hold reaper, and the public free chapter. GitHub Issues for 60 days, best-effort, no SLA, about two hours a week, after a collaborator invite. Not a hosted wallet. Not Connect. Not plans.`,
+    body: `${creditLedgerLicenseSentence} The grant is perpetual for that named tag. Kit zip stripe-credit-ledger-kit-0.1.2.zip. Tests, a hold reaper, and the public free chapter. GitHub Issues for 60 days, best-effort, no SLA, about two hours a week, after a collaborator invite. Not a hosted wallet. Not Connect. Not plans.`,
   },
   {
     label: "Pricing",
@@ -33,11 +35,11 @@ export const creditLedgerTerms = [
   },
   {
     label: "License",
-    body: commercialLicenseTerm,
+    body: creditLedgerLicenseTerm,
   },
 ] as const;
 
-export const creditLedgerSeller = "Suthirth solutions";
+export const creditLedgerSeller = "Suthirth Solutions, operating as yellowgram";
 
 export const creditLedgerFaq = [
   {
