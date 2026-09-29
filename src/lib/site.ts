@@ -355,6 +355,27 @@ export type CatalogTool = {
 /** Shipped tools. Adding the next one is another entry here. */
 export const tools: CatalogTool[] = [
   {
+    slug: "surface-guard",
+    name: surfaceGuard.name,
+    badge: surfaceGuard.badge,
+    tagline: surfaceGuard.tagline,
+    summary: surfaceGuard.summary,
+    repo: "yellowgram/surface-guard",
+    productHref: "/surface-guard",
+    current: true,
+    paid: true,
+    primary: { label: "Founding reservation", href: "/surface-guard" },
+    price: {
+      amount: "$99",
+      detail: "/ mo · or $990 / yr · first 20 orgs lock price",
+    },
+    facts: [
+      "Founding reservation · App not shipped",
+      "First 20 orgs lock this price",
+      "Auto-refund if no working private-repo check within 90 days",
+    ],
+  },
+  {
     slug: "surfacepin",
     name: surfacepin.name,
     badge: surfacepin.badge,

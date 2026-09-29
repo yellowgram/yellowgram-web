@@ -53,7 +53,7 @@ export default function CurrentPage() {
             <p className="eyebrow">Contact</p>
             <h2 className="title mt-4">Ask about a product</h2>
             <p className="mt-5 max-w-sm muted">
-              HookSteel, SeatTruth, MayDo, BurnBrake, or Credit Ledger. Email{" "}
+              Surface Guard founding, HookSteel, SeatTruth, MayDo, BurnBrake, or Credit Ledger. Email{" "}
               <a className="text-link" href={`mailto:${email}`}>
                 {email}
               </a>{" "}

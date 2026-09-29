@@ -4,6 +4,7 @@ import { email } from "@/lib/site";
 
 const nav = [
   { href: "/current", label: "Paid" },
+  { href: "/surface-guard", label: "Surface Guard" },
   { href: "/oss", label: "OSS" },
   { href: "/future", label: "In development" },
   { href: "/#contact", label: "Contact" },
@@ -56,6 +57,9 @@ export function SiteFooter() {
           <p className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm">
             <Link className="text-link" href="/current">
               Paid
+            </Link>
+            <Link className="text-link" href="/surface-guard">
+              Surface Guard
             </Link>
             <Link className="text-link" href="/oss">
               OSS
