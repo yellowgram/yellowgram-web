@@ -355,27 +355,6 @@ export type CatalogTool = {
 /** Shipped tools. Adding the next one is another entry here. */
 export const tools: CatalogTool[] = [
   {
-    slug: "surface-guard",
-    name: surfaceGuard.name,
-    badge: surfaceGuard.badge,
-    tagline: surfaceGuard.tagline,
-    summary: surfaceGuard.summary,
-    repo: "yellowgram/surface-guard",
-    productHref: "/surface-guard",
-    current: true,
-    paid: true,
-    primary: { label: "Founding reservation", href: "/surface-guard" },
-    price: {
-      amount: "$99",
-      detail: "/ mo · or $990 / yr · first 20 orgs lock price",
-    },
-    facts: [
-      "Founding reservation · App not shipped",
-      "First 20 orgs lock this price",
-      "Auto-refund if no working private-repo check within 90 days",
-    ],
-  },
-  {
     slug: "surfacepin",
     name: surfacepin.name,
     badge: surfacepin.badge,
@@ -536,8 +515,14 @@ export function toolBySlug(slug: string): CatalogTool {
   return tool;
 }
 
-/** No public Setup/Audit consulting rails this cycle. Keep empty. */
-export const exploring: { name: string; line: string }[] = [];
+/** In-development / founding entries for /future. No Setup/Audit rails. */
+export const exploring: { name: string; line: string; href?: string }[] = [
+  {
+    name: "Surface Guard",
+    line: "Founding reservation · App not shipped · $99/mo or $990/yr · first 20 orgs lock price · auto-refund if no working private-repo check in 90 days",
+    href: "/surface-guard",
+  },
+];
 
 export const interests = [
   "Surface Guard founding",
