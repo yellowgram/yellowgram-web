@@ -493,16 +493,8 @@ export function toolBySlug(slug: string): CatalogTool {
   return tool;
 }
 
-export const exploring = [
-  {
-    name: "Surface Lock Setup",
-    line: "A fixed-scope install of SurfacePin, CI, and a handoff for one MCP server.",
-  },
-  {
-    name: "Surface Audit",
-    line: "The setup, plus a short review of the tools, resources, and prompts.",
-  },
-];
+/** No public Setup/Audit consulting rails this cycle. Keep empty. */
+export const exploring: { name: string; line: string }[] = [];
 
 export const interests = [
   "SurfacePin",
@@ -513,7 +505,5 @@ export const interests = [
   "Credit Ledger",
   "Keel",
   "L2 Send Guard",
-  "Surface Lock Setup",
-  "Surface Audit",
   "Something else",
 ];
