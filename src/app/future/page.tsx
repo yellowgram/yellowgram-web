@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import { email, exploring } from "@/lib/site";
 
 const description =
-  "In development at yellowgram. Surface Guard founding reservation on /surface-guard. No Setup or Audit consulting offers. SurfacePin remains free OSS.";
+  "In development at yellowgram. Estia coming soon.";
 
 export const metadata: Metadata = pageMetadata({
   title: "In development",
@@ -22,15 +22,7 @@ export default function FuturePage() {
         <p className="eyebrow">In development</p>
         <h1 className="title mt-4">What we&apos;re exploring</h1>
         <p className="lede mt-5 max-w-2xl muted">
-          No named Setup or Audit offers here. SurfacePin stays free OSS on{" "}
-          <Link className="text-link" href="/surfacepin">
-            /surfacepin
-          </Link>{" "}
-          and{" "}
-          <Link className="text-link" href="/oss">
-            /oss
-          </Link>
-          .
+          &apos;Estia&apos; coming soon!
         </p>
 
         {exploring.length > 0 ? (
