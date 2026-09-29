@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import { email, exploring } from "@/lib/site";
 
 const description =
-  "In development at yellowgram. No Setup or Audit consulting offers. Surface Guard founding reservation is on /surface-guard. SurfacePin remains free OSS.";
+  "In development at yellowgram. Surface Guard founding reservation on /surface-guard. No Setup or Audit consulting offers. SurfacePin remains free OSS.";
 
 export const metadata: Metadata = pageMetadata({
   title: "In development",
@@ -30,10 +30,6 @@ export default function FuturePage() {
           <Link className="text-link" href="/oss">
             /oss
           </Link>
-          . Surface Guard founding reservation (App not shipped):{" "}
-          <Link className="text-link" href="/surface-guard">
-            /surface-guard
-          </Link>
           .
         </p>
 
@@ -44,8 +40,25 @@ export default function FuturePage() {
                 key={item.name}
                 className="grid gap-2 border-t border-[var(--line)] py-7 md:grid-cols-[18rem_1fr] md:items-baseline md:gap-10"
               >
-                <h2 className="text-xl">{item.name}</h2>
-                <p className="muted">{item.line}</p>
+                <h2 className="text-xl">
+                  {item.href ? (
+                    <Link className="text-link" href={item.href}>
+                      {item.name}
+                    </Link>
+                  ) : (
+                    item.name
+                  )}
+                </h2>
+                <div>
+                  <p className="muted">{item.line}</p>
+                  {item.href ? (
+                    <p className="mt-3">
+                      <Link className="text-link text-sm" href={item.href}>
+                        Open founding reservation
+                      </Link>
+                    </p>
+                  ) : null}
+                </div>
               </div>
             ))}
           </div>

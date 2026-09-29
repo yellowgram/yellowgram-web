@@ -515,8 +515,14 @@ export function toolBySlug(slug: string): CatalogTool {
   return tool;
 }
 
-/** No public Setup/Audit consulting rails this cycle. Keep empty. */
-export const exploring: { name: string; line: string }[] = [];
+/** In-development / founding entries for /future. No Setup/Audit rails. */
+export const exploring: { name: string; line: string; href?: string }[] = [
+  {
+    name: "Surface Guard",
+    line: "Founding reservation · App not shipped · $99/mo or $990/yr · first 20 orgs lock price · auto-refund if no working private-repo check in 90 days",
+    href: "/surface-guard",
+  },
+];
 
 export const interests = [
   "Surface Guard founding",
