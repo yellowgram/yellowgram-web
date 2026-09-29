@@ -42,6 +42,28 @@ export const burnbrakeOutcome =
 export const creditLedgerOutcome =
   "Empty balance stops the next expensive call on your Stripe — not only at invoice finalize.";
 
+
+/** Polar checkout links for Surface Guard founding reservation (N1b).
+ * Direct Stripe Payment Links blocked (India Payments invite-only / no dashboard API key).
+ * Polar MoR settles via Stripe Connect — stranger can pay without talking to anyone.
+ */
+export const surfaceGuardCheckoutMonthly =
+  "https://buy.polar.sh/polar_cl_E0J4WV4ZnxpuePTNrTrNA1yAKGwZ3Oqp4yTZr3stgyp";
+export const surfaceGuardCheckoutYearly =
+  "https://buy.polar.sh/polar_cl_vG0CS4pHuwh5pxUMwRzLgBWNa3oIjh5c4vsIs2gP4UO";
+
+export const surfaceGuard = {
+  name: "Surface Guard",
+  badge: "Founding reservation · App not shipped",
+  tagline: "Private-repo PR check. Lock founding price.",
+  summary:
+    "Founding reservation for Surface Guard — a private-repo PR check for one GitHub organization. The App is not shipped yet. First 20 orgs lock this price. Auto-refund if no working private-repo check within 90 days of payment.",
+  monthly: { amount: "$99", detail: "/ mo · per org", checkout: surfaceGuardCheckoutMonthly },
+  yearly: { amount: "$990", detail: "/ yr · per org", checkout: surfaceGuardCheckoutYearly },
+  foundingCap: 20,
+  refundDays: 90,
+};
+
 export const surfacepin = {
   name: "SurfacePin",
   badge: "Current · Open source",
@@ -497,6 +519,7 @@ export function toolBySlug(slug: string): CatalogTool {
 export const exploring: { name: string; line: string }[] = [];
 
 export const interests = [
+  "Surface Guard founding",
   "SurfacePin",
   "HookSteel",
   "SeatTruth",

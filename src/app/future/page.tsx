@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import { email, exploring } from "@/lib/site";
 
 const description =
-  "In development at yellowgram. No Setup or Audit consulting offers. SurfacePin remains free OSS.";
+  "In development at yellowgram. No Setup or Audit consulting offers. Surface Guard founding reservation is on /surface-guard. SurfacePin remains free OSS.";
 
 export const metadata: Metadata = pageMetadata({
   title: "In development",
@@ -29,6 +29,10 @@ export default function FuturePage() {
           and{" "}
           <Link className="text-link" href="/oss">
             /oss
+          </Link>
+          . Surface Guard founding reservation (App not shipped):{" "}
+          <Link className="text-link" href="/surface-guard">
+            /surface-guard
           </Link>
           .
         </p>
