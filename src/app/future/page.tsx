@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import { email, exploring } from "@/lib/site";
 
 const description =
-  "What yellowgram is exploring: Surface Lock Setup and Surface Audit.";
+  "In development at yellowgram. No Setup or Audit consulting offers. SurfacePin remains free OSS.";
 
 export const metadata: Metadata = pageMetadata({
   title: "In development",
@@ -21,19 +21,31 @@ export default function FuturePage() {
       <section className="container py-20 md:py-28">
         <p className="eyebrow">In development</p>
         <h1 className="title mt-4">What we&apos;re exploring</h1>
-        <p className="lede mt-5 max-w-2xl muted">Early work, named plainly.</p>
+        <p className="lede mt-5 max-w-2xl muted">
+          No named Setup or Audit offers here. SurfacePin stays free OSS on{" "}
+          <Link className="text-link" href="/surfacepin">
+            /surfacepin
+          </Link>{" "}
+          and{" "}
+          <Link className="text-link" href="/oss">
+            /oss
+          </Link>
+          .
+        </p>
 
-        <div className="mt-12 border-b border-[var(--line)]">
-          {exploring.map((item) => (
-            <div
-              key={item.name}
-              className="grid gap-2 border-t border-[var(--line)] py-7 md:grid-cols-[18rem_1fr] md:items-baseline md:gap-10"
-            >
-              <h2 className="text-xl">{item.name}</h2>
-              <p className="muted">{item.line}</p>
-            </div>
-          ))}
-        </div>
+        {exploring.length > 0 ? (
+          <div className="mt-12 border-b border-[var(--line)]">
+            {exploring.map((item) => (
+              <div
+                key={item.name}
+                className="grid gap-2 border-t border-[var(--line)] py-7 md:grid-cols-[18rem_1fr] md:items-baseline md:gap-10"
+              >
+                <h2 className="text-xl">{item.name}</h2>
+                <p className="muted">{item.line}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
 
         <p className="mt-8">
           <Link className="text-link text-sm" href="/current">
