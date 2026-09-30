@@ -46,7 +46,7 @@ export default function FuturePage() {
                   {item.href ? (
                     <p className="mt-3">
                       <Link className="text-link text-sm" href={item.href}>
-                        Open founding reservation
+                        Product page
                       </Link>
                     </p>
                   ) : null}
