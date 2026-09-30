@@ -160,6 +160,13 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
       {tool.whyTitle ? <h2 className="title mt-4 max-w-xl">{tool.whyTitle}</h2> : null}
       <p className="lede mt-5 max-w-2xl muted">{tool.summary}</p>
       <ToolBody tool={tool} />
+      {tool.watch ? (
+        <p className="mt-8">
+          <a className="text-link" href={tool.watch.href} {...externalLinkProps(tool.watch.href)}>
+            {tool.watch.label}
+          </a>
+        </p>
+      ) : null}
     </section>
   );
 }

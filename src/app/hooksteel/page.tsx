@@ -20,13 +20,23 @@ import {
   hooksteelZipSha256,
 } from "@/lib/hooksteel-copy";
 import { pageMetadata } from "@/lib/seo";
-import { email, hooksteel, hooksteelDemo, hooksteelPromise, toolBySlug } from "@/lib/site";
+import {
+  email,
+  hooksteel,
+  hooksteelDemo,
+  hooksteelDemoSha256,
+  hooksteelDemoSrt,
+  hooksteelPromise,
+  toolBySlug,
+} from "@/lib/site";
 
 const catalog = toolBySlug("hooksteel");
 
-/** Sell spine only. Contract steps render below the buy buttons, not in the hero. */
+/** Sell spine only. Watch demo is the how-it-works block, not a hero action. */
 const tool = {
   ...catalog,
+  secondary: undefined,
+  watch: undefined,
   steps: undefined,
   stepsNote: undefined,
   facts: undefined,
@@ -64,6 +74,30 @@ export default function HookSteelPage() {
           ))}
         </div>
         <p className="mt-8 max-w-2xl">{hooksteelHttp}</p>
+        <div className="mt-12" id="demo">
+          <p className="label">Watch demo</p>
+          <video
+            className="mt-4 w-full max-w-3xl border border-[var(--line)]"
+            controls
+            playsInline
+            preload="metadata"
+            src={hooksteelDemo}
+          >
+            <track kind="subtitles" src={hooksteelDemoSrt} srcLang="en" label="English" />
+          </video>
+          <p className="mt-4 text-sm">
+            <a className="text-link" href={hooksteelDemo} {...externalLinkProps(hooksteelDemo)}>
+              Watch demo
+            </a>
+            <span className="muted"> · </span>
+            <a className="text-link" href={hooksteelDemoSrt} {...externalLinkProps(hooksteelDemoSrt)}>
+              Captions
+            </a>
+          </p>
+          <p className="mt-3 max-w-3xl break-all font-mono text-[0.8125rem] muted">
+            SHA-256 {hooksteelDemoSha256}
+          </p>
+        </div>
       </section>
 
       <section className="mt-20" id="compare">
@@ -84,23 +118,6 @@ export default function HookSteelPage() {
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="mt-20" id="demo">
-        <p className="eyebrow">Demo</p>
-        <h2 className="title mt-4">Watch demo</h2>
-        <video
-          className="mt-8 w-full max-w-3xl border border-[var(--line)]"
-          controls
-          playsInline
-          preload="metadata"
-          src={hooksteelDemo}
-        />
-        <p className="mt-4 text-sm">
-          <a className="text-link" href={hooksteelDemo} {...externalLinkProps(hooksteelDemo)}>
-            Watch demo
-          </a>
-        </p>
       </section>
 
       <section className="mt-20" id="grant">
