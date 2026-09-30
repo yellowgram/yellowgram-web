@@ -169,7 +169,7 @@ export const l2SendGuardHow = [
   },
 ];
 
-/** Publish gate 1daa967. Catalog pin is npm 0.1.0. */
+/** Publish gate 1daa967704d5bfbac2f4d16767cb88cf98ee7c6f. Catalog pin is npm 0.1.0. */
 export const sendApproveBound = {
   name: "send-approve-bound",
   badge: "Current · Open source",
