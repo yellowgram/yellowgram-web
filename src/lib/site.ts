@@ -28,7 +28,18 @@ export const listedPriceFaq = {
 } as const;
 
 export const hooksteelOutcome =
-  "The same signed billing event, many times, is still one side effect and one grant.";
+  "The same signed billing event, many times, still grants the credit once.";
+
+/**
+ * First-screen fear on /hooksteel and the catalog card.
+ * Do not name other products here. That sits below the buy buttons.
+ */
+export const hooksteelFear =
+  "Your handler returned 500. The same paid event came back. You granted twice.";
+
+/** What HookSteel is, in one line. No competitor names. Buyer effect, not the mechanism. */
+export const hooksteelPromise =
+  "The credit is granted once. HookSteel fulfills each signed Stripe or Polar billing event once, from the outbox on your Postgres.";
 
 /** License-count founding rule. First 10 licenses, then $129. No calendar window. */
 export const hooksteelFoundingPrice =
@@ -391,15 +402,31 @@ export const recvApprovalWatchHow = [
 export const hooksteelCheckout =
   "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
 
-/** Approved 60-second HookSteel demo clip. */
+/** How-it-works / mid-page demo (clip-60s-howto). Not the Buy-row cut. */
 export const hooksteelDemo =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-approved/hooksteel-60s-demo.mp4";
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-howto/hooksteel-60s-refresh-buyer.mp4";
+
+export const hooksteelDemoSha256 =
+  "5bca0c995f21a070c5c2817ab961286a3a4393dc1f0ddecdc2e03377ec78f002";
+
+export const hooksteelDemoSrt =
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-howto/hooksteel-60s-refresh-buyer.srt";
+
+/** Press-buy / above-Buy Watch only (clip-press-buy). */
+export const hooksteelPressBuyDemo =
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy/hooksteel-press-buy.mp4";
+
+export const hooksteelPressBuyDemoSha256 =
+  "a84a77c3327819e6797ec7fd87dd3956f8751adb28616822748d9e423ee408b0";
+
+export const hooksteelPressBuyDemoSrt =
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy/hooksteel-press-buy.srt";
 
 export const hooksteel = {
   name: "HookSteel",
   badge: "Current · Source available · Commercial grant",
-  tagline: "Keep the outbox. Deliver the billing event.",
-  summary: `${hooksteelOutcome} Billing Event Reliability Kit: the outbox you keep. Use Hookdeck for ingress. ${commercialLicenseLine}`,
+  tagline: hooksteelFear,
+  summary: hooksteelPromise,
   facts: [
     hooksteelFoundingPriceShort,
     "One SKU · 14-day purchase refund",
@@ -418,7 +445,7 @@ export const hooksteel = {
 
 export const hooksteelHow = hooksteelContract;
 
-/** Under the Record / Deliver / Keep steps on Current and /hooksteel. */
+/** Under the contract steps on the catalog detail. Not the /hooksteel sell spine. */
 export const hooksteelStepsNote = `${hooksteelHttp} ${hooksteel.howNote}`;
 
 /** Live Polar checkout for SeatTruth v0.1.1. */
@@ -551,6 +578,8 @@ export type CatalogTool = {
   primary: { label: string; href: string };
   /** Optional second link beside the primary action. */
   secondary?: { label: string; href: string };
+  /** How-it-works link. Not rendered beside Buy. */
+  watch?: { label: string; href: string };
   /** Source link. Not a production license. */
   source?: { label: string; href: string };
   install?: string;
@@ -606,12 +635,13 @@ export const tools: CatalogTool[] = [
     paid: true,
     sellActive: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
-    secondary: { label: "Watch demo", href: hooksteelDemo },
+    secondary: { label: "Watch demo", href: hooksteelPressBuyDemo },
     source: { label: "Source", href: hooksteel.github },
+    watch: { label: "Watch demo", href: hooksteelDemo },
     delivery: hooksteel.delivery,
     facts: hooksteel.facts,
     price: hooksteel.price,
-    whyTitle: "Record, deliver, keep.",
+    whyTitle: "Same transaction. Drain after commit.",
     steps: hooksteelHow,
     stepsNote: hooksteelStepsNote,
   },
