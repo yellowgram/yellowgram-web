@@ -20,7 +20,7 @@ import {
   hooksteelZipSha256,
 } from "@/lib/hooksteel-copy";
 import { pageMetadata } from "@/lib/seo";
-import { email, hooksteel, hooksteelPromise, toolBySlug } from "@/lib/site";
+import { email, hooksteel, hooksteelDemo, hooksteelPromise, toolBySlug } from "@/lib/site";
 
 const catalog = toolBySlug("hooksteel");
 
@@ -84,6 +84,23 @@ export default function HookSteelPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      <section className="mt-20" id="demo">
+        <p className="eyebrow">Demo</p>
+        <h2 className="title mt-4">Watch demo</h2>
+        <video
+          className="mt-8 w-full max-w-3xl border border-[var(--line)]"
+          controls
+          playsInline
+          preload="metadata"
+          src={hooksteelDemo}
+        />
+        <p className="mt-4 text-sm">
+          <a className="text-link" href={hooksteelDemo} {...externalLinkProps(hooksteelDemo)}>
+            Watch demo
+          </a>
+        </p>
       </section>
 
       <section className="mt-20" id="grant">
