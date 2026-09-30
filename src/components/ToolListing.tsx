@@ -159,14 +159,14 @@ export function ToolDetail({ tool }: { tool: CatalogTool }) {
       <p className="eyebrow">{tool.name}</p>
       {tool.whyTitle ? <h2 className="title mt-4 max-w-xl">{tool.whyTitle}</h2> : null}
       <p className="lede mt-5 max-w-2xl muted">{tool.summary}</p>
-      <ToolBody tool={tool} />
       {tool.watch ? (
-        <p className="mt-8">
+        <p className="mt-6">
           <a className="text-link" href={tool.watch.href} {...externalLinkProps(tool.watch.href)}>
             {tool.watch.label}
           </a>
         </p>
       ) : null}
+      <ToolBody tool={tool} />
     </section>
   );
 }

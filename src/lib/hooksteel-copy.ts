@@ -26,7 +26,7 @@ export const hooksteelDescription = `${hooksteelFear} ${hooksteelPromise} ${hook
 
 /** Proof under the one-line promise. No competitor names. Above the buy buttons. */
 export const hooksteelProof =
-  "The same signed event four times is one outbox row per adapter. A crash mid-drain is still one grant. That is one side effect after commit, not exactly-once transport. Five chaos scenarios, Stripe and Polar. npm run demo runs the duplicate and the crash.";
+  "The same signed event, four times, still grants the credit once. A crash mid-drain is still one grant. Five chaos scenarios cover Stripe and Polar. npm run demo runs the duplicate and the crash.";
 
 export const hooksteelContrastTitle = "Logged event ids are not an outbox.";
 

@@ -74,6 +74,9 @@ export default function HookSteelPage() {
           ))}
         </div>
         <p className="mt-8 max-w-2xl">{hooksteelHttp}</p>
+        <p className="mt-4 max-w-2xl muted">
+          The grant runs after that transaction commits. Not exactly-once transport.
+        </p>
         <div className="mt-12" id="demo">
           <p className="label">Watch demo</p>
           <video

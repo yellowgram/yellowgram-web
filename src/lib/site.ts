@@ -28,7 +28,7 @@ export const listedPriceFaq = {
 } as const;
 
 export const hooksteelOutcome =
-  "The same signed billing event, many times, is still one side effect and one grant.";
+  "The same signed billing event, many times, still grants the credit once.";
 
 /**
  * First-screen fear on /hooksteel and the catalog card.
@@ -37,9 +37,9 @@ export const hooksteelOutcome =
 export const hooksteelFear =
   "Your handler returned 500. The same paid event came back. You granted twice.";
 
-/** What HookSteel is, in one line. No competitor names. */
+/** What HookSteel is, in one line. No competitor names. Buyer effect, not the mechanism. */
 export const hooksteelPromise =
-  "HookSteel fulfills each signed Stripe or Polar billing event once: outbox on your Postgres, side effects only after commit.";
+  "The credit is granted once. HookSteel fulfills each signed Stripe or Polar billing event once, from the outbox on your Postgres.";
 
 /** License-count founding rule. First 10 licenses, then $129. No calendar window. */
 export const hooksteelFoundingPrice =
