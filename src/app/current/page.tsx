@@ -8,10 +8,11 @@ import {
   commercialLicenseLine,
   currentProducts,
   email,
+  hooksteelFoundingPriceShort,
   hooksteelOutcome,
 } from "@/lib/site";
 
-const description = `Active Paid Buy: HookSteel. ${hooksteelOutcome} Early price $89, then $129. ${commercialLicenseLine} Other commercial kits remain on product pages with quiet Polar checkouts; they are not in this catalog.`;
+const description = `Active Paid Buy: HookSteel. ${hooksteelOutcome} ${hooksteelFoundingPriceShort}. ${commercialLicenseLine} Other commercial kits remain on product pages with quiet Polar checkouts; they are not in this catalog.`;
 
 export const metadata: Metadata = pageMetadata({
   title: "Paid",

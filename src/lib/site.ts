@@ -30,6 +30,14 @@ export const listedPriceFaq = {
 export const hooksteelOutcome =
   "The same signed billing event, many times, is still one side effect and one grant.";
 
+/** Match Polar + GitHub README founding rule. Soft-WTP stays off. */
+export const hooksteelFoundingPrice =
+  "Founding $89 for the first 10 licenses or 30 days after go-live (2026-09-27), whichever comes first; then $129";
+
+/** Short form for meta / catalog facts. */
+export const hooksteelFoundingPriceShort =
+  "Founding $89 (first 10 licenses or 30d from 2026-09-27), then $129";
+
 export const seattruthOutcome =
   "Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled, before support piles up. Read-only. No charges. No auto-fix.";
 
@@ -393,13 +401,13 @@ export const hooksteel = {
   tagline: "Keep the outbox. Deliver the billing event.",
   summary: `${hooksteelOutcome} Billing Event Reliability Kit: the outbox you keep. Use Hookdeck for ingress. ${commercialLicenseLine}`,
   facts: [
-    "Early price $89, then $129",
+    hooksteelFoundingPriceShort,
     "One SKU · 14-day purchase refund",
     commercialLicenseLine,
   ],
   price: {
     amount: "$89",
-    detail: "Early price $89, then $129 · 14-day purchase refund",
+    detail: `${hooksteelFoundingPriceShort} · 14-day purchase refund`,
   },
   repo: "yellowgram/hooksteel",
   github: "https://github.com/yellowgram/hooksteel",
