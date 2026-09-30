@@ -30,6 +30,17 @@ export const listedPriceFaq = {
 export const hooksteelOutcome =
   "The same signed billing event, many times, is still one side effect and one grant.";
 
+/**
+ * First-screen fear on /hooksteel and the catalog card.
+ * Do not name other products here. That sits below the buy buttons.
+ */
+export const hooksteelFear =
+  "Your handler returned 500. The same paid event came back. You granted twice.";
+
+/** What HookSteel is, in one line. No competitor names. */
+export const hooksteelPromise =
+  "HookSteel fulfills each signed Stripe or Polar billing event once: outbox on your Postgres, side effects only after commit.";
+
 /** License-count founding rule. First 10 licenses, then $129. No calendar window. */
 export const hooksteelFoundingPrice =
   "Founding $89 for the first 10 licenses; then $129";
@@ -398,8 +409,8 @@ export const hooksteelDemo =
 export const hooksteel = {
   name: "HookSteel",
   badge: "Current · Source available · Commercial grant",
-  tagline: "Keep the outbox. Deliver the billing event.",
-  summary: `${hooksteelOutcome} Billing Event Reliability Kit: the outbox you keep. Use Hookdeck for ingress. ${commercialLicenseLine}`,
+  tagline: hooksteelFear,
+  summary: hooksteelPromise,
   facts: [
     hooksteelFoundingPriceShort,
     "One SKU · 14-day purchase refund",
@@ -418,7 +429,7 @@ export const hooksteel = {
 
 export const hooksteelHow = hooksteelContract;
 
-/** Under the Record / Deliver / Keep steps on Current and /hooksteel. */
+/** Under the contract steps on the catalog detail. Not the /hooksteel sell spine. */
 export const hooksteelStepsNote = `${hooksteelHttp} ${hooksteel.howNote}`;
 
 /** Live Polar checkout for SeatTruth v0.1.1. */
@@ -611,7 +622,7 @@ export const tools: CatalogTool[] = [
     delivery: hooksteel.delivery,
     facts: hooksteel.facts,
     price: hooksteel.price,
-    whyTitle: "Record, deliver, keep.",
+    whyTitle: "Same transaction. Drain after commit.",
     steps: hooksteelHow,
     stepsNote: hooksteelStepsNote,
   },
