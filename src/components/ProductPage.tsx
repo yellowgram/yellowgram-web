@@ -32,7 +32,11 @@ export function ProductPage({
         ) : null}
         {tool.price?.note ? <p className="mt-3 max-w-xl text-sm muted">{tool.price.note}</p> : null}
         <div className="actions mt-10">
-          <a className="btn btn-primary" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
+          <a
+            className={tool.sellActive === false ? "btn btn-ghost" : "btn btn-primary"}
+            href={tool.primary.href}
+            {...externalLinkProps(tool.primary.href)}
+          >
             {tool.primary.label}
           </a>
           {tool.secondary ? (

@@ -1,9 +1,9 @@
 export const surfaceGuardTitle = "Surface Guard founding";
 export const surfaceGuardDescription =
-  "Private-repo PR check for one GitHub org. $99/mo or $990/yr. First 20 orgs lock price. Founding sell live — auto-refund if no working private-repo check in 90 days.";
+  "Private-repo PR check for one GitHub org. Founding sell paused (SCRAP). Free SurfacePin stays OSS. Polar checkouts remain quiet. Auto-refund if no working private-repo check in 90 days of a prior founding payment.";
 
 export const surfaceGuardIntro =
-  "Surface Guard is the paid private-repo PR check next to free OSS SurfacePin. Founding sell is live: pay $99/mo or $990/yr to lock price for the first 20 organizations and get the App check on your org.";
+  "Surface Guard is the paid private-repo PR check next to free OSS SurfacePin. Founding sell is paused (SCRAP). Polar monthly and yearly checkouts remain on this page quietly. Use free SurfacePin on public repos.";
 
 export const surfaceGuardTerms: { label: string; body: string }[] = [
   {
@@ -16,7 +16,7 @@ export const surfaceGuardTerms: { label: string; body: string }[] = [
   },
   {
     label: "App status",
-    body: "Founding sell is live. After Polar checkout (github_org field), entitlement grants the App check on that org. OSS SurfacePin (public-repo pin/verify) stays free and offline-capable.",
+    body: "Founding sell is paused. Polar checkouts stay available quietly; after checkout (github_org field), entitlement still grants the App check on that org. OSS SurfacePin (public-repo pin/verify) stays free and offline-capable.",
   },
   {
     label: "90-day auto-refund",
@@ -27,7 +27,7 @@ export const surfaceGuardTerms: { label: string; body: string }[] = [
 export const surfaceGuardFaq: { q: string; a: string }[] = [
   {
     q: "Is the GitHub App live?",
-    a: "Yes for founding customers. Pay on this page, set your github_org at checkout, install the App on that org, and the private-repo PR check runs. GitHub Marketplace GA is separate.",
+    a: "Founding sell is paused. If you already paid, set github_org at checkout, install the App on that org, and the private-repo PR check runs. GitHub Marketplace GA is separate. Prefer free SurfacePin for public repos.",
   },
   {
     q: "What if it never works for my org?",
@@ -39,6 +39,6 @@ export const surfaceGuardFaq: { q: string; a: string }[] = [
   },
   {
     q: "Do I need to talk to anyone to pay?",
-    a: "No. Use the Polar checkout buttons on this page. Card checkout completes without a sales call.",
+    a: "Founding sell is paused. Polar checkout links on this page stay available quietly if you still choose to pay. Prefer free SurfacePin for public repos.",
   },
 ];

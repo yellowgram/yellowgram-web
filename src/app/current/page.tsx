@@ -5,17 +5,13 @@ import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
 import { pageMetadata } from "@/lib/seo";
 import {
-  burnbrakeOutcome,
   commercialLicenseLine,
-  creditLedgerOutcome,
   currentProducts,
   email,
   hooksteelOutcome,
-  maydoOutcome,
-  seattruthOutcome,
 } from "@/lib/site";
 
-const description = `Paid yellowgram tools. HookSteel: ${hooksteelOutcome} Early price $89, then $129. SeatTruth: ${seattruthOutcome} Early price $79, then $99 once per org. MayDo: ${maydoOutcome} Early price $99, then $149. BurnBrake: ${burnbrakeOutcome} $199 once. Hosted $59/mo is a separate SKU. Credit Ledger: ${creditLedgerOutcome} $79 once. No refund. ${commercialLicenseLine}`;
+const description = `Active Paid Buy: HookSteel. ${hooksteelOutcome} Early price $89, then $129. ${commercialLicenseLine} Other commercial kits remain on product pages with quiet Polar checkouts; they are not in this catalog.`;
 
 export const metadata: Metadata = pageMetadata({
   title: "Paid",
@@ -53,7 +49,7 @@ export default function CurrentPage() {
             <p className="eyebrow">Contact</p>
             <h2 className="title mt-4">Ask about a product</h2>
             <p className="mt-5 max-w-sm muted">
-              HookSteel, SeatTruth, MayDo, BurnBrake, or Credit Ledger. Email{" "}
+              HookSteel (active Paid Buy), or other kits on their product pages. Email{" "}
               <a className="text-link" href={`mailto:${email}`}>
                 {email}
               </a>{" "}

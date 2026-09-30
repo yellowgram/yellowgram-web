@@ -51,7 +51,11 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
           </p>
         ) : null}
         <div className="actions">
-          <a className="btn btn-primary" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
+          <a
+            className={tool.sellActive === false ? "btn btn-ghost" : "btn btn-primary"}
+            href={tool.primary.href}
+            {...externalLinkProps(tool.primary.href)}
+          >
             {tool.primary.label}
           </a>
           {tool.secondary ? (
