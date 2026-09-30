@@ -30,13 +30,13 @@ export const listedPriceFaq = {
 export const hooksteelOutcome =
   "The same signed billing event, many times, is still one side effect and one grant.";
 
-/** Match Polar + GitHub README founding rule. */
+/** License-count founding rule. First 10 licenses, then $129. No calendar window. */
 export const hooksteelFoundingPrice =
-  "Founding $89 for the first 10 licenses or 30 days after go-live (2026-09-27), whichever comes first; then $129";
+  "Founding $89 for the first 10 licenses; then $129";
 
 /** Short form for meta / catalog facts. */
 export const hooksteelFoundingPriceShort =
-  "Founding $89 (first 10 licenses or 30d from 2026-09-27), then $129";
+  "Founding $89 (first 10 licenses), then $129";
 
 export const seattruthOutcome =
   "Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled, before support piles up. Read-only. No charges. No auto-fix.";
