@@ -400,7 +400,7 @@ export const recvApprovalWatchHow = [
 
 /** Live Polar checkout for the HookSteel one-org grant. */
 export const hooksteelCheckout =
-  "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
+  "https://buy.polar.sh/polar_cl_P50s0ymidZioPFgvcyX5YRhMV7cI1bIUxX3fu1pMpNF";
 
 /** How-it-works / mid-page demo (clip-60s-grant-once Rank 2). Not the Buy-row cut. */
 export const hooksteelDemo =
