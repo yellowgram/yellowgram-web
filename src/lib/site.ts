@@ -54,10 +54,10 @@ export const surfaceGuardCheckoutYearly =
 
 export const surfaceGuard = {
   name: "Surface Guard",
-  badge: "Founding reservation · App not shipped",
+  badge: "Founding · Live",
   tagline: "Private-repo PR check. Lock founding price.",
   summary:
-    "Founding reservation for Surface Guard — a private-repo PR check for one GitHub organization. The App is not shipped yet. First 20 orgs lock this price. Auto-refund if no working private-repo check within 90 days of payment.",
+    "Founding Surface Guard — a private-repo PR check for one GitHub organization. First 20 orgs lock this price. Pay via Polar; entitlement wires after checkout. Auto-refund if no working private-repo check within 90 days of payment.",
   monthly: { amount: "$99", detail: "/ mo · per org", checkout: surfaceGuardCheckoutMonthly },
   yearly: { amount: "$990", detail: "/ yr · per org", checkout: surfaceGuardCheckoutYearly },
   foundingCap: 20,

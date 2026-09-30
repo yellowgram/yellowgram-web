@@ -1,14 +1,14 @@
-export const surfaceGuardTitle = "Surface Guard founding reservation";
+export const surfaceGuardTitle = "Surface Guard founding";
 export const surfaceGuardDescription =
-  "Private-repo PR check for one GitHub org. $99/mo or $990/yr. First 20 orgs lock price. App not shipped yet — auto-refund if no working private-repo check in 90 days.";
+  "Private-repo PR check for one GitHub org. $99/mo or $990/yr. First 20 orgs lock price. Founding sell live — auto-refund if no working private-repo check in 90 days.";
 
 export const surfaceGuardIntro =
-  "This is a founding reservation for Surface Guard, the paid private-repo PR check that sits next to free OSS SurfacePin. The GitHub App is not shipped yet. Paying locks your founding price for the first 20 organizations.";
+  "Surface Guard is the paid private-repo PR check next to free OSS SurfacePin. Founding sell is live: pay $99/mo or $990/yr to lock price for the first 20 organizations and get the App check on your org.";
 
 export const surfaceGuardTerms: { label: string; body: string }[] = [
   {
     label: "What you are buying",
-    body: "A founding reservation for Surface Guard on one GitHub organization: a private-repo PR check when the App ships. Not Setup. Not Audit. Not consulting.",
+    body: "Surface Guard on one GitHub organization: a private-repo PR check. Not Setup. Not Audit. Not consulting. Founding $99/$990 only — no Soft-WTP or coupons.",
   },
   {
     label: "Price lock",
@@ -16,7 +16,7 @@ export const surfaceGuardTerms: { label: string; body: string }[] = [
   },
   {
     label: "App status",
-    body: "The App is not shipped yet. This page sells the reservation only. OSS SurfacePin (public-repo pin/verify) stays free and offline-capable.",
+    body: "Founding sell is live. After Polar checkout (github_org field), entitlement grants the App check on that org. OSS SurfacePin (public-repo pin/verify) stays free and offline-capable.",
   },
   {
     label: "90-day auto-refund",
@@ -27,15 +27,15 @@ export const surfaceGuardTerms: { label: string; body: string }[] = [
 export const surfaceGuardFaq: { q: string; a: string }[] = [
   {
     q: "Is the GitHub App live?",
-    a: "No. This is a founding reservation. The App build stays paused until demand gates pass. You are paying to lock founding price and to fund the private-repo check.",
+    a: "Yes for founding customers. Pay on this page, set your github_org at checkout, install the App on that org, and the private-repo PR check runs. Soft-WTP and Marketplace GA are separate.",
   },
   {
-    q: "What if it never ships?",
+    q: "What if it never works for my org?",
     a: "If no working private-repo check exists within 90 days of payment, we auto-refund.",
   },
   {
     q: "Is this Surface Lock Setup or Surface Audit?",
-    a: "No. Those consulting SKUs are not for sale. This is only the Surface Guard founding reservation.",
+    a: "No. Those consulting SKUs are not for sale. This is only Surface Guard founding ($99/$990).",
   },
   {
     q: "Do I need to talk to anyone to pay?",
