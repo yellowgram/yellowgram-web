@@ -41,7 +41,7 @@ export default function SurfaceGuardFoundingPage() {
             </p>
             <p className="mt-3 text-sm muted">First 20 orgs lock price · 90-day auto-refund</p>
             <a
-              className="btn btn-primary mt-8 inline-flex"
+              className="btn btn-ghost mt-8 inline-flex"
               href={surfaceGuardCheckoutMonthly}
               {...externalLinkProps(surfaceGuardCheckoutMonthly)}
             >
@@ -56,7 +56,7 @@ export default function SurfaceGuardFoundingPage() {
             </p>
             <p className="mt-3 text-sm muted">First 20 orgs lock price · 90-day auto-refund</p>
             <a
-              className="btn btn-primary mt-8 inline-flex"
+              className="btn btn-ghost mt-8 inline-flex"
               href={surfaceGuardCheckoutYearly}
               {...externalLinkProps(surfaceGuardCheckoutYearly)}
             >

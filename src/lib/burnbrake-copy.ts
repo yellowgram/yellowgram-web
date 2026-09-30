@@ -20,9 +20,9 @@ export const burnbrakeIntro = `Cap the spend. Halt the request. ${burnbrakeOutco
 
 export const burnbrakeContrastTitle = "The next completion stops.";
 
-/** Evidence line. OpenAI 429 and LiteLLM email are the contrast; BurnBrake is 402. */
+/** Honesty: LiteLLM soft_budget emails; LiteLLM max_budget already hard-blocks. Name the free default. */
 export const burnbrakeContrast =
-  "Unlike OpenAI org hard limits (429) and LiteLLM soft budgets that email without blocking, BurnBrake refuses the next completion with HTTP 402 BUDGET_EXHAUSTED, halt, not retryable — proven by npm run demo @ v0.1.1.";
+  "LiteLLM soft budgets email without blocking; LiteLLM max_budget and OpenAI org hard limits already refuse the next completion (often as 429). BurnBrake’s exhaust is HTTP 402 BUDGET_EXHAUSTED, halt, not retryable — a sidecar you keep, proven by npm run demo @ v0.1.1. It is not the only hard stop.";
 
 export const burnbrakeTerms = [
   {

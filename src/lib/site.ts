@@ -37,7 +37,7 @@ export const maydoOutcome =
   "When your MayDo process is down, allow denies — no silent allow.";
 
 export const burnbrakeOutcome =
-  "When the budget is gone, the next completion is refused (HTTP 402), not a soft email.";
+  "When the budget is gone, the next completion is refused with HTTP 402 BUDGET_EXHAUSTED (halt, not retryable).";
 
 export const creditLedgerOutcome =
   "Empty balance stops the next expensive call on your Stripe — not only at invoice finalize.";
@@ -54,10 +54,10 @@ export const surfaceGuardCheckoutYearly =
 
 export const surfaceGuard = {
   name: "Surface Guard",
-  badge: "Founding · Live",
-  tagline: "Private-repo PR check. Lock founding price.",
+  badge: "Founding · Paused",
+  tagline: "Private-repo PR check. Founding sell paused.",
   summary:
-    "Founding Surface Guard — a private-repo PR check for one GitHub organization. First 20 orgs lock this price. Pay via Polar; entitlement wires after checkout. Auto-refund if no working private-repo check within 90 days of payment.",
+    "Surface Guard founding sell is paused (SCRAP). Free OSS SurfacePin stays on /oss. Polar checkouts remain available quietly. Auto-refund policy still applies to any prior founding payment if no working private-repo check within 90 days.",
   monthly: { amount: "$99", detail: "/ mo · per org", checkout: surfaceGuardCheckoutMonthly },
   yearly: { amount: "$990", detail: "/ yr · per org", checkout: surfaceGuardCheckoutYearly },
   foundingCap: 20,
@@ -556,8 +556,14 @@ export type CatalogTool = {
   price?: CatalogPrice;
   /** Shipped. */
   current?: boolean;
-  /** Commercial grant. Homepage catalog and /current. */
+  /** Commercial grant product (may be demoted from active sell). */
   paid?: boolean;
+  /**
+   * Active Paid Buy on homepage /current catalog.
+   * Only HookSteel is sellActive after 2026-09-30 free-substitute FAIL lock.
+   * FAIL paid kits keep Polar URLs quietly on product pages.
+   */
+  sellActive?: boolean;
   /** Free open source. /oss only. */
   oss?: boolean;
 };
@@ -590,6 +596,7 @@ export const tools: CatalogTool[] = [
     productHref: "/hooksteel",
     current: true,
     paid: true,
+    sellActive: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
     secondary: { label: "Watch demo", href: hooksteelDemo },
     source: { label: "Source", href: hooksteel.github },
@@ -610,6 +617,7 @@ export const tools: CatalogTool[] = [
     productHref: "/seattruth",
     current: true,
     paid: true,
+    sellActive: false,
     primary: { label: "Buy on Polar", href: seattruth.checkout },
     secondary: { label: "Watch demo", href: seattruthDemo },
     source: { label: "Source", href: seattruth.github },
@@ -630,6 +638,7 @@ export const tools: CatalogTool[] = [
     productHref: "/maydo",
     current: true,
     paid: true,
+    sellActive: false,
     primary: { label: "Buy on Polar", href: maydo.checkout },
     source: { label: "Source", href: maydo.github },
     delivery: maydo.delivery,
@@ -649,8 +658,9 @@ export const tools: CatalogTool[] = [
     productHref: "/burnbrake",
     current: true,
     paid: true,
+    sellActive: false,
     primary: { label: "Buy on Polar", href: burnbrake.checkout },
-    secondary: { label: "Buy hosted · $59/mo", href: burnbrake.hostedCheckout },
+    secondary: { label: "Hosted checkout · $59/mo", href: burnbrake.hostedCheckout },
     source: { label: "Source", href: burnbrake.github },
     delivery: burnbrake.delivery,
     facts: burnbrake.facts,
@@ -669,6 +679,7 @@ export const tools: CatalogTool[] = [
     productHref: "/credit-ledger",
     current: true,
     paid: true,
+    sellActive: false,
     primary: { label: "Buy on Polar", href: creditLedger.checkout },
     source: { label: "Source", href: creditLedger.github },
     delivery: creditLedger.delivery,
@@ -800,13 +811,16 @@ export const tools: CatalogTool[] = [
   },
 ];
 
-/** Paid fleet. Homepage catalog and /current, catalog order. */
-export const paidProducts = tools.filter((tool) => tool.paid);
+/** Active Paid Buy catalog. Homepage and /current. HookSteel only (2026-09-30 FAIL demotion). */
+export const paidProducts = tools.filter((tool) => tool.paid && tool.sellActive);
+
+/** All commercial-grant products (including demoted FAIL). Product pages stay; Polar quiet. */
+export const commercialProducts = tools.filter((tool) => tool.paid);
 
 /** Free open source. /oss, catalog order. */
 export const ossProducts = tools.filter((tool) => tool.oss);
 
-/** Paid fleet on /current. Same list and order as the homepage. */
+/** Active Paid Buy on /current. Same list and order as the homepage. */
 export const currentProducts = paidProducts;
 
 export function toolBySlug(slug: string): CatalogTool {
@@ -819,7 +833,7 @@ export function toolBySlug(slug: string): CatalogTool {
 export const exploring: { name: string; line: string; href?: string }[] = [
   {
     name: "Surface Guard",
-    line: "Founding reservation · App not shipped · $99/mo or $990/yr · first 20 orgs lock price · auto-refund if no working private-repo check in 90 days",
+    line: "Founding sell paused (SCRAP). Free SurfacePin stays on OSS. Polar checkouts remain quiet on the product page.",
     href: "/surface-guard",
   },
 ];
