@@ -8,7 +8,7 @@ export const surfaceGuardIntro =
 export const surfaceGuardTerms: { label: string; body: string }[] = [
   {
     label: "What you are buying",
-    body: "Surface Guard on one GitHub organization: a private-repo PR check. Not Setup. Not Audit. Not consulting. Founding $99/$990 only — no Soft-WTP or coupons.",
+    body: "Surface Guard on one GitHub organization: a private-repo PR check. Not Setup. Not Audit. Not consulting. Founding $99/$990 only — the listed price is the price.",
   },
   {
     label: "Price lock",
@@ -27,7 +27,7 @@ export const surfaceGuardTerms: { label: string; body: string }[] = [
 export const surfaceGuardFaq: { q: string; a: string }[] = [
   {
     q: "Is the GitHub App live?",
-    a: "Yes for founding customers. Pay on this page, set your github_org at checkout, install the App on that org, and the private-repo PR check runs. Soft-WTP and Marketplace GA are separate.",
+    a: "Yes for founding customers. Pay on this page, set your github_org at checkout, install the App on that org, and the private-repo PR check runs. GitHub Marketplace GA is separate.",
   },
   {
     q: "What if it never works for my org?",
