@@ -1,4 +1,4 @@
-/** HookSteel one-pager. Buyer facts. Soft-WTP stays off. HookSteel HS-ID-AE. */
+/** HookSteel one-pager. Buyer facts. HookSteel HS-ID-AE. */
 
 import {
   hooksteelFoundingPrice,
@@ -53,7 +53,7 @@ export const hooksteelFaq = [
   listedPriceFaq,
   {
     q: "When does the founding price end?",
-    a: "Whichever comes first: the 10th HookSteel license, or 30 days after go-live (2026-09-27). Then $129. No discount codes. Soft-WTP is off.",
+    a: "Whichever comes first: the 10th HookSteel license, or 30 days after go-live (2026-09-27). Then $129. No discount codes.",
   },
   {
     q: "What does the grant cover?",

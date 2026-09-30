@@ -30,7 +30,7 @@ export const listedPriceFaq = {
 export const hooksteelOutcome =
   "The same signed billing event, many times, is still one side effect and one grant.";
 
-/** Match Polar + GitHub README founding rule. Soft-WTP stays off. */
+/** Match Polar + GitHub README founding rule. */
 export const hooksteelFoundingPrice =
   "Founding $89 for the first 10 licenses or 30 days after go-live (2026-09-27), whichever comes first; then $129";
 
