@@ -402,25 +402,25 @@ export const recvApprovalWatchHow = [
 export const hooksteelCheckout =
   "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
 
-/** How-it-works / mid-page demo (clip-60s-howto). Not the Buy-row cut. */
+/** How-it-works / mid-page demo (clip-60s-grant-once Rank 2). Not the Buy-row cut. */
 export const hooksteelDemo =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-howto/hooksteel-60s-refresh-buyer.mp4";
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-grant-once/hooksteel-60s-grant-once.mp4";
 
 export const hooksteelDemoSha256 =
-  "5bca0c995f21a070c5c2817ab961286a3a4393dc1f0ddecdc2e03377ec78f002";
+  "60f5435d6043dd3db064b291f4a371fdf6f202e8d959b0d6d81b4b89f210d78c";
 
 export const hooksteelDemoSrt =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-howto/hooksteel-60s-refresh-buyer.srt";
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-grant-once/hooksteel-60s-grant-once.srt";
 
-/** Press-buy / above-Buy Watch only (clip-press-buy). */
+/** Press-buy / above-Buy Watch only (clip-press-buy-grant-once Rank 2). */
 export const hooksteelPressBuyDemo =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy/hooksteel-press-buy.mp4";
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy-grant-once/hooksteel-press-buy.mp4";
 
 export const hooksteelPressBuyDemoSha256 =
-  "a84a77c3327819e6797ec7fd87dd3956f8751adb28616822748d9e423ee408b0";
+  "fe90f638135a4c628616693b81d04881adddc8d89a312e3824173666a60e8736";
 
 export const hooksteelPressBuyDemoSrt =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy/hooksteel-press-buy.srt";
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy-grant-once/hooksteel-press-buy.srt";
 
 export const hooksteel = {
   name: "HookSteel",
