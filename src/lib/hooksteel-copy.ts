@@ -53,7 +53,7 @@ export const hooksteelFaq = [
   listedPriceFaq,
   {
     q: "When does the founding price end?",
-    a: "Whichever comes first: the 10th HookSteel license, or 30 days after go-live (2026-09-27). Then $129. No discount codes.",
+    a: "After the 10th HookSteel license. Then $129. No discount codes.",
   },
   {
     q: "What does the grant cover?",
