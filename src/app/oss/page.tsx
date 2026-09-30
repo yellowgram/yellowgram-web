@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { email, ossProducts } from "@/lib/site";
 
 const description =
-  "Open source yellowgram tools. SurfacePin pins an MCP surface and fails CI on drift. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast. send-approve-bound bounds approval calldata before send. Free. MIT.";
+  "Open source yellowgram tools. SurfacePin pins an MCP surface and fails CI on drift. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast. send-approve-bound bounds approval calldata before send. Also pinned: send-allow, send-idempotency, recv-sweep-brake, send-permit2-bound, recv-approval-watch. Free. MIT.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Open source",
@@ -45,7 +45,9 @@ export default function OssPage() {
             <p className="eyebrow">Contact</p>
             <h2 className="title mt-4">Ask about a tool</h2>
             <p className="mt-5 max-w-sm muted">
-              SurfacePin, Keel, L2 Send Guard, or send-approve-bound. Email{" "}
+              SurfacePin, Keel, L2 Send Guard, send-approve-bound, send-allow,
+              send-idempotency, recv-sweep-brake, send-permit2-bound, or
+              recv-approval-watch. Email{" "}
               <a className="text-link" href={`mailto:${email}`}>
                 {email}
               </a>{" "}

@@ -204,6 +204,181 @@ export const sendApproveBoundHow = [
   },
 ];
 
+/** Publish gate 3c0840d39d5ed46b6e5a304c17cc79c61de65474. Catalog pin is npm 0.1.0. */
+export const sendAllow = {
+  name: "send-allow",
+  badge: "Current · Open source",
+  tagline: "Allow the destination. Cap the native.",
+  summary:
+    "Non-custodial JSON-RPC middleware: address allowlist and optional native spend caps in front of eth_sendRawTransaction. No simulation. Complementary to L2 Send Guard.",
+  facts: [
+    "Address allowlist · optional native spend caps",
+    "Definite misses fail closed · no simulation",
+    "MIT · no key custody · not a sim proxy",
+  ],
+  install: "npx send-allow@0.1.0",
+  repo: "yellowgram/send-allow",
+  github: "https://github.com/yellowgram/send-allow",
+};
+
+export const sendAllowHow = [
+  {
+    step: "01",
+    title: "Allow",
+    body: "Forward only when the destination is allowlisted.",
+  },
+  {
+    step: "02",
+    title: "Cap",
+    body: "Hold native value to the per-address and global caps.",
+  },
+  {
+    step: "03",
+    title: "Deny",
+    body: "Refuse a definite policy miss before broadcast.",
+  },
+];
+
+/** Publish gate ca0bb4815218fb0e3ef5ea101ce1912723fa9391. Catalog pin is npm 0.1.0. */
+export const sendIdempotency = {
+  name: "send-idempotency",
+  badge: "Current · Open source",
+  tagline: "Remember the key. Refuse the conflict.",
+  summary:
+    "Non-custodial at-send idempotency: a client key remembers the payload hash or a prior deny; a different payload conflicts; a down store fails closed. Not a nonce lease.",
+  facts: [
+    "Client key → payload hash or prior deny",
+    "Conflict on a different payload",
+    "MIT · fail-closed on store-down · not a nonce lease",
+  ],
+  install: "npx send-idempotency@0.1.0",
+  repo: "yellowgram/send-idempotency",
+  github: "https://github.com/yellowgram/send-idempotency",
+};
+
+export const sendIdempotencyHow = [
+  {
+    step: "01",
+    title: "Remember",
+    body: "Store the client key against the hash of the signed raw bytes.",
+  },
+  {
+    step: "02",
+    title: "Conflict",
+    body: "Refuse the same key when the payload differs.",
+  },
+  {
+    step: "03",
+    title: "Halt",
+    body: "Fail closed when the store is down.",
+  },
+];
+
+/** Publish gate 37c0fdc65ac8c17b44ef1fdd45a3363ce97d199d. Catalog pin is npm 0.1.0. */
+export const recvSweepBrake = {
+  name: "recv-sweep-brake",
+  badge: "Current · Open source",
+  tagline: "Brake the sweep. Until it is clear.",
+  summary:
+    "No-auto-sweep fence: sweep_policy.enabled defaults off; quarantine is clear, quarantine, or toxic; a send of non-clear is denied sweep_braked. No keys, signing, or auto-move.",
+  facts: [
+    "sweep_policy.enabled defaults off",
+    "Quarantine clear · quarantine · toxic",
+    "MIT · deny sweep_braked · no keys · no auto-move",
+  ],
+  install: "npx recv-sweep-brake@0.1.0",
+  repo: "yellowgram/recv-sweep-brake",
+  github: "https://github.com/yellowgram/recv-sweep-brake",
+};
+
+export const recvSweepBrakeHow = [
+  {
+    step: "01",
+    title: "Classify",
+    body: "Label inbound clear, quarantine, or toxic.",
+  },
+  {
+    step: "02",
+    title: "Hold",
+    body: "Leave the brake on until an asset is explicitly clear.",
+  },
+  {
+    step: "03",
+    title: "Deny",
+    body: "Refuse a send of non-clear funds. No auto-move.",
+  },
+];
+
+/** Publish gate 4e899bf8ab3639c53c4a37baa868868f9b81a736. Catalog pin is npm 0.1.0. */
+export const sendPermit2Bound = {
+  name: "send-permit2-bound",
+  badge: "Current · Open source",
+  tagline: "Pin Permit2. Bound the calldata.",
+  summary:
+    "Non-custodial at-send gate: pin Permit2 by chain and bound approve, permit, and permitTransferFrom calldata. No phishing UX. Compose after send-approve-bound. No keys. No simulation.",
+  facts: [
+    "Permit2 pin by chain",
+    "approve · permit · permitTransferFrom caps",
+    "MIT · after send-approve-bound · no keys · no sim",
+  ],
+  install: "npx send-permit2-bound@0.1.0",
+  repo: "yellowgram/send-permit2-bound",
+  github: "https://github.com/yellowgram/send-permit2-bound",
+};
+
+export const sendPermit2BoundHow = [
+  {
+    step: "01",
+    title: "Pin",
+    body: "Accept Permit2 only at the address pinned for that chain.",
+  },
+  {
+    step: "02",
+    title: "Bound",
+    body: "Hold amount, expiration, and spender to the policy.",
+  },
+  {
+    step: "03",
+    title: "Deny",
+    body: "Refuse an unpinned or over-cap call before the send.",
+  },
+];
+
+/** Publish gate 2aeeae81a9aea6d90fff3223375b1f3d8a168a53. Catalog pin is npm 0.1.0. */
+export const recvApprovalWatch = {
+  name: "recv-approval-watch",
+  badge: "Current · Open source",
+  tagline: "Watch the approval. Fail closed.",
+  summary:
+    "Receive-side watch for Approval and ApprovalForAll where the agent is owner or spender. Emits unexpected_approval. clearanceFromWatch fails closed. Revoke-intent never signs.",
+  facts: [
+    "Approval · ApprovalForAll · owner or spender",
+    "unexpected_approval · clearance fails closed",
+    "MIT · revoke intent never signs",
+  ],
+  install: "npx recv-approval-watch@0.1.0",
+  repo: "yellowgram/recv-approval-watch",
+  github: "https://github.com/yellowgram/recv-approval-watch",
+};
+
+export const recvApprovalWatchHow = [
+  {
+    step: "01",
+    title: "Watch",
+    body: "Read Approval and ApprovalForAll where the agent is owner or spender.",
+  },
+  {
+    step: "02",
+    title: "Emit",
+    body: "Flag an unexpected grant. Unlimited stays unexpected unless opted in.",
+  },
+  {
+    step: "03",
+    title: "Hold",
+    body: "Fail clearance closed while the watch is unhealthy. Never sign a revoke.",
+  },
+];
+
 /** Live Polar checkout for the HookSteel one-org grant. */
 export const hooksteelCheckout =
   "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
@@ -548,6 +723,81 @@ export const tools: CatalogTool[] = [
     whyTitle: "Bound, cap, deny.",
     steps: sendApproveBoundHow,
   },
+  {
+    slug: "send-allow",
+    name: sendAllow.name,
+    badge: sendAllow.badge,
+    tagline: sendAllow.tagline,
+    summary: sendAllow.summary,
+    repo: sendAllow.repo,
+    current: true,
+    oss: true,
+    primary: { label: "View on GitHub", href: sendAllow.github },
+    install: sendAllow.install,
+    facts: sendAllow.facts,
+    whyTitle: "Allow, cap, deny.",
+    steps: sendAllowHow,
+  },
+  {
+    slug: "send-idempotency",
+    name: sendIdempotency.name,
+    badge: sendIdempotency.badge,
+    tagline: sendIdempotency.tagline,
+    summary: sendIdempotency.summary,
+    repo: sendIdempotency.repo,
+    current: true,
+    oss: true,
+    primary: { label: "View on GitHub", href: sendIdempotency.github },
+    install: sendIdempotency.install,
+    facts: sendIdempotency.facts,
+    whyTitle: "Remember, conflict, halt.",
+    steps: sendIdempotencyHow,
+  },
+  {
+    slug: "recv-sweep-brake",
+    name: recvSweepBrake.name,
+    badge: recvSweepBrake.badge,
+    tagline: recvSweepBrake.tagline,
+    summary: recvSweepBrake.summary,
+    repo: recvSweepBrake.repo,
+    current: true,
+    oss: true,
+    primary: { label: "View on GitHub", href: recvSweepBrake.github },
+    install: recvSweepBrake.install,
+    facts: recvSweepBrake.facts,
+    whyTitle: "Classify, hold, deny.",
+    steps: recvSweepBrakeHow,
+  },
+  {
+    slug: "send-permit2-bound",
+    name: sendPermit2Bound.name,
+    badge: sendPermit2Bound.badge,
+    tagline: sendPermit2Bound.tagline,
+    summary: sendPermit2Bound.summary,
+    repo: sendPermit2Bound.repo,
+    current: true,
+    oss: true,
+    primary: { label: "View on GitHub", href: sendPermit2Bound.github },
+    install: sendPermit2Bound.install,
+    facts: sendPermit2Bound.facts,
+    whyTitle: "Pin, bound, deny.",
+    steps: sendPermit2BoundHow,
+  },
+  {
+    slug: "recv-approval-watch",
+    name: recvApprovalWatch.name,
+    badge: recvApprovalWatch.badge,
+    tagline: recvApprovalWatch.tagline,
+    summary: recvApprovalWatch.summary,
+    repo: recvApprovalWatch.repo,
+    current: true,
+    oss: true,
+    primary: { label: "View on GitHub", href: recvApprovalWatch.github },
+    install: recvApprovalWatch.install,
+    facts: recvApprovalWatch.facts,
+    whyTitle: "Watch, emit, hold.",
+    steps: recvApprovalWatchHow,
+  },
 ];
 
 /** Paid fleet. Homepage catalog and /current, catalog order. */
@@ -585,5 +835,10 @@ export const interests = [
   "Keel",
   "L2 Send Guard",
   "send-approve-bound",
+  "send-allow",
+  "send-idempotency",
+  "recv-sweep-brake",
+  "send-permit2-bound",
+  "recv-approval-watch",
   "Something else",
 ];
