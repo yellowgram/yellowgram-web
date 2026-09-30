@@ -169,6 +169,41 @@ export const l2SendGuardHow = [
   },
 ];
 
+/** Publish gate 1daa967. Catalog pin is npm 0.1.0. */
+export const sendApproveBound = {
+  name: "send-approve-bound",
+  badge: "Current · Open source",
+  tagline: "Bound the approve. Before it sends.",
+  summary:
+    "Non-custodial at-send gate for ERC-20/721/1155 approval calldata — per-token spender allowlist + caps; unlimited always denied. Compose after send-allow. No keys/sim.",
+  facts: [
+    "Per-token spender allowlist · ERC-20/721/1155",
+    "ERC-20 raw caps · unlimited always denied",
+    "MIT · after send-allow · no keys · no sim",
+  ],
+  install: "npx send-approve-bound@0.1.0",
+  repo: "yellowgram/send-approve-bound",
+  github: "https://github.com/yellowgram/send-approve-bound",
+};
+
+export const sendApproveBoundHow = [
+  {
+    step: "01",
+    title: "Bound",
+    body: "Allow only listed spenders on that token.",
+  },
+  {
+    step: "02",
+    title: "Cap",
+    body: "Hold ERC-20 approve and increaseAllowance to the raw cap.",
+  },
+  {
+    step: "03",
+    title: "Deny",
+    body: "Refuse unlimited approvals before the send.",
+  },
+];
+
 /** Live Polar checkout for the HookSteel one-org grant. */
 export const hooksteelCheckout =
   "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
@@ -498,6 +533,21 @@ export const tools: CatalogTool[] = [
     whyTitle: "Proxy, simulate, halt.",
     steps: l2SendGuardHow,
   },
+  {
+    slug: "send-approve-bound",
+    name: sendApproveBound.name,
+    badge: sendApproveBound.badge,
+    tagline: sendApproveBound.tagline,
+    summary: sendApproveBound.summary,
+    repo: sendApproveBound.repo,
+    current: true,
+    oss: true,
+    primary: { label: "View on GitHub", href: sendApproveBound.github },
+    install: sendApproveBound.install,
+    facts: sendApproveBound.facts,
+    whyTitle: "Bound, cap, deny.",
+    steps: sendApproveBoundHow,
+  },
 ];
 
 /** Paid fleet. Homepage catalog and /current, catalog order. */
@@ -534,5 +584,6 @@ export const interests = [
   "Credit Ledger",
   "Keel",
   "L2 Send Guard",
+  "send-approve-bound",
   "Something else",
 ];
