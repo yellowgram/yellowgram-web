@@ -26,16 +26,17 @@ import {
   hooksteelDemo,
   hooksteelDemoSha256,
   hooksteelDemoSrt,
+  hooksteelPressBuyDemo,
   hooksteelPromise,
   toolBySlug,
 } from "@/lib/site";
 
 const catalog = toolBySlug("hooksteel");
 
-/** Sell spine only. Watch demo is the how-it-works block, not a hero action. */
+/** Above-Buy Watch = press-buy cut. Mid-page video = how-it-works 60s. */
 const tool = {
   ...catalog,
-  secondary: undefined,
+  secondary: { label: "Watch demo", href: hooksteelPressBuyDemo },
   watch: undefined,
   steps: undefined,
   stepsNote: undefined,

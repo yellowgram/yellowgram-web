@@ -402,7 +402,7 @@ export const recvApprovalWatchHow = [
 export const hooksteelCheckout =
   "https://buy.polar.sh/polar_cl_Zyd3QvwuuzVXvHEGpQNxIgVr0ELStd0grDR4D0rnI23";
 
-/** How-it-works demo (clip-60s-howto). Not a button beside Buy. */
+/** How-it-works / mid-page demo (clip-60s-howto). Not the Buy-row cut. */
 export const hooksteelDemo =
   "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-howto/hooksteel-60s-refresh-buyer.mp4";
 
@@ -411,6 +411,16 @@ export const hooksteelDemoSha256 =
 
 export const hooksteelDemoSrt =
   "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-howto/hooksteel-60s-refresh-buyer.srt";
+
+/** Press-buy / above-Buy Watch only (clip-press-buy). */
+export const hooksteelPressBuyDemo =
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy/hooksteel-press-buy.mp4";
+
+export const hooksteelPressBuyDemoSha256 =
+  "a84a77c3327819e6797ec7fd87dd3956f8751adb28616822748d9e423ee408b0";
+
+export const hooksteelPressBuyDemoSrt =
+  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy/hooksteel-press-buy.srt";
 
 export const hooksteel = {
   name: "HookSteel",
@@ -625,6 +635,7 @@ export const tools: CatalogTool[] = [
     paid: true,
     sellActive: true,
     primary: { label: "Buy on Polar", href: hooksteel.checkout },
+    secondary: { label: "Watch demo", href: hooksteelPressBuyDemo },
     source: { label: "Source", href: hooksteel.github },
     watch: { label: "Watch demo", href: hooksteelDemo },
     delivery: hooksteel.delivery,
