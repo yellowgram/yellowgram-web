@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { NotAvailable, notAvailableMetadata } from "@/components/NotAvailable";
 import { ProductPage } from "@/components/ProductPage";
 import { externalLinkProps } from "@/components/ToolListing";
+import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
 import {
   burnbrakeCommit,
   burnbrakeContrast,
@@ -19,14 +21,20 @@ import { burnbrake, email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("burnbrake");
 
-export const metadata: Metadata = pageMetadata({
-  title: burnbrakeTitle,
-  description: burnbrakeDescription,
-  path: "/burnbrake",
-  absoluteTitle: true,
-});
+export const metadata: Metadata = PAID_PRODUCTS_VISIBLE
+  ? pageMetadata({
+      title: burnbrakeTitle,
+      description: burnbrakeDescription,
+      path: "/burnbrake",
+      absoluteTitle: true,
+    })
+  : notAvailableMetadata("/burnbrake");
 
 export default function BurnBrakePage() {
+  if (!PAID_PRODUCTS_VISIBLE) {
+    return <NotAvailable />;
+  }
+
   return (
     <ProductPage
       tool={tool}

@@ -9,6 +9,7 @@ import {
   seattruthContract,
   seattruthKitLock,
 } from "./catalog-contracts";
+import { PAID_PRODUCTS_VISIBLE } from "./paid-visibility";
 
 export const email = "hello@yellowgram.dev";
 
@@ -850,7 +851,9 @@ export const tools: CatalogTool[] = [
 ];
 
 /** Active Paid Buy catalog. Homepage and /current. HookSteel only (2026-09-30 FAIL demotion). */
-export const paidProducts = tools.filter((tool) => tool.paid && tool.sellActive);
+const activePaidProducts = tools.filter((tool) => tool.paid && tool.sellActive);
+
+export const paidProducts = PAID_PRODUCTS_VISIBLE ? activePaidProducts : [];
 
 /** All commercial-grant products (including demoted FAIL). Product pages stay; Polar quiet. */
 export const commercialProducts = tools.filter((tool) => tool.paid);
@@ -868,13 +871,15 @@ export function toolBySlug(slug: string): CatalogTool {
 }
 
 /** In-development / founding entries for /future. No Setup/Audit rails. */
-export const exploring: { name: string; line: string; href?: string }[] = [
+const exploringWhenVisible: { name: string; line: string; href?: string }[] = [
   {
     name: "Surface Guard",
     line: "Founding sell paused (SCRAP). Free SurfacePin stays on OSS. Polar checkouts remain quiet on the product page.",
     href: "/surface-guard",
   },
 ];
+
+export const exploring = PAID_PRODUCTS_VISIBLE ? exploringWhenVisible : [];
 
 export const interests = [
   "Surface Guard founding",

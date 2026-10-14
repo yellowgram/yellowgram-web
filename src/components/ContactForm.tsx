@@ -1,9 +1,6 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { email, interests } from "@/lib/site";
-
-const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${email}`;
 
 function formSubmitSucceeded(payload: unknown): boolean {
   if (!payload || typeof payload !== "object" || !("success" in payload)) return false;
@@ -11,20 +8,29 @@ function formSubmitSucceeded(payload: unknown): boolean {
   return success === true || success === "true";
 }
 
-function listedInterest(value: string | undefined): string {
+function listedInterest(value: string | undefined, interests: readonly string[]): string {
   const interest = value?.trim() ?? "";
   return interests.includes(interest) ? interest : "";
 }
 
-export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
+export function ContactForm({
+  defaultInterest,
+  email,
+  interests,
+}: {
+  defaultInterest?: string;
+  email: string;
+  interests: readonly string[];
+}) {
+  const formSubmitUrl = `https://formsubmit.co/ajax/${email}`;
   const [status, setStatus] = useState<"idle" | "loading" | "ok" | "err">("idle");
   const [error, setError] = useState("");
-  const [interest, setInterest] = useState(listedInterest(defaultInterest));
+  const [interest, setInterest] = useState(listedInterest(defaultInterest, interests));
 
   useEffect(() => {
-    const fromUrl = listedInterest(new URLSearchParams(window.location.search).get("interest") ?? undefined);
+    const fromUrl = listedInterest(new URLSearchParams(window.location.search).get("interest") ?? undefined, interests);
     if (fromUrl) setInterest(fromUrl);
-  }, []);
+  }, [interests]);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,7 +49,7 @@ export function ContactForm({ defaultInterest }: { defaultInterest?: string }) {
     }
 
     try {
-      const res = await fetch(FORMSUBMIT_URL, {
+      const res = await fetch(formSubmitUrl, {
         method: "POST",
         headers: {
           Accept: "application/json",

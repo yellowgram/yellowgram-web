@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { NotAvailable, notAvailableMetadata } from "@/components/NotAvailable";
 import { ProductPage } from "@/components/ProductPage";
 import { externalLinkProps } from "@/components/ToolListing";
+import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
 import {
   maydoActor,
   maydoCommit,
@@ -20,14 +22,20 @@ import { email, maydo, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("maydo");
 
-export const metadata: Metadata = pageMetadata({
-  title: maydoTitle,
-  description: maydoDescription,
-  path: "/maydo",
-  absoluteTitle: true,
-});
+export const metadata: Metadata = PAID_PRODUCTS_VISIBLE
+  ? pageMetadata({
+      title: maydoTitle,
+      description: maydoDescription,
+      path: "/maydo",
+      absoluteTitle: true,
+    })
+  : notAvailableMetadata("/maydo");
 
 export default function MayDoPage() {
+  if (!PAID_PRODUCTS_VISIBLE) {
+    return <NotAvailable />;
+  }
+
   return (
     <ProductPage
       tool={tool}

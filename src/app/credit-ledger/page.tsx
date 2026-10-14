@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { NotAvailable, notAvailableMetadata } from "@/components/NotAvailable";
 import { ProductPage } from "@/components/ProductPage";
 import { externalLinkProps } from "@/components/ToolListing";
+import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
 import {
   creditLedgerCommit,
   creditLedgerContrast,
@@ -19,14 +21,20 @@ import { creditLedger, email, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("credit-ledger");
 
-export const metadata: Metadata = pageMetadata({
-  title: creditLedgerTitle,
-  description: creditLedgerDescription,
-  path: "/credit-ledger",
-  absoluteTitle: true,
-});
+export const metadata: Metadata = PAID_PRODUCTS_VISIBLE
+  ? pageMetadata({
+      title: creditLedgerTitle,
+      description: creditLedgerDescription,
+      path: "/credit-ledger",
+      absoluteTitle: true,
+    })
+  : notAvailableMetadata("/credit-ledger");
 
 export default function CreditLedgerPage() {
+  if (!PAID_PRODUCTS_VISIBLE) {
+    return <NotAvailable />;
+  }
+
   return (
     <ProductPage
       tool={tool}

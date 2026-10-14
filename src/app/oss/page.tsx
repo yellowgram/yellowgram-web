@@ -4,7 +4,7 @@ import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
 import { pageMetadata } from "@/lib/seo";
-import { email, ossProducts } from "@/lib/site";
+import { email, interests, ossProducts } from "@/lib/site";
 
 const description =
   "Open source yellowgram tools. SurfacePin pins an MCP surface and fails CI on drift. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast. send-approve-bound bounds approval calldata before send. Also pinned: send-allow, send-idempotency, recv-sweep-brake, send-permit2-bound, recv-approval-watch. Free. MIT.";
@@ -59,7 +59,7 @@ export default function OssPage() {
               </Link>
             </p>
           </div>
-          <ContactForm />
+          <ContactForm email={email} interests={interests} />
         </div>
       </section>
     </PageShell>
