@@ -1,7 +1,14 @@
 /** SeatTruth one-pager. Buyer facts. Soft-WTP stays off. SeatTruth ST-ID-AE pilot. */
 
-import { listedPriceFaq, seattruthOutcome } from "./site";
 import { seattruthKitLock } from "./catalog-contracts";
+
+const seattruthOutcome =
+  "Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled, before support piles up. Read-only. No charges. No auto-fix.";
+
+const listedPriceFaq = {
+  q: "Do you offer discount codes or deal pricing?",
+  a: "No. The listed price is the price.",
+} as const;
 
 export { seattruthContract, seattruthKitLock } from "./catalog-contracts";
 

@@ -1,13 +1,8 @@
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
-import { ToolCard, ToolDetail } from "@/components/ToolListing";
-import { email, paidProducts } from "@/lib/site";
+import { email } from "@/lib/site";
 
 export default function HomePage() {
-  const explained = paidProducts.filter(
-    (tool) => tool.whyTitle || tool.install || tool.delivery || tool.steps?.length,
-  );
-
   return (
     <PageShell>
       <section className="hero">
@@ -26,7 +21,7 @@ export default function HomePage() {
             For teams that already ship and need the software to hold.
           </p>
           <div className="actions mt-10">
-            <a className="btn btn-primary" href="#tools">
+            <a className="btn btn-primary" href="/oss">
               See the tools
             </a>
           </div>
@@ -48,22 +43,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      <section id="tools" className="panel">
-        <div className="container py-20 md:py-28">
-          <p className="eyebrow">Catalog</p>
-          <h2 className="title mt-4">Tools</h2>
-          <ul className="tool-grid">
-            {paidProducts.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {explained.map((tool) => (
-        <ToolDetail key={tool.slug} tool={tool} />
-      ))}
 
       <section id="contact" className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.1fr)] lg:gap-20">

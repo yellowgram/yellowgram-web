@@ -1,6 +1,12 @@
 /** Credit Ledger one-pager. Buyer facts. Soft-WTP stays off. Credit Ledger CL-ID-AE. No kit refund. */
 
-import { creditLedgerOutcome, listedPriceFaq } from "./site";
+const creditLedgerOutcome =
+  "Empty balance stops the next expensive call on your Stripe — not only at invoice finalize.";
+
+const listedPriceFaq = {
+  q: "Do you offer discount codes or deal pricing?",
+  a: "No. The listed price is the price.",
+} as const;
 
 /** CL-ID-AE license_sentence (Credit Ledger-only; do not change shared fleet commercialLicenseLine). */
 export const creditLedgerLicenseSentence =

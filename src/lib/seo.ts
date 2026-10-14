@@ -14,7 +14,7 @@ const shareImage = {
 
 /**
  * Wedge crawl targets only. /future is absent.
- * Billing and labs product routes are not in this sitemap.
+ * Paid product routes are not in this sitemap.
  */
 export const publicRoutes: readonly {
   path: string;
@@ -23,8 +23,6 @@ export const publicRoutes: readonly {
 }[] = [
   { path: "/surfacepin", priority: 1, changeFrequency: "weekly" },
   { path: "/spec/surfacepin", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/hooksteel", priority: 0.9, changeFrequency: "weekly" },
-  { path: "/surface-guard", priority: 0.2, changeFrequency: "monthly" },
   { path: "/", priority: 0.8, changeFrequency: "weekly" },
   { path: "/current", priority: 0.4, changeFrequency: "weekly" },
   { path: "/oss", priority: 0.4, changeFrequency: "weekly" },

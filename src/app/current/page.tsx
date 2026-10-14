@@ -2,17 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
-import { ToolCard, ToolDetail } from "@/components/ToolListing";
 import { pageMetadata } from "@/lib/seo";
-import {
-  commercialLicenseLine,
-  currentProducts,
-  email,
-  hooksteelFoundingPriceShort,
-  hooksteelOutcome,
-} from "@/lib/site";
+import { email } from "@/lib/site";
 
-const description = `Active Paid Buy: HookSteel. ${hooksteelOutcome} ${hooksteelFoundingPriceShort}. ${commercialLicenseLine} Other commercial kits remain on product pages with quiet Polar checkouts; they are not in this catalog.`;
+const description = "Paid tools from yellowgram. Nothing listed right now.";
 
 export const metadata: Metadata = pageMetadata({
   title: "Paid",
@@ -27,22 +20,14 @@ export default function CurrentPage() {
         <div className="container py-20 md:py-28">
           <p className="eyebrow">Paid</p>
           <h1 className="title mt-4">Tools</h1>
+          <p className="lede mt-5 max-w-xl muted">Nothing listed right now.</p>
           <p className="mt-5">
             <Link className="text-link text-sm" href="/oss">
               Open source tools
             </Link>
           </p>
-          <ul className="tool-grid">
-            {currentProducts.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
-            ))}
-          </ul>
         </div>
       </section>
-
-      {currentProducts.map((tool) => (
-        <ToolDetail key={tool.slug} tool={tool} />
-      ))}
 
       <section id="contact" className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.1fr)] lg:gap-20">

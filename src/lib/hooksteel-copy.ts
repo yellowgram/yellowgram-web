@@ -1,15 +1,26 @@
 /** HookSteel one-pager. Buyer facts. HookSteel HS-ID-AE. */
 
-import {
-  commercialLicenseLine,
-  hooksteelFear,
-  hooksteelFoundingPrice,
-  hooksteelFoundingPriceShort,
-  hooksteelPromise,
-  listedPriceFaq,
-} from "./site";
+import { hooksteelContract, hooksteelHttp } from "./catalog-contracts";
 
-export { hooksteelContract, hooksteelHttp } from "./catalog-contracts";
+export { hooksteelContract, hooksteelHttp };
+
+const commercialLicenseLine =
+  "Pay unlocks one-organization commercial use under PolyForm Noncommercial and the Suthirth grant. Reading or cloning the public repo is not a commercial right.";
+
+const hooksteelFear =
+  "Your handler returned 500. The same paid event came back. You granted twice.";
+
+const hooksteelPromise =
+  "The credit is granted once. HookSteel fulfills each signed Stripe or Polar billing event once, from the outbox on your Postgres.";
+
+const hooksteelFoundingPrice = "Founding $89 for the first 10 licenses; then $129";
+
+const hooksteelFoundingPriceShort = "Founding $89 (first 10 licenses), then $129";
+
+const listedPriceFaq = {
+  q: "Do you offer discount codes or deal pricing?",
+  a: "No. The listed price is the price.",
+} as const;
 
 /** HS-ID-AE license_sentence (HookSteel-only; do not change shared fleet commercialLicenseLine). */
 export const hooksteelLicenseSentence =

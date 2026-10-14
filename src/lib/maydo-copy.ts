@@ -1,7 +1,13 @@
 /** MayDo one-pager. Buyer facts. Soft-WTP stays off. MayDo MD-ID-AE. Metadata trust, not a signed actor. */
 
-import { listedPriceFaq, maydoOutcome } from "./site";
 import { maydoHonesty, maydoKitLock } from "./catalog-contracts";
+
+const maydoOutcome = "When your MayDo process is down, allow denies — no silent allow.";
+
+const listedPriceFaq = {
+  q: "Do you offer discount codes or deal pricing?",
+  a: "No. The listed price is the price.",
+} as const;
 
 /** MD-ID-AE license_sentence (MayDo-only; do not change shared fleet maydoLicenseSentence). */
 export const maydoLicenseSentence =

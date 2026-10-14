@@ -1,6 +1,12 @@
 /** BurnBrake one-pager. Buyer facts. Soft-WTP stays off. BurnBrake BB-ID-AE. */
 
-import { burnbrakeOutcome, listedPriceFaq } from "./site";
+const burnbrakeOutcome =
+  "When the budget is gone, the next completion is refused with HTTP 402 BUDGET_EXHAUSTED (halt, not retryable).";
+
+const listedPriceFaq = {
+  q: "Do you offer discount codes or deal pricing?",
+  a: "No. The listed price is the price.",
+} as const;
 
 /** BB-ID-AE license_sentence (BurnBrake-only; do not change shared fleet commercialLicenseLine). */
 export const burnbrakeLicenseSentence =

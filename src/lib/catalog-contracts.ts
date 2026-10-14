@@ -26,7 +26,7 @@ export const hooksteelContract = [
 export const hooksteelHttp =
   "HTTP 400 is poison or a bad signature. HTTP 200 is accept, duplicate, or ignored. HTTP 500 is transient after verify.";
 
-/** Above-the-fold kit lock. First screen on /seattruth and the Current card. */
+/** Above-the-fold kit lock. First screen on SeatTruth and the Current card. */
 export const seattruthKitLock = "You run this. Not a managed service.";
 
 export const seattruthContract = [
@@ -48,14 +48,14 @@ export const seattruthContract = [
 ] as const;
 
 /**
- * Kit lock. First screen on /maydo and the lede on Current #maydo.
+ * Kit lock. First screen on MayDo and the lede on the Current MayDo section.
  * This SKU is a zip the buyer runs. There is no yellowgram-hosted endpoint.
  */
 export const maydoKitLock =
   "Source-available kit (zip). You run this. We do not operate a hosted endpoint for this SKU.";
 
 /**
- * Shared honesty line. First screen on /maydo and the lede on Current #maydo.
+ * Shared honesty line. First screen on MayDo and the lede on the Current MayDo section.
  * Actor mint is buyer-server metadata. There is no signed actor assertion.
  */
 export const maydoHonesty =
