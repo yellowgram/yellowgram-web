@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { pageMetadata } from "@/lib/seo";
-import { email, exploring } from "@/lib/site";
+import { email, exploring, interests } from "@/lib/site";
 
 const description =
   "In development at yellowgram. Estia coming soon.";
@@ -74,7 +74,7 @@ export default function FuturePage() {
                 </a>
               </p>
             </div>
-            <ContactForm />
+            <ContactForm email={email} interests={interests} />
           </div>
       </section>
     </PageShell>

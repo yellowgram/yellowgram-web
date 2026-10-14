@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NotAvailable, notAvailableMetadata } from "@/components/NotAvailable";
 import { PageShell } from "@/components/SiteChrome";
 import { externalLinkProps } from "@/components/ToolListing";
+import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
 import { pageMetadata } from "@/lib/seo";
 import {
   surfaceGuard,
@@ -16,14 +18,20 @@ import {
   surfaceGuardTitle,
 } from "@/lib/surface-guard-copy";
 
-export const metadata: Metadata = pageMetadata({
-  title: surfaceGuardTitle,
-  description: surfaceGuardDescription,
-  path: "/surface-guard",
-  absoluteTitle: true,
-});
+export const metadata: Metadata = PAID_PRODUCTS_VISIBLE
+  ? pageMetadata({
+      title: surfaceGuardTitle,
+      description: surfaceGuardDescription,
+      path: "/surface-guard",
+      absoluteTitle: true,
+    })
+  : notAvailableMetadata("/surface-guard");
 
 export default function SurfaceGuardFoundingPage() {
+  if (!PAID_PRODUCTS_VISIBLE) {
+    return <NotAvailable />;
+  }
+
   return (
     <PageShell>
       <article className="container py-20 md:py-28">

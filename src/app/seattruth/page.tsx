@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import { NotAvailable, notAvailableMetadata } from "@/components/NotAvailable";
 import { ProductPage } from "@/components/ProductPage";
 import { externalLinkProps } from "@/components/ToolListing";
+import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
 import {
   seattruthCommit,
   seattruthContrast,
@@ -19,14 +21,20 @@ import { email, seattruth, toolBySlug } from "@/lib/site";
 
 const tool = toolBySlug("seattruth");
 
-export const metadata: Metadata = pageMetadata({
-  title: seattruthTitle,
-  description: seattruthDescription,
-  path: "/seattruth",
-  absoluteTitle: true,
-});
+export const metadata: Metadata = PAID_PRODUCTS_VISIBLE
+  ? pageMetadata({
+      title: seattruthTitle,
+      description: seattruthDescription,
+      path: "/seattruth",
+      absoluteTitle: true,
+    })
+  : notAvailableMetadata("/seattruth");
 
 export default function SeatTruthPage() {
+  if (!PAID_PRODUCTS_VISIBLE) {
+    return <NotAvailable />;
+  }
+
   return (
     <ProductPage
       tool={tool}

@@ -1,7 +1,8 @@
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
-import { email, paidProducts } from "@/lib/site";
+import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
+import { email, interests, paidProducts } from "@/lib/site";
 
 export default function HomePage() {
   const explained = paidProducts.filter(
@@ -25,11 +26,13 @@ export default function HomePage() {
           <p className="lede mt-8 max-w-xl muted">
             For teams that already ship and need the software to hold.
           </p>
-          <div className="actions mt-10">
-            <a className="btn btn-primary" href="#tools">
-              See the tools
-            </a>
-          </div>
+          {PAID_PRODUCTS_VISIBLE ? (
+            <div className="actions mt-10">
+              <a className="btn btn-primary" href="#tools">
+                See the tools
+              </a>
+            </div>
+          ) : null}
         </div>
       </section>
 
@@ -49,21 +52,23 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="tools" className="panel">
-        <div className="container py-20 md:py-28">
-          <p className="eyebrow">Catalog</p>
-          <h2 className="title mt-4">Tools</h2>
-          <ul className="tool-grid">
-            {paidProducts.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
-            ))}
-          </ul>
-        </div>
-      </section>
+      {PAID_PRODUCTS_VISIBLE ? (
+        <section id="tools" className="panel">
+          <div className="container py-20 md:py-28">
+            <p className="eyebrow">Catalog</p>
+            <h2 className="title mt-4">Tools</h2>
+            <ul className="tool-grid">
+              {paidProducts.map((tool) => (
+                <ToolCard key={tool.slug} tool={tool} />
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
-      {explained.map((tool) => (
-        <ToolDetail key={tool.slug} tool={tool} />
-      ))}
+      {PAID_PRODUCTS_VISIBLE
+        ? explained.map((tool) => <ToolDetail key={tool.slug} tool={tool} />)
+        : null}
 
       <section id="contact" className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.1fr)] lg:gap-20">
@@ -78,7 +83,7 @@ export default function HomePage() {
               or use the form.
             </p>
           </div>
-          <ContactForm />
+          <ContactForm email={email} interests={interests} />
         </div>
       </section>
     </PageShell>
