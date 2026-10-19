@@ -4,10 +4,10 @@ import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
 import { ToolCard, ToolDetail } from "@/components/ToolListing";
 import { pageMetadata } from "@/lib/seo";
-import { email, interests, ossProducts } from "@/lib/site";
+import { email, interests, ossGroups, ossProducts } from "@/lib/site";
 
 const description =
-  "Open source yellowgram tools. SurfacePin pins an MCP surface and fails CI on drift. Keel observes Morpho wstETH–WETH. L2 Send Guard aborts a bad send before broadcast. send-approve-bound bounds approval calldata before send. Also pinned: send-allow, send-idempotency, recv-sweep-brake, send-permit2-bound, recv-approval-watch. Free. MIT.";
+  "Open source yellowgram tools, all MIT and free. Agent spend & safety: SurfacePin pins an MCP surface and fails CI on drift; BurnBrake caps LLM spend and halts with HTTP 402. Billing & access kits: HookSteel fulfills each Stripe or Polar webhook once; SeatTruth reports paid-vs-entitled drift; MayDo answers allow(actor, action); Credit Ledger is a prepaid-credits template on your Stripe. Send & receive guards: L2 Send Guard, send-allow, send-approve-bound, send-permit2-bound, send-idempotency, recv-sweep-brake, recv-approval-watch. Other: Keel, and Surface Guard (archived).";
 
 export const metadata: Metadata = pageMetadata({
   title: "Open source",
@@ -22,16 +22,25 @@ export default function OssPage() {
         <div className="container py-20 md:py-28">
           <p className="eyebrow">Open source</p>
           <h1 className="title mt-4">Tools</h1>
-          <p className="mt-5">
-            <Link className="text-link text-sm" href="/current">
-              Paid
-            </Link>
+          <p className="lede mt-5 max-w-2xl muted">
+            Every yellowgram tool is MIT licensed and free. Nothing here is sold. You run them;
+            there is no support contract or SLA.
           </p>
-          <ul className="tool-grid">
-            {ossProducts.map((tool) => (
-              <ToolCard key={tool.slug} tool={tool} />
-            ))}
-          </ul>
+          {ossGroups.map((group) => {
+            const groupTools = ossProducts.filter((tool) => tool.group === group.id);
+            if (groupTools.length === 0) return null;
+            return (
+              <div key={group.id} id={`group-${group.id}`} className="mt-16">
+                <h2 className="text-2xl tracking-tight">{group.title}</h2>
+                <p className="mt-2 max-w-2xl muted">{group.line}</p>
+                <ul className="tool-grid">
+                  {groupTools.map((tool) => (
+                    <ToolCard key={tool.slug} tool={tool} />
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -45,9 +54,7 @@ export default function OssPage() {
             <p className="eyebrow">Contact</p>
             <h2 className="title mt-4">Ask about a tool</h2>
             <p className="mt-5 max-w-sm muted">
-              SurfacePin, Keel, L2 Send Guard, send-approve-bound, send-allow,
-              send-idempotency, recv-sweep-brake, send-permit2-bound, or
-              recv-approval-watch. Email{" "}
+              Bugs and questions go to each tool&apos;s GitHub Issues. For anything else, email{" "}
               <a className="text-link" href={`mailto:${email}`}>
                 {email}
               </a>{" "}

@@ -1,7 +1,5 @@
 /**
- * Catalog steps and kit locks shared with site.ts.
- * Paid one-pagers import the frozen license line from site.ts; this module
- * does not, so the two files do not cycle.
+ * Catalog steps and kit lines shared with site.ts.
  */
 
 export const hooksteelContract = [
@@ -26,7 +24,7 @@ export const hooksteelContract = [
 export const hooksteelHttp =
   "HTTP 400 is poison or a bad signature. HTTP 200 is accept, duplicate, or ignored. HTTP 500 is transient after verify.";
 
-/** Above-the-fold kit lock. First screen on /seattruth and the Current card. */
+/** SeatTruth run-it-yourself line. */
 export const seattruthKitLock = "You run this. Not a managed service.";
 
 export const seattruthContract = [
@@ -47,19 +45,13 @@ export const seattruthContract = [
   },
 ] as const;
 
-/**
- * Kit lock. First screen on /maydo and the lede on Current #maydo.
- * This SKU is a zip the buyer runs. There is no yellowgram-hosted endpoint.
- */
+/** MayDo run-it-yourself line. There is no yellowgram-hosted endpoint. */
 export const maydoKitLock =
-  "Source-available kit (zip). You run this. We do not operate a hosted endpoint for this SKU.";
+  "Self-host kit. You run this. We do not operate a hosted endpoint.";
 
-/**
- * Shared honesty line. First screen on /maydo and the lede on Current #maydo.
- * Actor mint is buyer-server metadata. There is no signed actor assertion.
- */
+/** Actor honesty line. There is no signed actor assertion. */
 export const maydoHonesty =
-  "The actor is buyer-server Checkout or order metadata, or an operator map. MayDo does not add a signed actor assertion. There is no signed actor assertion.";
+  "The actor comes from your server's Checkout or order metadata, or an operator map. MayDo does not add a signed actor assertion.";
 
 export const maydoContract = [
   {

@@ -13,7 +13,7 @@ export function ProductPage({
   tool: CatalogTool;
   intro?: ReactNode;
   extraActions?: ReactNode;
-  /** Renders after the buy row and before the catalog body. */
+  /** Renders after the action row and before the catalog body. */
   beforeBody?: ReactNode;
   children?: ReactNode;
 }) {
@@ -24,16 +24,9 @@ export function ProductPage({
         <h1 className="product-title mt-6">{tool.name}</h1>
         <h2 className="title mt-6 max-w-3xl">{tool.tagline}</h2>
         {intro ? <div className="mt-8 max-w-2xl">{intro}</div> : <p className="lede mt-8 max-w-2xl muted">{tool.summary}</p>}
-        {tool.price ? (
-          <p className="tool-price mt-8">
-            <span className="tool-price-amount">{tool.price.amount}</span>
-            <span className="tool-price-detail">{tool.price.detail}</span>
-          </p>
-        ) : null}
-        {tool.price?.note ? <p className="mt-3 max-w-xl text-sm muted">{tool.price.note}</p> : null}
         <div className="actions mt-10">
           <a
-            className={tool.sellActive === false ? "btn btn-ghost" : "btn btn-primary"}
+            className="btn btn-primary"
             href={tool.primary.href}
             {...externalLinkProps(tool.primary.href)}
           >

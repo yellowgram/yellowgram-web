@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { PAID_PRODUCTS_VISIBLE } from "./paid-visibility";
 
 /** Canonical origin. Apex may 308 to this host at the platform; do not point metadata at the apex. */
 export const siteUrl = "https://www.yellowgram.dev";
@@ -20,33 +19,15 @@ type PublicRoute = {
 };
 
 /**
- * Paid routes that were crawl targets. Omitted from the sitemap unless
- * PAID_PRODUCTS_VISIBLE is true. SeatTruth, MayDo, BurnBrake, and Credit Ledger
- * were never sitemap entries; they stay off this list so the switch restores it.
+ * Crawl targets. /future is absent. Retired product paths redirect to /oss
+ * (next.config.ts) and are not listed.
  */
-const paidSitemapRoutes: readonly PublicRoute[] = [
-  { path: "/hooksteel", priority: 0.9, changeFrequency: "weekly" },
-  { path: "/surface-guard", priority: 0.2, changeFrequency: "monthly" },
-];
-
-const routesBeforePaid: readonly PublicRoute[] = [
+export const publicRoutes: readonly PublicRoute[] = [
   { path: "/surfacepin", priority: 1, changeFrequency: "weekly" },
   { path: "/spec/surfacepin", priority: 0.9, changeFrequency: "monthly" },
-];
-
-const routesAfterPaid: readonly PublicRoute[] = [
   { path: "/", priority: 0.8, changeFrequency: "weekly" },
-  { path: "/current", priority: 0.4, changeFrequency: "weekly" },
-  { path: "/oss", priority: 0.4, changeFrequency: "weekly" },
+  { path: "/oss", priority: 0.8, changeFrequency: "weekly" },
 ];
-
-/**
- * Wedge crawl targets only. /future is absent.
- * Billing and labs product routes are not in this sitemap.
- */
-export const publicRoutes: readonly PublicRoute[] = PAID_PRODUCTS_VISIBLE
-  ? [...routesBeforePaid, ...paidSitemapRoutes, ...routesAfterPaid]
-  : [...routesBeforePaid, ...routesAfterPaid];
 
 export function absoluteUrl(path: string): string {
   return new URL(path, siteUrl).toString();

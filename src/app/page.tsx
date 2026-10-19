@@ -1,20 +1,15 @@
 import { PageShell } from "@/components/SiteChrome";
 import { ContactForm } from "@/components/ContactForm";
-import { ToolCard, ToolDetail } from "@/components/ToolListing";
-import { PAID_PRODUCTS_VISIBLE } from "@/lib/paid-visibility";
-import { email, interests, paidProducts } from "@/lib/site";
+import Link from "next/link";
+import { email, interests } from "@/lib/site";
 
 export default function HomePage() {
-  const explained = paidProducts.filter(
-    (tool) => tool.whyTitle || tool.install || tool.delivery || tool.steps?.length,
-  );
-
   return (
     <PageShell>
       <section className="hero">
         <div className="container py-20 md:py-28">
           <p className="category">
-            yellowgram is a software product studio that ships small, sharp tools.
+            yellowgram is a software studio that ships small, sharp, open source tools.
           </p>
           <h1 className="display mt-8 max-w-4xl">
             Small software.
@@ -26,13 +21,11 @@ export default function HomePage() {
           <p className="lede mt-8 max-w-xl muted">
             For teams that already ship and need the software to hold.
           </p>
-          {PAID_PRODUCTS_VISIBLE ? (
-            <div className="actions mt-10">
-              <a className="btn btn-primary" href="#tools">
-                See the tools
-              </a>
-            </div>
-          ) : null}
+          <div className="actions mt-10">
+            <Link className="btn btn-primary" href="/oss">
+              See the open source tools
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -52,31 +45,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {PAID_PRODUCTS_VISIBLE ? (
-        <section id="tools" className="panel">
-          <div className="container py-20 md:py-28">
-            <p className="eyebrow">Catalog</p>
-            <h2 className="title mt-4">Tools</h2>
-            <ul className="tool-grid">
-              {paidProducts.map((tool) => (
-                <ToolCard key={tool.slug} tool={tool} />
-              ))}
-            </ul>
-          </div>
-        </section>
-      ) : null}
-
-      {PAID_PRODUCTS_VISIBLE
-        ? explained.map((tool) => <ToolDetail key={tool.slug} tool={tool} />)
-        : null}
-
       <section id="contact" className="container py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.1fr)] lg:gap-20">
           <div>
             <p className="eyebrow">Contact</p>
             <h2 className="title mt-4">Get in touch</h2>
             <p className="mt-5 max-w-sm muted">
-              Write about a tool, a paid setup, or the studio. Email{" "}
+              Write about a tool or the studio. Every tool is MIT and free. Email{" "}
               <a className="text-link" href={`mailto:${email}`}>
                 {email}
               </a>{" "}

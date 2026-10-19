@@ -57,8 +57,8 @@ export default function FuturePage() {
         ) : null}
 
         <p className="mt-8">
-          <Link className="text-link text-sm" href="/current">
-            Paid
+          <Link className="text-link text-sm" href="/oss">
+            Open source tools
           </Link>
         </p>
       </section>

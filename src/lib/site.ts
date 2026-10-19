@@ -9,49 +9,17 @@ import {
   seattruthContract,
   seattruthKitLock,
 } from "./catalog-contracts";
-import { PAID_PRODUCTS_VISIBLE } from "./paid-visibility";
 
 export const email = "hello@yellowgram.dev";
 
-/**
- * FROZEN_LICENSE. Paid kit License terms, catalog summaries, delivery,
- * howNote, and /current reuse this sentence. Do not paraphrase.
- */
-export const commercialLicenseLine =
-  "Pay unlocks one-organization commercial use under PolyForm Noncommercial and the Suthirth grant. Reading or cloning the public repo is not a commercial right.";
-
-/** License term body. Frozen sentence, then the clarification. */
-export const commercialLicenseTerm = `${commercialLicenseLine} Not MIT. Not OSI. Not open source.`;
-
-export const listedPriceFaq = {
-  q: "Do you offer discount codes or deal pricing?",
-  a: "No. The listed price is the price.",
-} as const;
+/** One license line for every tool on this site. Nothing here is sold. */
+export const mitLine = "MIT · free · no support contract or SLA";
 
 export const hooksteelOutcome =
   "The same signed billing event, many times, still grants the credit once.";
 
-/**
- * First-screen fear on /hooksteel and the catalog card.
- * Do not name other products here. That sits below the buy buttons.
- */
-export const hooksteelFear =
-  "Your handler returned 500. The same paid event came back. You granted twice.";
-
-/** What HookSteel is, in one line. No competitor names. Buyer effect, not the mechanism. */
-export const hooksteelPromise =
-  "The credit is granted once. HookSteel fulfills each signed Stripe or Polar billing event once, from the outbox on your Postgres.";
-
-/** License-count founding rule. First 10 licenses, then $129. No calendar window. */
-export const hooksteelFoundingPrice =
-  "Founding $89 for the first 10 licenses; then $129";
-
-/** Short form for meta / catalog facts. */
-export const hooksteelFoundingPriceShort =
-  "Founding $89 (first 10 licenses), then $129";
-
 export const seattruthOutcome =
-  "Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled, before support piles up. Read-only. No charges. No auto-fix.";
+  "Finds paid-but-locked-out accounts, and canceled or refunded accounts that are still entitled. Read-only. No charges. No auto-fix.";
 
 export const maydoOutcome =
   "When your MayDo process is down, allow denies — no silent allow.";
@@ -61,28 +29,6 @@ export const burnbrakeOutcome =
 
 export const creditLedgerOutcome =
   "Empty balance stops the next expensive call on your Stripe — not only at invoice finalize.";
-
-
-/** Polar checkout links for Surface Guard founding reservation (N1b).
- * Direct Stripe Payment Links blocked (India Payments invite-only / no dashboard API key).
- * Polar MoR settles via Stripe Connect — stranger can pay without talking to anyone.
- */
-export const surfaceGuardCheckoutMonthly =
-  "https://buy.polar.sh/polar_cl_E0J4WV4ZnxpuePTNrTrNA1yAKGwZ3Oqp4yTZr3stgyp";
-export const surfaceGuardCheckoutYearly =
-  "https://buy.polar.sh/polar_cl_vG0CS4pHuwh5pxUMwRzLgBWNa3oIjh5c4vsIs2gP4UO";
-
-export const surfaceGuard = {
-  name: "Surface Guard",
-  badge: "Founding · Paused",
-  tagline: "Private-repo PR check. Founding sell paused.",
-  summary:
-    "Surface Guard founding sell is paused (SCRAP). Free OSS SurfacePin stays on /oss. Polar checkouts remain available quietly. Auto-refund policy still applies to any prior founding payment if no working private-repo check within 90 days.",
-  monthly: { amount: "$99", detail: "/ mo · per org", checkout: surfaceGuardCheckoutMonthly },
-  yearly: { amount: "$990", detail: "/ yr · per org", checkout: surfaceGuardCheckoutYearly },
-  foundingCap: 20,
-  refundDays: 90,
-};
 
 export const surfacepin = {
   name: "SurfacePin",
@@ -399,174 +345,149 @@ export const recvApprovalWatchHow = [
   },
 ];
 
-/** Live Polar checkout for the HookSteel one-org grant. */
-export const hooksteelCheckout =
-  "https://buy.polar.sh/polar_cl_P50s0ymidZioPFgvcyX5YRhMV7cI1bIUxX3fu1pMpNF";
 
-/** How-it-works / mid-page demo (clip-60s-grant-once Rank 2). Not the Buy-row cut. */
+/** How-it-works demo clip (GitHub Release asset). */
 export const hooksteelDemo =
   "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-grant-once/hooksteel-60s-grant-once.mp4";
 
-export const hooksteelDemoSha256 =
-  "60f5435d6043dd3db064b291f4a371fdf6f202e8d959b0d6d81b4b89f210d78c";
-
-export const hooksteelDemoSrt =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-60s-grant-once/hooksteel-60s-grant-once.srt";
-
-/** Press-buy / above-Buy Watch only (clip-press-buy-grant-once Rank 2). */
-export const hooksteelPressBuyDemo =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy-grant-once/hooksteel-press-buy.mp4";
-
-export const hooksteelPressBuyDemoSha256 =
-  "fe90f638135a4c628616693b81d04881adddc8d89a312e3824173666a60e8736";
-
-export const hooksteelPressBuyDemoSrt =
-  "https://github.com/yellowgram/hooksteel/releases/download/clip-press-buy-grant-once/hooksteel-press-buy.srt";
-
-export const hooksteel = {
-  name: "HookSteel",
-  badge: "Current · Source available · Commercial grant",
-  tagline: hooksteelFear,
-  summary: hooksteelPromise,
-  facts: [
-    hooksteelFoundingPriceShort,
-    "One SKU · 14-day purchase refund",
-    commercialLicenseLine,
-  ],
-  price: {
-    amount: "$89",
-    detail: `${hooksteelFoundingPriceShort} · 14-day purchase refund`,
-  },
-  repo: "yellowgram/hooksteel",
-  github: "https://github.com/yellowgram/hooksteel",
-  delivery: `${commercialLicenseLine} Questions: ${email}.`,
-  checkout: hooksteelCheckout,
-  howNote: commercialLicenseLine,
-};
-
-export const hooksteelHow = hooksteelContract;
-
-/** Under the contract steps on the catalog detail. Not the /hooksteel sell spine. */
-export const hooksteelStepsNote = `${hooksteelHttp} ${hooksteel.howNote}`;
-
-/** Live Polar checkout for SeatTruth v0.1.1. */
-export const seattruthCheckout =
-  "https://polar.sh/checkout/polar_c_WbCVRq0zYFyodtuebOYF4bZzMKaJY6LM11vzX0nKDpA";
-
-/** Approved 60-second SeatTruth demo clip. */
+/** 60-second SeatTruth fixture demo clip (GitHub Release asset). */
 export const seattruthDemo =
   "https://github.com/yellowgram/seattruth/releases/download/clip-60s-approved/seattruth-60s-approved.mp4";
 
-export const seattruth = {
-  name: "SeatTruth",
-  badge: "Current · Source available · Commercial grant",
-  tagline: "Reconcile both rails. Report the mismatch.",
-  summary: `${seattruthKitLock} ${seattruthOutcome} Stripe and Polar against the product database (is_pro / seats). ${commercialLicenseLine}`,
-  facts: [
-    "Early price $79, then $99 once per org",
-    "One SKU · 14-day purchase refund",
-    commercialLicenseLine,
-  ],
-  price: {
-    amount: "$79",
-    detail: "Early price $79, then $99 once per org · 14-day purchase refund",
-  },
-  repo: "yellowgram/seattruth",
-  github: "https://github.com/yellowgram/seattruth",
-  delivery: `${commercialLicenseLine} Questions: ${email}.`,
-  checkout: seattruthCheckout,
-  howNote: commercialLicenseLine,
-};
-
-/** Live Polar checkout for the MayDo one-org grant. */
-export const maydoCheckout =
-  "https://polar.sh/checkout/polar_c_XiTvxibj1qZII2tGjraQbhYb9IH8bBUPyO0yE262cA2";
-
-export const maydo = {
-  name: "MayDo",
-  badge: "Current · Source available · Commercial grant",
-  tagline: "Allow the action. Decide only.",
-  summary: `${maydoKitLock} ${maydoOutcome} Entitlement kernel: allow(actor, action). Verified Stripe and Polar webhooks, plus local grants. Decision only. ${commercialLicenseLine} ${maydoHonesty}`,
-  facts: [
-    "Early price $99, then $149. Same SKU.",
-    "14-day purchase refund",
-    commercialLicenseLine,
-  ],
-  price: {
-    amount: "$99",
-    detail: "Early price $99, then $149 · 14-day purchase refund",
-  },
-  repo: "yellowgram/maydo",
-  github: "https://github.com/yellowgram/maydo",
-  delivery: `${commercialLicenseLine} Questions: ${email}.`,
-  checkout: maydoCheckout,
-  howNote: commercialLicenseLine,
-};
-
-export const maydoHow = maydoContract;
-
-/** Live Polar checkout for the $199 one-org grant. */
-export const burnbrakeCheckout =
-  "https://buy.polar.sh/polar_cl_rmfMvzYZNR2T6E12i2UKYdukFKNPrqm8y3GBT09FgCT";
-
-export const burnbrakeHostedCheckout =
-  "https://buy.polar.sh/polar_cl_A2dCr3WcvuTv5lLvNlp8AaC9kziCr8apYfunr0f60ci";
+/*
+ * BurnBrake, HookSteel, SeatTruth, and the MayDo SDK are headed for npm but are
+ * not published yet. Install lines use git until they are; no npm links here.
+ */
 
 export const burnbrake = {
   name: "BurnBrake",
-  badge: "Current · Source available · Commercial grant",
+  badge: "Current · Open source",
   tagline: "Cap the spend. Halt the request.",
-  summary: `${burnbrakeOutcome} Cap, kill, halt. ${commercialLicenseLine}`,
+  summary: `Self-hosted LLM spend brake. ${burnbrakeOutcome}`,
   facts: [
-    "$199 once · one org · 14-day purchase refund",
-    "Optional hosted $59/mo live · separate SKU · not the kit",
-    commercialLicenseLine,
+    "User, run, and day caps in USD",
+    "HTTP 402 BUDGET_EXHAUSTED · not retryable · never 429",
+    `${mitLine} · you run it`,
   ],
-  price: {
-    amount: "$199",
-    detail: "once · one org · 14-day purchase refund",
-    note: "Optional hosted $59/mo live · separate SKU · not the kit.",
-  },
+  install: "git clone https://github.com/yellowgram/burnbrake",
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
-  delivery: `${commercialLicenseLine} Hosted $59/mo is a separate SKU, not the kit. Questions: ${email}.`,
-  checkout: burnbrakeCheckout,
-  hostedCheckout: burnbrakeHostedCheckout,
-  howNote: commercialLicenseLine,
 };
 
 export const burnbrakeHow = burnbrakeContract;
 
+export const hooksteel = {
+  name: "HookSteel",
+  badge: "Current · Open source",
+  tagline: "Grant the credit once.",
+  summary:
+    "Signed Stripe and Polar billing webhooks, a same-transaction outbox on your Postgres, and a drain that fulfills each event once.",
+  facts: [
+    "Stripe and Polar signature verify · duplicate deliveries ACK 200",
+    "Outbox in the same Postgres transaction · replay CLI for dead letters",
+    `${mitLine} · not a hosted gateway`,
+  ],
+  install: "git clone https://github.com/yellowgram/hooksteel",
+  repo: "yellowgram/hooksteel",
+  github: "https://github.com/yellowgram/hooksteel",
+};
+
+export const hooksteelHow = hooksteelContract;
+
+export const hooksteelStepsNote = hooksteelHttp;
+
+export const seattruth = {
+  name: "SeatTruth",
+  badge: "Current · Open source",
+  tagline: "Reconcile both rails. Report the mismatch.",
+  summary: `${seattruthKitLock} ${seattruthOutcome} Stripe and Polar against your product database (is_pro / seats).`,
+  facts: [
+    "paid_locked_out · canceled_still_entitled",
+    "Dry-run is not all-clear · scheduled GitHub Action · Slack alert",
+    `${mitLine} · read-only`,
+  ],
+  install: "git clone https://github.com/yellowgram/seattruth && cd seattruth && npm ci && npm run demo",
+  repo: "yellowgram/seattruth",
+  github: "https://github.com/yellowgram/seattruth",
+};
+
 export const seattruthHow = seattruthContract;
 
-/** Live Polar checkout for the $79 grant. */
-export const creditLedgerCheckout =
-  "https://buy.polar.sh/polar_cl_RI1erdjByTvdqMVZo4M22AqJIsnlccg47NbXl0fWxFG";
+export const maydo = {
+  name: "MayDo",
+  badge: "Current · Open source",
+  tagline: "Allow the action. Decide only.",
+  summary: `${maydoKitLock} ${maydoOutcome} Entitlement kernel: allow(actor, action), fed by verified Stripe and Polar webhooks plus local grants. ${maydoHonesty}`,
+  facts: [
+    "Self-host decision API, worker, and CLI on your Postgres",
+    "Thin TypeScript SDK (@yellowgram/maydo) · cache off by default",
+    `${mitLine} · decision only, no invoicing`,
+  ],
+  install: "git clone https://github.com/yellowgram/maydo",
+  repo: "yellowgram/maydo",
+  github: "https://github.com/yellowgram/maydo",
+};
+
+export const maydoHow = maydoContract;
 
 export const creditLedger = {
   name: "Credit Ledger",
-  badge: "Current · Source available · Commercial grant",
+  badge: "Current · Open source · GitHub template",
   tagline: "Run the ledger. On your Stripe.",
-  summary: `${creditLedgerOutcome} A credit ledger you run on your own Stripe account. ${commercialLicenseLine}`,
-  facts: ["$79 once · no refund", commercialLicenseLine],
-  price: {
-    amount: "$79",
-    detail: "Once · no refund",
-  },
+  summary: `${creditLedgerOutcome} A prepaid credit ledger you copy into your app, on your own Stripe account and database.`,
+  facts: [
+    "Checkout packs · reserve, finalize, release · refund clawback",
+    "Postgres or SQLite · copy src/billing into your app",
+    `${mitLine} · template repo, not an npm package`,
+  ],
+  install: "git clone https://github.com/yellowgram/stripe-credit-ledger-kit",
   repo: "yellowgram/stripe-credit-ledger-kit",
   github: "https://github.com/yellowgram/stripe-credit-ledger-kit",
-  delivery: `${commercialLicenseLine} Questions: ${email}.`,
-  checkout: creditLedgerCheckout,
-  howNote: commercialLicenseLine,
 };
 
 export const creditLedgerHow = creditLedgerContract;
 
-export type CatalogPrice = {
-  amount: string;
-  detail: string;
-  note?: string;
+export const surfaceGuard = {
+  name: "Surface Guard",
+  badge: "Archived · Open source",
+  tagline: "Private-repo SurfacePin check. Archived.",
+  summary:
+    "A GitHub App that ran SurfacePin verify as a private-repo PR check. Archived and unmaintained; kept as reference code. For anything maintained, use SurfacePin directly.",
+  facts: [
+    "Archived · unmaintained · not hosted",
+    "MIT · reference code only",
+  ],
+  delivery:
+    "Archived. Not developed, sold, or hosted. Read the code on GitHub; use the SurfacePin CLI and Action for real checks.",
+  repo: "yellowgram/surface-guard",
+  github: "https://github.com/yellowgram/surface-guard",
 };
+
+export type OssGroup = "agent" | "billing" | "send" | "other";
+
+/** /oss sections, in display order. */
+export const ossGroups: readonly { id: OssGroup; title: string; line: string }[] = [
+  {
+    id: "agent",
+    title: "Agent spend & safety",
+    line: "Pin what an agent can call. Cap what it can spend.",
+  },
+  {
+    id: "billing",
+    title: "Billing & access kits",
+    line: "Self-host Stripe and Polar billing pieces: webhooks once, access that matches payment, entitlement decisions, prepaid credits.",
+  },
+  {
+    id: "send",
+    title: "Send & receive guards",
+    line: "Non-custodial EVM guards in front of eth_sendRawTransaction, and watches on what lands.",
+  },
+  {
+    id: "other",
+    title: "Other",
+    line: "Experiments and archived code.",
+  },
+];
 
 export type CatalogTool = {
   slug: string;
@@ -579,9 +500,9 @@ export type CatalogTool = {
   primary: { label: string; href: string };
   /** Optional second link beside the primary action. */
   secondary?: { label: string; href: string };
-  /** How-it-works link. Not rendered beside Buy. */
+  /** How-it-works link. */
   watch?: { label: string; href: string };
-  /** Source link. Not a production license. */
+  /** Source link. */
   source?: { label: string; href: string };
   install?: string;
   /** Shown in place of an install command. */
@@ -591,20 +512,14 @@ export type CatalogTool = {
   steps?: readonly { step: string; title: string; body: string }[];
   /** Line under the how-it-works steps. */
   stepsNote?: string;
-  price?: CatalogPrice;
   /** Shipped. */
   current?: boolean;
-  /** Commercial grant product (may be demoted from active sell). */
-  paid?: boolean;
-  /**
-   * Active Paid Buy on homepage /current catalog.
-   * Only HookSteel is sellActive after 2026-09-30 free-substitute FAIL lock.
-   * FAIL paid kits keep Polar URLs quietly on product pages.
-   */
-  sellActive?: boolean;
-  /** Free open source. /oss only. */
-  oss?: boolean;
+  /** Free open source (MIT). Every tool on this site. */
+  oss: true;
+  group: OssGroup;
 };
+
+const github = (href: string) => ({ label: "View on GitHub", href });
 
 /** Shipped tools. Adding the next one is another entry here. */
 export const tools: CatalogTool[] = [
@@ -618,11 +533,28 @@ export const tools: CatalogTool[] = [
     productHref: "/surfacepin",
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: surfacepin.github },
+    group: "agent",
+    primary: github(surfacepin.github),
     install: surfacepin.install,
     facts: surfacepin.facts,
     whyTitle: "A pin, a check, a failed build.",
     steps: howItWorks,
+  },
+  {
+    slug: "burnbrake",
+    name: burnbrake.name,
+    badge: burnbrake.badge,
+    tagline: burnbrake.tagline,
+    summary: burnbrake.summary,
+    repo: burnbrake.repo,
+    current: true,
+    oss: true,
+    group: "agent",
+    primary: github(burnbrake.github),
+    install: burnbrake.install,
+    facts: burnbrake.facts,
+    whyTitle: "Cap, kill, halt.",
+    steps: burnbrakeHow,
   },
   {
     slug: "hooksteel",
@@ -631,17 +563,13 @@ export const tools: CatalogTool[] = [
     tagline: hooksteel.tagline,
     summary: hooksteel.summary,
     repo: hooksteel.repo,
-    productHref: "/hooksteel",
     current: true,
-    paid: true,
-    sellActive: true,
-    primary: { label: "Buy on Polar", href: hooksteel.checkout },
-    secondary: { label: "Watch demo", href: hooksteelPressBuyDemo },
-    source: { label: "Source", href: hooksteel.github },
-    watch: { label: "Watch demo", href: hooksteelDemo },
-    delivery: hooksteel.delivery,
+    oss: true,
+    group: "billing",
+    primary: github(hooksteel.github),
+    watch: { label: "Watch 60s demo", href: hooksteelDemo },
+    install: hooksteel.install,
     facts: hooksteel.facts,
-    price: hooksteel.price,
     whyTitle: "Same transaction. Drain after commit.",
     steps: hooksteelHow,
     stepsNote: hooksteelStepsNote,
@@ -653,19 +581,15 @@ export const tools: CatalogTool[] = [
     tagline: seattruth.tagline,
     summary: seattruth.summary,
     repo: seattruth.repo,
-    productHref: "/seattruth",
     current: true,
-    paid: true,
-    sellActive: false,
-    primary: { label: "Buy on Polar", href: seattruth.checkout },
-    secondary: { label: "Watch demo", href: seattruthDemo },
-    source: { label: "Source", href: seattruth.github },
-    delivery: seattruth.delivery,
+    oss: true,
+    group: "billing",
+    primary: github(seattruth.github),
+    watch: { label: "Watch 60s demo", href: seattruthDemo },
+    install: seattruth.install,
     facts: seattruth.facts,
-    price: seattruth.price,
     whyTitle: "Read, diff, report.",
     steps: seattruthHow,
-    stepsNote: seattruth.howNote,
   },
   {
     slug: "maydo",
@@ -674,39 +598,14 @@ export const tools: CatalogTool[] = [
     tagline: maydo.tagline,
     summary: maydo.summary,
     repo: maydo.repo,
-    productHref: "/maydo",
     current: true,
-    paid: true,
-    sellActive: false,
-    primary: { label: "Buy on Polar", href: maydo.checkout },
-    source: { label: "Source", href: maydo.github },
-    delivery: maydo.delivery,
+    oss: true,
+    group: "billing",
+    primary: github(maydo.github),
+    install: maydo.install,
     facts: maydo.facts,
-    price: maydo.price,
     whyTitle: "Ingest, decide, return.",
     steps: maydoHow,
-    stepsNote: maydo.howNote,
-  },
-  {
-    slug: "burnbrake",
-    name: burnbrake.name,
-    badge: burnbrake.badge,
-    tagline: burnbrake.tagline,
-    summary: burnbrake.summary,
-    repo: burnbrake.repo,
-    productHref: "/burnbrake",
-    current: true,
-    paid: true,
-    sellActive: false,
-    primary: { label: "Buy on Polar", href: burnbrake.checkout },
-    secondary: { label: "Hosted checkout · $59/mo", href: burnbrake.hostedCheckout },
-    source: { label: "Source", href: burnbrake.github },
-    delivery: burnbrake.delivery,
-    facts: burnbrake.facts,
-    price: burnbrake.price,
-    whyTitle: "Cap, kill, halt.",
-    steps: burnbrakeHow,
-    stepsNote: burnbrake.howNote,
   },
   {
     slug: "credit-ledger",
@@ -715,33 +614,14 @@ export const tools: CatalogTool[] = [
     tagline: creditLedger.tagline,
     summary: creditLedger.summary,
     repo: creditLedger.repo,
-    productHref: "/credit-ledger",
-    current: true,
-    paid: true,
-    sellActive: false,
-    primary: { label: "Buy on Polar", href: creditLedger.checkout },
-    source: { label: "Source", href: creditLedger.github },
-    delivery: creditLedger.delivery,
-    facts: creditLedger.facts,
-    price: creditLedger.price,
-    whyTitle: "Record, draw, run.",
-    steps: creditLedgerHow,
-    stepsNote: creditLedger.howNote,
-  },
-  {
-    slug: "keel",
-    name: keel.name,
-    badge: keel.badge,
-    tagline: keel.tagline,
-    summary: keel.summary,
-    repo: keel.repo,
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: keel.github },
-    install: keel.install,
-    facts: keel.facts,
-    whyTitle: "Observe, score, draft.",
-    steps: keelHow,
+    group: "billing",
+    primary: { label: "Use the template", href: creditLedger.github },
+    install: creditLedger.install,
+    facts: creditLedger.facts,
+    whyTitle: "Record, draw, run.",
+    steps: creditLedgerHow,
   },
   {
     slug: "l2-send-guard",
@@ -752,26 +632,12 @@ export const tools: CatalogTool[] = [
     repo: l2SendGuard.repo,
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: l2SendGuard.github },
+    group: "send",
+    primary: github(l2SendGuard.github),
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
     whyTitle: "Proxy, simulate, halt.",
     steps: l2SendGuardHow,
-  },
-  {
-    slug: "send-approve-bound",
-    name: sendApproveBound.name,
-    badge: sendApproveBound.badge,
-    tagline: sendApproveBound.tagline,
-    summary: sendApproveBound.summary,
-    repo: sendApproveBound.repo,
-    current: true,
-    oss: true,
-    primary: { label: "View on GitHub", href: sendApproveBound.github },
-    install: sendApproveBound.install,
-    facts: sendApproveBound.facts,
-    whyTitle: "Bound, cap, deny.",
-    steps: sendApproveBoundHow,
   },
   {
     slug: "send-allow",
@@ -782,11 +648,44 @@ export const tools: CatalogTool[] = [
     repo: sendAllow.repo,
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: sendAllow.github },
+    group: "send",
+    primary: github(sendAllow.github),
     install: sendAllow.install,
     facts: sendAllow.facts,
     whyTitle: "Allow, cap, deny.",
     steps: sendAllowHow,
+  },
+  {
+    slug: "send-approve-bound",
+    name: sendApproveBound.name,
+    badge: sendApproveBound.badge,
+    tagline: sendApproveBound.tagline,
+    summary: sendApproveBound.summary,
+    repo: sendApproveBound.repo,
+    current: true,
+    oss: true,
+    group: "send",
+    primary: github(sendApproveBound.github),
+    install: sendApproveBound.install,
+    facts: sendApproveBound.facts,
+    whyTitle: "Bound, cap, deny.",
+    steps: sendApproveBoundHow,
+  },
+  {
+    slug: "send-permit2-bound",
+    name: sendPermit2Bound.name,
+    badge: sendPermit2Bound.badge,
+    tagline: sendPermit2Bound.tagline,
+    summary: sendPermit2Bound.summary,
+    repo: sendPermit2Bound.repo,
+    current: true,
+    oss: true,
+    group: "send",
+    primary: github(sendPermit2Bound.github),
+    install: sendPermit2Bound.install,
+    facts: sendPermit2Bound.facts,
+    whyTitle: "Pin, bound, deny.",
+    steps: sendPermit2BoundHow,
   },
   {
     slug: "send-idempotency",
@@ -797,7 +696,8 @@ export const tools: CatalogTool[] = [
     repo: sendIdempotency.repo,
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: sendIdempotency.github },
+    group: "send",
+    primary: github(sendIdempotency.github),
     install: sendIdempotency.install,
     facts: sendIdempotency.facts,
     whyTitle: "Remember, conflict, halt.",
@@ -812,26 +712,12 @@ export const tools: CatalogTool[] = [
     repo: recvSweepBrake.repo,
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: recvSweepBrake.github },
+    group: "send",
+    primary: github(recvSweepBrake.github),
     install: recvSweepBrake.install,
     facts: recvSweepBrake.facts,
     whyTitle: "Classify, hold, deny.",
     steps: recvSweepBrakeHow,
-  },
-  {
-    slug: "send-permit2-bound",
-    name: sendPermit2Bound.name,
-    badge: sendPermit2Bound.badge,
-    tagline: sendPermit2Bound.tagline,
-    summary: sendPermit2Bound.summary,
-    repo: sendPermit2Bound.repo,
-    current: true,
-    oss: true,
-    primary: { label: "View on GitHub", href: sendPermit2Bound.github },
-    install: sendPermit2Bound.install,
-    facts: sendPermit2Bound.facts,
-    whyTitle: "Pin, bound, deny.",
-    steps: sendPermit2BoundHow,
   },
   {
     slug: "recv-approval-watch",
@@ -842,27 +728,46 @@ export const tools: CatalogTool[] = [
     repo: recvApprovalWatch.repo,
     current: true,
     oss: true,
-    primary: { label: "View on GitHub", href: recvApprovalWatch.github },
+    group: "send",
+    primary: github(recvApprovalWatch.github),
     install: recvApprovalWatch.install,
     facts: recvApprovalWatch.facts,
     whyTitle: "Watch, emit, hold.",
     steps: recvApprovalWatchHow,
   },
+  {
+    slug: "keel",
+    name: keel.name,
+    badge: keel.badge,
+    tagline: keel.tagline,
+    summary: keel.summary,
+    repo: keel.repo,
+    current: true,
+    oss: true,
+    group: "other",
+    primary: github(keel.github),
+    install: keel.install,
+    facts: keel.facts,
+    whyTitle: "Observe, score, draft.",
+    steps: keelHow,
+  },
+  {
+    slug: "surface-guard",
+    name: surfaceGuard.name,
+    badge: surfaceGuard.badge,
+    tagline: surfaceGuard.tagline,
+    summary: surfaceGuard.summary,
+    repo: surfaceGuard.repo,
+    oss: true,
+    group: "other",
+    primary: github(surfaceGuard.github),
+    delivery: surfaceGuard.delivery,
+    facts: surfaceGuard.facts,
+  },
 ];
 
-/** Active Paid Buy catalog. Homepage and /current. HookSteel only (2026-09-30 FAIL demotion). */
-const activePaidProducts = tools.filter((tool) => tool.paid && tool.sellActive);
-
-export const paidProducts = PAID_PRODUCTS_VISIBLE ? activePaidProducts : [];
-
-/** All commercial-grant products (including demoted FAIL). Product pages stay; Polar quiet. */
-export const commercialProducts = tools.filter((tool) => tool.paid);
-
-/** Free open source. /oss, catalog order. */
+/** Free open source. /oss, catalog order. Every tool is MIT. */
 export const ossProducts = tools.filter((tool) => tool.oss);
-
-/** Active Paid Buy on /current. Same list and order as the homepage. */
-export const currentProducts = paidProducts;
 
 export function toolBySlug(slug: string): CatalogTool {
   const tool = tools.find((item) => item.slug === slug);
@@ -870,32 +775,10 @@ export function toolBySlug(slug: string): CatalogTool {
   return tool;
 }
 
-/** In-development / founding entries for /future. No Setup/Audit rails. */
-const exploringWhenVisible: { name: string; line: string; href?: string }[] = [
-  {
-    name: "Surface Guard",
-    line: "Founding sell paused (SCRAP). Free SurfacePin stays on OSS. Polar checkouts remain quiet on the product page.",
-    href: "/surface-guard",
-  },
-];
-
-export const exploring = PAID_PRODUCTS_VISIBLE ? exploringWhenVisible : [];
+/** In-development entries for /future. */
+export const exploring: { name: string; line: string; href?: string }[] = [];
 
 export const interests = [
-  "Surface Guard founding",
-  "SurfacePin",
-  "HookSteel",
-  "SeatTruth",
-  "MayDo",
-  "BurnBrake",
-  "Credit Ledger",
-  "Keel",
-  "L2 Send Guard",
-  "send-approve-bound",
-  "send-allow",
-  "send-idempotency",
-  "recv-sweep-brake",
-  "send-permit2-bound",
-  "recv-approval-watch",
+  ...tools.filter((tool) => tool.current).map((tool) => tool.name),
   "Something else",
 ];

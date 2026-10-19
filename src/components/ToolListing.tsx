@@ -41,18 +41,11 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
         </h3>
         <p className="mt-3 text-lg tracking-tight">{tool.tagline}</p>
         <p className="mt-3 max-w-xl muted">{tool.summary}</p>
-        {tool.price?.note ? <p className="mt-4 max-w-xl text-sm muted">{tool.price.note}</p> : null}
       </div>
       <div className="tool-card-foot">
-        {tool.price ? (
-          <p className="tool-price">
-            <span className="tool-price-amount">{tool.price.amount}</span>
-            <span className="tool-price-detail">{tool.price.detail}</span>
-          </p>
-        ) : null}
         <div className="actions">
           <a
-            className={tool.sellActive === false ? "btn btn-ghost" : "btn btn-primary"}
+            className="btn btn-primary"
             href={tool.primary.href}
             {...externalLinkProps(tool.primary.href)}
           >
