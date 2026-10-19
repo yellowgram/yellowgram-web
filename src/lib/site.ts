@@ -355,8 +355,8 @@ export const seattruthDemo =
   "https://github.com/yellowgram/seattruth/releases/download/clip-60s-approved/seattruth-60s-approved.mp4";
 
 /*
- * BurnBrake, HookSteel, SeatTruth, and the MayDo SDK are headed for npm but are
- * not published yet. Install lines use git until they are; no npm links here.
+ * BurnBrake, HookSteel, SeatTruth, and the MayDo SDK are on npm at 0.2.0 (MIT).
+ * Install lines pin that version.
  */
 
 export const burnbrake = {
@@ -369,7 +369,8 @@ export const burnbrake = {
     "HTTP 402 BUDGET_EXHAUSTED · not retryable · never 429",
     `${mitLine} · you run it`,
   ],
-  install: "git clone https://github.com/yellowgram/burnbrake",
+  install: "npm install burnbrake@0.2.0 && npx burnbrake serve",
+  npm: "https://www.npmjs.com/package/burnbrake",
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
 };
@@ -387,7 +388,8 @@ export const hooksteel = {
     "Outbox in the same Postgres transaction · replay CLI for dead letters",
     `${mitLine} · not a hosted gateway`,
   ],
-  install: "git clone https://github.com/yellowgram/hooksteel",
+  install: "npm install hooksteel@0.2.0",
+  npm: "https://www.npmjs.com/package/hooksteel",
   repo: "yellowgram/hooksteel",
   github: "https://github.com/yellowgram/hooksteel",
 };
@@ -406,7 +408,8 @@ export const seattruth = {
     "Dry-run is not all-clear · scheduled GitHub Action · Slack alert",
     `${mitLine} · read-only`,
   ],
-  install: "git clone https://github.com/yellowgram/seattruth && cd seattruth && npm ci && npm run demo",
+  install: "npx seattruth@0.2.0 --dry-run",
+  npm: "https://www.npmjs.com/package/seattruth",
   repo: "yellowgram/seattruth",
   github: "https://github.com/yellowgram/seattruth",
 };
@@ -420,10 +423,11 @@ export const maydo = {
   summary: `${maydoKitLock} ${maydoOutcome} Entitlement kernel: allow(actor, action), fed by verified Stripe and Polar webhooks plus local grants. ${maydoHonesty}`,
   facts: [
     "Self-host decision API, worker, and CLI on your Postgres",
-    "Thin TypeScript SDK (@yellowgram/maydo) · cache off by default",
+    "Thin TypeScript SDK (@yellowgram/maydo) on npm · server from GitHub · cache off by default",
     `${mitLine} · decision only, no invoicing`,
   ],
-  install: "git clone https://github.com/yellowgram/maydo",
+  install: "npm install @yellowgram/maydo@0.2.0",
+  npm: "https://www.npmjs.com/package/@yellowgram/maydo",
   repo: "yellowgram/maydo",
   github: "https://github.com/yellowgram/maydo",
 };
@@ -520,6 +524,7 @@ export type CatalogTool = {
 };
 
 const github = (href: string) => ({ label: "View on GitHub", href });
+const npmLink = (href: string) => ({ label: "View on npm", href });
 
 /** Shipped tools. Adding the next one is another entry here. */
 export const tools: CatalogTool[] = [
@@ -551,6 +556,7 @@ export const tools: CatalogTool[] = [
     oss: true,
     group: "agent",
     primary: github(burnbrake.github),
+    secondary: npmLink(burnbrake.npm),
     install: burnbrake.install,
     facts: burnbrake.facts,
     whyTitle: "Cap, kill, halt.",
@@ -567,6 +573,7 @@ export const tools: CatalogTool[] = [
     oss: true,
     group: "billing",
     primary: github(hooksteel.github),
+    secondary: npmLink(hooksteel.npm),
     watch: { label: "Watch 60s demo", href: hooksteelDemo },
     install: hooksteel.install,
     facts: hooksteel.facts,
@@ -585,6 +592,7 @@ export const tools: CatalogTool[] = [
     oss: true,
     group: "billing",
     primary: github(seattruth.github),
+    secondary: npmLink(seattruth.npm),
     watch: { label: "Watch 60s demo", href: seattruthDemo },
     install: seattruth.install,
     facts: seattruth.facts,
@@ -602,6 +610,7 @@ export const tools: CatalogTool[] = [
     oss: true,
     group: "billing",
     primary: github(maydo.github),
+    secondary: npmLink(maydo.npm),
     install: maydo.install,
     facts: maydo.facts,
     whyTitle: "Ingest, decide, return.",
