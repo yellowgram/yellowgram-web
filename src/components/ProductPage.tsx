@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { PageShell } from "@/components/SiteChrome";
 import { externalLinkProps, ToolBody } from "@/components/ToolListing";
-import type { CatalogTool } from "@/lib/site";
+import { toolDataAttrs, type CatalogTool } from "@/lib/site";
 
 export function ProductPage({
   tool,
@@ -19,8 +19,8 @@ export function ProductPage({
 }) {
   return (
     <PageShell>
-      <article className="container py-20 md:py-28">
-        <p className="badge">{tool.badge}</p>
+      <article className="container py-20 md:py-28" {...toolDataAttrs(tool)}>
+        <p className="badge" data-badge="">{tool.badge}</p>
         <h1 className="product-title mt-6">{tool.name}</h1>
         <h2 className="title mt-6 max-w-3xl">{tool.tagline}</h2>
         {intro ? <div className="mt-8 max-w-2xl">{intro}</div> : <p className="lede mt-8 max-w-2xl muted">{tool.summary}</p>}

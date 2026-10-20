@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { CatalogTool } from "@/lib/site";
+import { toolDataAttrs, type CatalogTool } from "@/lib/site";
 
 export function externalLinkProps(href: string): { target?: "_blank"; rel?: string } {
   if (/^https?:\/\//.test(href)) {
@@ -33,9 +33,9 @@ function productRoute(tool: CatalogTool): string | null {
 export function ToolCard({ tool }: { tool: CatalogTool }) {
   const route = productRoute(tool);
   return (
-    <li className="card tool-card">
+    <li className="card tool-card" {...toolDataAttrs(tool)}>
       <div>
-        <p className="badge">{tool.badge}</p>
+        <p className="badge" data-badge="">{tool.badge}</p>
         <h3 className="mt-5 text-3xl tracking-tight">
           {route ? <Link href={route}>{tool.name}</Link> : tool.name}
         </h3>
@@ -117,8 +117,22 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
         </div>
       ) : tool.delivery ? (
         <div className="mt-12 max-w-xl">
-          <p className="label">Delivery</p>
+          <p className="label">{tool.replacement ? "Deprecated" : "Delivery"}</p>
           <p className="muted">{tool.delivery}</p>
+          {tool.replacement ? (
+            <>
+              <p className="label mt-6">
+                Install{" "}
+                <a className="text-link" href={tool.replacement.href} {...externalLinkProps(tool.replacement.href)}>
+                  {tool.replacement.name}
+                </a>{" "}
+                instead
+              </p>
+              <pre className="install">
+                <code>{tool.replacement.install}</code>
+              </pre>
+            </>
+          ) : null}
           <p className="mt-4 text-sm">
             <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.primary.label}
@@ -148,7 +162,7 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
 
 export function ToolDetail({ tool }: { tool: CatalogTool }) {
   return (
-    <section id={tool.slug} className="container py-20 md:py-28">
+    <section id={tool.slug} className="container py-20 md:py-28" {...toolDataAttrs(tool)}>
       <p className="eyebrow">{tool.name}</p>
       {tool.whyTitle ? <h2 className="title mt-4 max-w-xl">{tool.whyTitle}</h2> : null}
       <p className="lede mt-5 max-w-2xl muted">{tool.summary}</p>
