@@ -1,21 +1,23 @@
 {
-  "checkedAt": "2026-10-20T11:45:58.833Z",
+  "checkedAt": "2026-10-20T17:44:39.004Z",
   "packages": {
     "@yellowgram/maydo": {
-      "latest": "0.2.0",
-      "deprecated": null,
-      "versions": [
-        "0.0.0-stage",
-        "0.2.0"
-      ]
-    },
-    "burnbrake": {
       "latest": "0.3.0",
       "deprecated": null,
       "versions": [
         "0.0.0-stage",
         "0.2.0",
         "0.3.0"
+      ]
+    },
+    "burnbrake": {
+      "latest": "0.4.0",
+      "deprecated": null,
+      "versions": [
+        "0.0.0-stage",
+        "0.2.0",
+        "0.3.0",
+        "0.4.0"
       ]
     },
     "hooksteel": {
@@ -28,11 +30,12 @@
       ]
     },
     "l2-send-guard": {
-      "latest": "1.0.0",
+      "latest": "2.0.0",
       "deprecated": null,
       "versions": [
         "0.5.0",
-        "1.0.0"
+        "1.0.0",
+        "2.0.0"
       ]
     },
     "recv-approval-watch": {
@@ -94,7 +97,7 @@
       ]
     },
     "surfacepin": {
-      "latest": "1.6.0",
+      "latest": "1.6.1",
       "deprecated": null,
       "versions": [
         "1.0.0",
@@ -103,7 +106,8 @@
         "1.3.0",
         "1.4.0",
         "1.5.0",
-        "1.6.0"
+        "1.6.0",
+        "1.6.1"
       ]
     }
   }
