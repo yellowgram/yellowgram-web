@@ -101,14 +101,22 @@ export const keelHow = [
   },
 ];
 
-/** Where the six deprecated send/recv packages point. */
+/** README migration section for the six earlier send/recv packages. */
 export const l2Migrating = "https://github.com/yellowgram/l2-safety-proxy#migrating";
 
-/** Badge for the six send/recv packages deprecated on npm. Never "Current". */
-export const deprecatedBadge = "Deprecated · Open source";
-export const deprecatedLine = "Deprecated: merged into L2 Send Guard 1.x.";
-export const deprecatedDelivery =
-  "Deprecated on npm: merged into l2-send-guard 1.x. Do not install this package; install L2 Send Guard instead.";
+/**
+ * The six earlier send/recv packages, deprecated on npm ("Merged into l2-send-guard 1.x").
+ * They appear on the site only in the L2 Send Guard replacement line (the version guard
+ * enforces this); /oss#<name> anchors land on that line.
+ */
+export const l2Replaces = [
+  "send-allow",
+  "send-approve-bound",
+  "send-permit2-bound",
+  "send-idempotency",
+  "recv-sweep-brake",
+  "recv-approval-watch",
+] as const;
 
 export const l2SendGuard = {
   name: "L2 Send Guard",
@@ -145,221 +153,6 @@ export const l2SendGuardHow = [
   },
 ];
 
-/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
-export const sendApproveBound = {
-  name: "send-approve-bound",
-  badge: deprecatedBadge,
-  tagline: "Bound the approve. Before it sends.",
-  summary:
-    "Non-custodial at-send gate for ERC-20/721/1155 approval calldata — per-token spender allowlist + caps; unlimited always denied. Compose after send-allow. No keys/sim.",
-  facts: [
-    "Per-token spender allowlist · ERC-20/721/1155",
-    "ERC-20 raw caps · unlimited always denied",
-    "MIT · after send-allow · no keys · no sim",
-  ],
-  install: l2SendGuard.install,
-  npm: "https://www.npmjs.com/package/send-approve-bound",
-  repo: "yellowgram/send-approve-bound",
-  github: "https://github.com/yellowgram/send-approve-bound",
-};
-
-export const sendApproveBoundHow = [
-  {
-    step: "01",
-    title: "Bound",
-    body: "Allow only listed spenders on that token.",
-  },
-  {
-    step: "02",
-    title: "Cap",
-    body: "Hold ERC-20 approve and increaseAllowance to the raw cap.",
-  },
-  {
-    step: "03",
-    title: "Deny",
-    body: "Refuse unlimited approvals before the send.",
-  },
-];
-
-/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
-export const sendAllow = {
-  name: "send-allow",
-  badge: deprecatedBadge,
-  tagline: "Allow the destination. Cap the native.",
-  summary:
-    "Non-custodial JSON-RPC middleware: address allowlist and optional native spend caps in front of eth_sendRawTransaction. No simulation.",
-  facts: [
-    "Address allowlist · optional native spend caps",
-    "Definite misses fail closed · no simulation",
-    "MIT · no key custody · not a sim proxy",
-  ],
-  install: l2SendGuard.install,
-  npm: "https://www.npmjs.com/package/send-allow",
-  repo: "yellowgram/send-allow",
-  github: "https://github.com/yellowgram/send-allow",
-};
-
-export const sendAllowHow = [
-  {
-    step: "01",
-    title: "Allow",
-    body: "Forward only when the destination is allowlisted.",
-  },
-  {
-    step: "02",
-    title: "Cap",
-    body: "Hold native value to the per-address and global caps.",
-  },
-  {
-    step: "03",
-    title: "Deny",
-    body: "Refuse a definite policy miss before broadcast.",
-  },
-];
-
-/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
-export const sendIdempotency = {
-  name: "send-idempotency",
-  badge: deprecatedBadge,
-  tagline: "Remember the key. Refuse the conflict.",
-  summary:
-    "Non-custodial at-send idempotency: a client key remembers the payload hash or a prior deny; a different payload conflicts; a down store fails closed. Not a nonce lease.",
-  facts: [
-    "Client key → payload hash or prior deny",
-    "Conflict on a different payload",
-    "MIT · fail-closed on store-down · not a nonce lease",
-  ],
-  install: l2SendGuard.install,
-  npm: "https://www.npmjs.com/package/send-idempotency",
-  repo: "yellowgram/send-idempotency",
-  github: "https://github.com/yellowgram/send-idempotency",
-};
-
-export const sendIdempotencyHow = [
-  {
-    step: "01",
-    title: "Remember",
-    body: "Store the client key against the hash of the signed raw bytes.",
-  },
-  {
-    step: "02",
-    title: "Conflict",
-    body: "Refuse the same key when the payload differs.",
-  },
-  {
-    step: "03",
-    title: "Halt",
-    body: "Fail closed when the store is down.",
-  },
-];
-
-/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
-export const recvSweepBrake = {
-  name: "recv-sweep-brake",
-  badge: deprecatedBadge,
-  tagline: "Brake the sweep. Until it is clear.",
-  summary:
-    "No-auto-sweep fence: sweep_policy.enabled defaults off; quarantine is clear, quarantine, or toxic; a send of non-clear is denied sweep_braked. No keys, signing, or auto-move.",
-  facts: [
-    "sweep_policy.enabled defaults off",
-    "Quarantine clear · quarantine · toxic",
-    "MIT · deny sweep_braked · no keys · no auto-move",
-  ],
-  install: l2SendGuard.install,
-  npm: "https://www.npmjs.com/package/recv-sweep-brake",
-  repo: "yellowgram/recv-sweep-brake",
-  github: "https://github.com/yellowgram/recv-sweep-brake",
-};
-
-export const recvSweepBrakeHow = [
-  {
-    step: "01",
-    title: "Classify",
-    body: "Label inbound clear, quarantine, or toxic.",
-  },
-  {
-    step: "02",
-    title: "Hold",
-    body: "Leave the brake on until an asset is explicitly clear.",
-  },
-  {
-    step: "03",
-    title: "Deny",
-    body: "Refuse a send of non-clear funds. No auto-move.",
-  },
-];
-
-/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
-export const sendPermit2Bound = {
-  name: "send-permit2-bound",
-  badge: deprecatedBadge,
-  tagline: "Pin Permit2. Bound the calldata.",
-  summary:
-    "Non-custodial at-send gate: pin Permit2 by chain and bound approve, permit, and permitTransferFrom calldata. No phishing UX. Compose after send-approve-bound. No keys. No simulation.",
-  facts: [
-    "Permit2 pin by chain",
-    "approve · permit · permitTransferFrom caps",
-    "MIT · after send-approve-bound · no keys · no sim",
-  ],
-  install: l2SendGuard.install,
-  npm: "https://www.npmjs.com/package/send-permit2-bound",
-  repo: "yellowgram/send-permit2-bound",
-  github: "https://github.com/yellowgram/send-permit2-bound",
-};
-
-export const sendPermit2BoundHow = [
-  {
-    step: "01",
-    title: "Pin",
-    body: "Accept Permit2 only at the address pinned for that chain.",
-  },
-  {
-    step: "02",
-    title: "Bound",
-    body: "Hold amount, expiration, and spender to the policy.",
-  },
-  {
-    step: "03",
-    title: "Deny",
-    body: "Refuse an unpinned or over-cap call before the send.",
-  },
-];
-
-/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
-export const recvApprovalWatch = {
-  name: "recv-approval-watch",
-  badge: deprecatedBadge,
-  tagline: "Watch the approval. Fail closed.",
-  summary:
-    "Receive-side watch for Approval and ApprovalForAll where the agent is owner or spender. Emits unexpected_approval. clearanceFromWatch fails closed. Revoke-intent never signs.",
-  facts: [
-    "Approval · ApprovalForAll · owner or spender",
-    "unexpected_approval · clearance fails closed",
-    "MIT · revoke intent never signs",
-  ],
-  install: l2SendGuard.install,
-  npm: "https://www.npmjs.com/package/recv-approval-watch",
-  repo: "yellowgram/recv-approval-watch",
-  github: "https://github.com/yellowgram/recv-approval-watch",
-};
-
-export const recvApprovalWatchHow = [
-  {
-    step: "01",
-    title: "Watch",
-    body: "Read Approval and ApprovalForAll where the agent is owner or spender.",
-  },
-  {
-    step: "02",
-    title: "Emit",
-    body: "Flag an unexpected grant. Unlimited stays unexpected unless opted in.",
-  },
-  {
-    step: "03",
-    title: "Hold",
-    body: "Fail clearance closed while the watch is unhealthy. Never sign a revoke.",
-  },
-];
 
 
 /** How-it-works demo clip (GitHub Release asset). */
@@ -483,7 +276,7 @@ export const surfaceGuard = {
   github: "https://github.com/yellowgram/surface-guard",
 };
 
-export type OssGroup = "lead" | "agent" | "billing" | "send" | "other";
+export type OssGroup = "lead" | "agent" | "billing" | "other";
 
 /** /oss sections, in display order. */
 export const ossGroups: readonly { id: OssGroup; title: string; line: string }[] = [
@@ -501,11 +294,6 @@ export const ossGroups: readonly { id: OssGroup; title: string; line: string }[]
     id: "billing",
     title: "Billing & access kits",
     line: "Self-host Stripe and Polar billing pieces: webhooks once, access that matches payment, entitlement decisions, prepaid credits.",
-  },
-  {
-    id: "send",
-    title: "Deprecated send & receive guards",
-    line: "Merged into L2 Send Guard 1.x and deprecated on npm. Kept for reference; install L2 Send Guard instead.",
   },
   {
     id: "other",
@@ -534,8 +322,8 @@ export type CatalogTool = {
   install?: string;
   /** Shown in place of an install command. */
   delivery?: string;
-  /** Deprecated tools: what to install instead. */
-  replacement?: { name: string; install: string; href: string };
+  /** Earlier packages this tool replaces, shown as one line under the summary. */
+  replaces?: { names: readonly string[]; href: string; anchors?: readonly string[] };
   facts?: readonly string[];
   whyTitle?: string;
   steps?: readonly { step: string; title: string; body: string }[];
@@ -566,6 +354,7 @@ export const tools: CatalogTool[] = [
     group: "lead",
     primary: github(l2SendGuard.github),
     secondary: npmLink(l2SendGuard.npm),
+    replaces: { names: l2Replaces, href: l2Migrating, anchors: ["group-send"] },
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
     whyTitle: "Proxy, check, refuse.",
@@ -680,114 +469,6 @@ export const tools: CatalogTool[] = [
     facts: creditLedger.facts,
     whyTitle: "Record, draw, run.",
     steps: creditLedgerHow,
-  },
-  {
-    slug: "send-allow",
-    npmPackage: "send-allow",
-    name: sendAllow.name,
-    badge: sendAllow.badge,
-    tagline: sendAllow.tagline,
-    summary: `${deprecatedLine} ${sendAllow.summary}`,
-    repo: sendAllow.repo,
-    oss: true,
-    group: "send",
-    primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
-    secondary: github(sendAllow.github),
-    delivery: deprecatedDelivery,
-    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
-    facts: sendAllow.facts,
-    whyTitle: "Allow, cap, deny.",
-    steps: sendAllowHow,
-  },
-  {
-    slug: "send-approve-bound",
-    npmPackage: "send-approve-bound",
-    name: sendApproveBound.name,
-    badge: sendApproveBound.badge,
-    tagline: sendApproveBound.tagline,
-    summary: `${deprecatedLine} ${sendApproveBound.summary}`,
-    repo: sendApproveBound.repo,
-    oss: true,
-    group: "send",
-    primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
-    secondary: github(sendApproveBound.github),
-    delivery: deprecatedDelivery,
-    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
-    facts: sendApproveBound.facts,
-    whyTitle: "Bound, cap, deny.",
-    steps: sendApproveBoundHow,
-  },
-  {
-    slug: "send-permit2-bound",
-    npmPackage: "send-permit2-bound",
-    name: sendPermit2Bound.name,
-    badge: sendPermit2Bound.badge,
-    tagline: sendPermit2Bound.tagline,
-    summary: `${deprecatedLine} ${sendPermit2Bound.summary}`,
-    repo: sendPermit2Bound.repo,
-    oss: true,
-    group: "send",
-    primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
-    secondary: github(sendPermit2Bound.github),
-    delivery: deprecatedDelivery,
-    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
-    facts: sendPermit2Bound.facts,
-    whyTitle: "Pin, bound, deny.",
-    steps: sendPermit2BoundHow,
-  },
-  {
-    slug: "send-idempotency",
-    npmPackage: "send-idempotency",
-    name: sendIdempotency.name,
-    badge: sendIdempotency.badge,
-    tagline: sendIdempotency.tagline,
-    summary: `${deprecatedLine} ${sendIdempotency.summary}`,
-    repo: sendIdempotency.repo,
-    oss: true,
-    group: "send",
-    primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
-    secondary: github(sendIdempotency.github),
-    delivery: deprecatedDelivery,
-    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
-    facts: sendIdempotency.facts,
-    whyTitle: "Remember, conflict, halt.",
-    steps: sendIdempotencyHow,
-  },
-  {
-    slug: "recv-sweep-brake",
-    npmPackage: "recv-sweep-brake",
-    name: recvSweepBrake.name,
-    badge: recvSweepBrake.badge,
-    tagline: recvSweepBrake.tagline,
-    summary: `${deprecatedLine} ${recvSweepBrake.summary}`,
-    repo: recvSweepBrake.repo,
-    oss: true,
-    group: "send",
-    primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
-    secondary: github(recvSweepBrake.github),
-    delivery: deprecatedDelivery,
-    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
-    facts: recvSweepBrake.facts,
-    whyTitle: "Classify, hold, deny.",
-    steps: recvSweepBrakeHow,
-  },
-  {
-    slug: "recv-approval-watch",
-    npmPackage: "recv-approval-watch",
-    name: recvApprovalWatch.name,
-    badge: recvApprovalWatch.badge,
-    tagline: recvApprovalWatch.tagline,
-    summary: `${deprecatedLine} ${recvApprovalWatch.summary}`,
-    repo: recvApprovalWatch.repo,
-    oss: true,
-    group: "send",
-    primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
-    secondary: github(recvApprovalWatch.github),
-    delivery: deprecatedDelivery,
-    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
-    facts: recvApprovalWatch.facts,
-    whyTitle: "Watch, emit, hold.",
-    steps: recvApprovalWatchHow,
   },
   {
     slug: "keel",

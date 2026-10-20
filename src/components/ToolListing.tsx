@@ -30,6 +30,28 @@ function productRoute(tool: CatalogTool): string | null {
   return href;
 }
 
+const listNames = (names: readonly string[]) =>
+  names.length < 2 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+
+/**
+ * One line naming the earlier packages a tool replaces. Each old name keeps an anchor here
+ * (/oss#send-allow lands on this line), plus any retired section anchors (#group-send).
+ * The version guard allows those names nowhere else.
+ */
+function ReplacesLine({ tool, replaces }: { tool: CatalogTool; replaces: NonNullable<CatalogTool["replaces"]> }) {
+  return (
+    <p className="mt-3 max-w-xl text-sm muted" data-replaces={tool.slug}>
+      {[...replaces.names, ...(replaces.anchors ?? [])].map((name) => (
+        <span key={name} id={name} className="anchor-target" aria-hidden="true" />
+      ))}
+      {`Replaces ${listNames(replaces.names)}, the earlier packages now deprecated on npm. `}
+      <a className="text-link" href={replaces.href} {...externalLinkProps(replaces.href)}>
+        How to migrate
+      </a>
+    </p>
+  );
+}
+
 export function ToolCard({ tool }: { tool: CatalogTool }) {
   const route = productRoute(tool);
   return (
@@ -41,6 +63,7 @@ export function ToolCard({ tool }: { tool: CatalogTool }) {
         </h3>
         <p className="mt-3 text-lg tracking-tight">{tool.tagline}</p>
         <p className="mt-3 max-w-xl muted">{tool.summary}</p>
+        {tool.replaces ? <ReplacesLine tool={tool} replaces={tool.replaces} /> : null}
       </div>
       <div className="tool-card-foot">
         <div className="actions">
@@ -117,22 +140,8 @@ export function ToolBody({ tool }: { tool: CatalogTool }) {
         </div>
       ) : tool.delivery ? (
         <div className="mt-12 max-w-xl">
-          <p className="label">{tool.replacement ? "Deprecated" : "Delivery"}</p>
+          <p className="label">Delivery</p>
           <p className="muted">{tool.delivery}</p>
-          {tool.replacement ? (
-            <>
-              <p className="label mt-6">
-                Install{" "}
-                <a className="text-link" href={tool.replacement.href} {...externalLinkProps(tool.replacement.href)}>
-                  {tool.replacement.name}
-                </a>{" "}
-                instead
-              </p>
-              <pre className="install">
-                <code>{tool.replacement.install}</code>
-              </pre>
-            </>
-          ) : null}
           <p className="mt-4 text-sm">
             <a className="text-link" href={tool.primary.href} {...externalLinkProps(tool.primary.href)}>
               {tool.primary.label}

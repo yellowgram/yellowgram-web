@@ -39,12 +39,15 @@ const shim = (slug = "send-allow", badge = "Deprecated · Open source", status =
     status,
     body ?? `<p>Deprecated: merged into L2 Send Guard 1.x.</p>${install("npx l2-send-guard@1.0.0")}<a href="https://github.com/yellowgram/l2-safety-proxy#migrating">Migrate to L2 Send Guard</a>`,
   );
+const SHIMS = ["send-allow", "send-approve-bound", "send-permit2-bound", "send-idempotency", "recv-sweep-brake", "recv-approval-watch"];
+const replacesLine = (names = SHIMS) =>
+  `<p class="mt-3 text-sm muted" data-replaces="l2-send-guard">${names.map((n) => `<span id="${n}" aria-hidden="true"></span>`).join("")}<span id="group-send" aria-hidden="true"></span>Replaces ${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}, the earlier packages now deprecated on npm. <a class="text-link" href="https://github.com/yellowgram/l2-safety-proxy#migrating">How to migrate</a></p>`;
 const jsonld = (v = "1.6.0", url = "https://www.npmjs.com/package/surfacepin") =>
   `<script type="application/ld+json">${JSON.stringify({ "@type": "SoftwareApplication", softwareVersion: v, installUrl: url })}</script>`;
 
-function page({ l2 = "npx l2-send-guard@1.0.0", hooksteel = "npm install hooksteel@0.3.0", surfacepin = "npx surfacepin@1.6.0", shimHtml = shim(), ld = jsonld(), extra = "" } = {}) {
+function page({ l2 = "npx l2-send-guard@1.0.0", hooksteel = "npm install hooksteel@0.3.0", surfacepin = "npx surfacepin@1.6.0", shimHtml = "", replaces = replacesLine(), ld = jsonld(), extra = "" } = {}) {
   return `<!DOCTYPE html><html><body><main>
-${card("l2-send-guard", "l2-send-guard", "Current · Open source", "current", `<p>Check every send.</p>${install(l2)}`)}
+${card("l2-send-guard", "l2-send-guard", "Current · Open source", "current", `<p>Check every send.</p>${replaces}${install(l2)}`)}
 ${card("hooksteel", "hooksteel", "Current · Open source", "current", `<p>Grant the credit once.</p>${install(hooksteel)}`)}
 ${card("surfacepin", "surfacepin", "Current · Open source", "current", `<p>Pin the surface.</p>${install(surfacepin)}`)}
 ${card("burnbrake", "burnbrake", "Current · Open source", "current", install("npm install burnbrake@0.3.0 &amp;&amp; npx burnbrake serve"))}
@@ -71,7 +74,7 @@ const passes = (html, registry) => {
 test("baseline passes with no warnings", () => {
   const r = passes(page());
   assert.deepEqual(r.warnings, []);
-  assert.ok(r.stats.pins >= 5 && r.stats.cards >= 7);
+  assert.ok(r.stats.pins >= 5 && r.stats.cards >= 6);
 });
 
 // Version token forms (previous guard let ^ ~ = v through).
@@ -206,8 +209,63 @@ test('no-attribute markup with spaced name "Send Allow — Current" fails', () =
   fails(page({ extra: "<div><p>Send Allow — Current</p></div>" }), /labels deprecated send-allow as Current/));
 test('no-attribute "recv-approval-watch <span>Current</span>" in one block fails', () =>
   fails(page({ extra: "<p>recv-approval-watch <span class=\"pill\">Current</span></p>" }), /recv-approval-watch as Current/));
-test("block that says merged/deprecated and current passes", () =>
-  passes(page({ extra: "<p>send-allow was merged into L2 Send Guard 1.x, which is current.</p>" })));
+test("a deprecated name in prose outside the replacement line fails, even when it says merged", () =>
+  fails(page({ extra: "<p>send-allow was merged into L2 Send Guard 1.x, which is current.</p>" }), /send-allow appears outside the replacement line/));
+
+// The six earlier package names may appear only in the data-replaces line.
+test("baseline: all six names inside the replacement line pass", () => passes(page()));
+test("re-adding a deprecated card fails", () => fails(page({ shimHtml: shim() }), /send-allow appears outside the replacement line/));
+for (const [what, html] of [
+  ["a paragraph", "<p>Try recv-sweep-brake for inbound funds.</p>"],
+  ["a spaced display name", "<p>Send Idempotency keeps keys.</p>"],
+  ["an upper-case name", "<p>SEND-PERMIT2-BOUND</p>"],
+  ["a GitHub href", '<a href="https://github.com/yellowgram/send-approve-bound">repo</a>'],
+  ["an npm href", '<a href="https://www.npmjs.com/package/recv-approval-watch">npm</a>'],
+  ["an in-page #anchor href", '<a href="#send-allow">old</a>'],
+  ["an img alt", '<img alt="send-allow diagram" src="x.png">'],
+  ["a meta description", '<meta name="description" content="Tools: send-idempotency and more">'],
+  ["JSON-LD", '<script type="application/ld+json">{"@type":"SoftwareApplication","name":"recv-sweep-brake"}</script>'],
+  ["a JSX-split name", "<p>send-<!-- -->allow</p>"],
+  ["an entity-split name", "<p>send&#45;allow</p>"],
+]) {
+  test(`a deprecated name in ${what} outside the replacement line fails`, () => fails(page({ extra: html }), /appears outside the replacement line/));
+}
+test("a deprecated name only in the RSC payload is not double-counted (rendered text is checked)", () =>
+  passes(page({ extra: '<script>self.__next_f.push([1,"Replaces send-allow"])</script>' })));
+// The allowance is scoped to the one L2 Send Guard line.
+test('a second data-replaces element for another tool does not allow the names', () =>
+  fails(page({ extra: '<div data-replaces="hooksteel"><p>send-allow is the best guard.</p></div>' }), /send-allow appears outside the replacement line/));
+test("two replacement lines fail", () => fails(page({ extra: replacesLine() }), /2 replacement lines found/));
+test("two replacement lines across pages fail", () => {
+  const r = checkSite([{ path: "oss.html", content: page() }, { path: "index.html", content: replacesLine() }], REGISTRY());
+  assert.ok(r.errors.some((e) => /2 replacement lines found/.test(e)), r.errors.join("\n"));
+});
+test("replacement line that does not say deprecated fails", () =>
+  fails(page({ replaces: replacesLine().replace("now deprecated on npm", "still maintained") }), /does not say the packages are deprecated/));
+test("replacement line without the #migrating link fails", () =>
+  fails(page({ replaces: replacesLine().replace("l2-safety-proxy#migrating", "l2-safety-proxy") }), /#migrating/));
+
+// Non-HTML public outputs are scanned for the names too.
+for (const path of ["public/llms.txt", ".next/server/app/sitemap.xml.body", ".next/server/app/robots.txt.body", "public/feed.xml", "public/notes.md", "public/data.json"]) {
+  test(`a deprecated name in ${path} fails`, () => {
+    const r = checkSite([{ path: "oss.html", content: page() }, { path, content: "Tools: send-allow, l2-send-guard" }], REGISTRY());
+    assert.ok(r.errors.some((e) => e.includes(`${path}: deprecated send-allow appears outside`)), r.errors.join("\n"));
+  });
+}
+test("a deprecated name in a .txt pin form fails", () => {
+  const r = checkSite([{ path: "oss.html", content: page() }, { path: "public/llms.txt", content: "npx recv-sweep-brake@0.2.0" }], REGISTRY());
+  assert.ok(r.errors.some((e) => /recv-sweep-brake@0\.2\.0.*deprecated/.test(e)), r.errors.join("\n"));
+});
+test("a deprecated name only in an .rsc payload passes", () =>
+  assert.deepEqual(checkSite([{ path: "oss.html", content: page() }, { path: "oss.rsc", content: "Replaces send-allow" }], REGISTRY()).errors, []));
+
+test("no replacement line fails", () => fails(page({ replaces: "" }), /no data-replaces=/));
+test("a replacement line missing one name fails", () =>
+  fails(page({ replaces: replacesLine(SHIMS.filter((n) => n !== "recv-approval-watch")) }), /does not name: recv-approval-watch/));
+test("a replacement line that pins a deprecated package fails", () =>
+  fails(page({ replaces: replacesLine().replace("How to migrate", "npx send-allow@0.2.0") }), /send-allow@0\.2\.0.*deprecated/));
+test("a replacement line that calls a deprecated package Current fails", () =>
+  fails(page({ replaces: replacesLine().replace("the earlier packages now deprecated on npm", "send-allow is still current") }), /as Current/));
 
 // Registry access: timeout, retry, budget.
 test("registry black hole times out and retries twice", async () => {
