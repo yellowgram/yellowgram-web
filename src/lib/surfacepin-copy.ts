@@ -28,30 +28,30 @@ export const faqSeeds = [
   },
   {
     q: "Which lists are pinned?",
-    a: "tools/list, resources/list, and prompts/list. Resource templates and initialize.instructions are not pinned.",
+    a: "tools/list, resources/list, and prompts/list, including titles, and the server’s instructions when you add --surface …,instructions. Resource templates, icons and _meta are not pinned.",
   },
   {
     q: "Which lockfiles still verify?",
-    a: "v1, v2, and v3. New locks are written as v3. Re-lock after upgrading to 1.4 so the digest includes annotations and outputSchema.",
+    a: "v1, v2, and v3. New locks are written as lockfile v3 with canonicalization surfacepin-jcs-v2, which is frozen: the same surface gives the same digests in every future release. Older surfacepin-jcs-v1 lockfiles still verify.",
   },
 ] as const;
 
 export const specTitle = "SurfacePin — what the lock does and does not";
 
 export const specDescription =
-  "Lockfile spec v1.4 for SurfacePin. Exact hash, offline verify, and a field-diff that does not decide pass or fail. Not semantic. Not a runtime proxy.";
+  "The frozen SurfacePin lockfile format: canonicalization surfacepin-jcs-v2 in lockfile v3. Exact hash, offline verify, and a field-diff that does not decide pass or fail. Not semantic. Not a runtime proxy.";
 
 export const specIntro =
-  "Lockfile spec v1.4. Pass or fail is an exact hash. The field-diff explains a mismatch. It does not decide it. Canonicalization is surfacepin-jcs-v1. Digests are lowercase hex SHA-256. The MCP schema revision 2026-07-28 is a documentation reference, not a runtime fetch.";
+  "Frozen: canonicalization surfacepin-jcs-v2 in lockfile v3 (the format SurfacePin 1.6.0 writes). It hashes title on tools, resources, prompts and prompt arguments, tool annotations.title, and the server’s instructions (opt-in: --surface …,instructions). Older surfacepin-jcs-v1 lockfiles still verify. Unknown profiles are rejected (exit 2). Pass or fail is an exact hash; the field-diff explains a mismatch and does not decide it. Digests are lowercase hex SHA-256. The MCP schema revision 2026-07-28 is a documentation reference, not a runtime fetch.";
 
 /** Contract rows. Paired so the table stays a does / does-not, not a pitch. */
 export const specRows: readonly { does: string; doesNot: string }[] = [
   {
-    does: "Hash tools (name, description, inputSchema, annotations, outputSchema), resources (uri, name, description, mimeType), and prompts (name, description, arguments).",
+    does: "Hash tools (name, title, description, inputSchema, annotations including annotations.title, outputSchema), resources (uri, name, title, description, mimeType), prompts (name, title, description, and each argument’s name, title, description, required), and the server’s instructions when selected.",
     doesNot: "Semantic similarity, embeddings, or an LLM match.",
   },
   {
-    does: "Write lockfile v3, including the surface that was hashed. Verify still accepts lockfile v1, v2, and v3.",
+    does: "Write lockfile v3 with canonicalization surfacepin-jcs-v2, including the surface that was hashed. Verify still accepts lockfile v1, v2 and v3 (surfacepin-jcs-v1) and rejects unknown profiles with exit 2.",
     doesNot: "Streamable HTTP or SSE. Live listing is stdio only.",
   },
   {
@@ -64,16 +64,25 @@ export const specRows: readonly { does: string; doesNot: string }[] = [
   },
   {
     does: "List a live server over stdio when you pass --stdio -- and the server command.",
-    doesNot: "Resource templates, or initialize.instructions.",
+    doesNot: "Resource templates (resources/templates/list).",
   },
   {
-    does: "Leave tool title, icons, and _meta out of the hash.",
+    does: "Leave icons, _meta, and resource annotations and size out of the hash.",
     doesNot: "Materializing MCP annotation defaults into hashed fields.",
   },
   {
     does: "Fail CI when the live digest does not match the pin, until someone re-locks on purpose.",
     doesNot: "A runtime proxy. SurfacePin does not sit on the request path.",
   },
+];
+
+/** Compatibility promise for the frozen format (SPEC.md section 0). */
+export const specPromises: readonly string[] = [
+  "A pin keeps its meaning. For the same input, every future release computes the same surfacepin-jcs-v2 bytes, digests and roots, so a lockfile that passes today keeps passing and one that fails keeps failing.",
+  "No silent changes. Any future need ships as a new, separately named profile, never as a change to surfacepin-jcs-v2.",
+  "Existing pins are never dropped. surfacepin-jcs-v1 (lockfile v1, v2 and v3) and surfacepin-jcs-v2 (lockfile v3) keep verifying, each with the profile it records. surfacepin-jcs-v1 means the rules of 1.4 and later; locks written by 1.0 to 1.3 for tools with annotations or outputSchema need a re-lock.",
+  "Unknown means reject. A verifier that does not know a lockfile’s profile exits 2 and never falls back to another profile.",
+  "New profiles are opt-in for existing pins. Existing lockfiles keep the profile they record until you re-lock.",
 ];
 
 export const surfacepinJsonLd = {
@@ -97,8 +106,8 @@ export const surfacepinJsonLd = {
       "@type": "SoftwareApplication",
       "@id": "https://www.yellowgram.dev/surfacepin#software",
       name: "SurfacePin",
-      softwareVersion: "1.6.0",
-      operatingSystem: "Node.js 20+",
+      softwareVersion: "1.6.1",
+      operatingSystem: "Node.js 22+",
       license: "https://spdx.org/licenses/MIT.html",
       url: "https://www.yellowgram.dev/surfacepin",
       installUrl: "https://www.npmjs.com/package/surfacepin",
