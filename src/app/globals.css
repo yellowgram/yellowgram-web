@@ -377,6 +377,12 @@ h3 {
   scroll-margin-top: 5.5rem;
 }
 
+/* Old /oss#<package> anchors on the L2 Send Guard "Replaces" line: clear the sticky header. */
+.anchor-target {
+  display: block;
+  scroll-margin-top: 5.5rem;
+}
+
 @media (max-width: 640px) {
   .actions {
     flex-direction: column;
