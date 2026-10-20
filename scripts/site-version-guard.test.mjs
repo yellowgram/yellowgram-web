@@ -135,6 +135,13 @@ test("l2-send-guard@1.0.0 after 2.0.0 publishes fails (major line); @2.0.0 passe
   fails(page(), /l2-send-guard@1\.0\.0.*line/, reg);
   passes(page({ l2: "npx l2-send-guard@2.0.0" }), reg);
 });
+test("l2-send-guard@2.0.0 after 2.1.0 publishes only warns; @2.1.0 passes", () => {
+  const reg = REGISTRY();
+  reg.set("l2-send-guard", pkg("2.1.0", ["0.5.0", "1.0.0", "2.0.0", "2.1.0"]));
+  const r = passes(page({ l2: "npx l2-send-guard@2.0.0" }), reg);
+  assert.ok(r.warnings.some((w) => /l2-send-guard@2\.0\.0.*behind/.test(w)));
+  passes(page({ l2: "npx l2-send-guard@2.1.0" }), reg);
+});
 
 // Markup that splits tokens.
 test("JSX-split pin (<!-- --> separators) fails", () =>
