@@ -104,6 +104,12 @@ export const keelHow = [
 /** Where the six deprecated send/recv packages point. */
 export const l2Migrating = "https://github.com/yellowgram/l2-safety-proxy#migrating";
 
+/** Badge for the six send/recv packages deprecated on npm. Never "Current". */
+export const deprecatedBadge = "Deprecated · Open source";
+export const deprecatedLine = "Deprecated: merged into L2 Send Guard 1.x.";
+export const deprecatedDelivery =
+  "Deprecated on npm: merged into l2-send-guard 1.x. Do not install this package; install L2 Send Guard instead.";
+
 export const l2SendGuard = {
   name: "L2 Send Guard",
   badge: "Current · Open source",
@@ -139,10 +145,10 @@ export const l2SendGuardHow = [
   },
 ];
 
-/** Publish gate 1daa967704d5bfbac2f4d16767cb88cf98ee7c6f. Catalog pin is npm 0.1.0. */
+/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
 export const sendApproveBound = {
   name: "send-approve-bound",
-  badge: "Current · Open source",
+  badge: deprecatedBadge,
   tagline: "Bound the approve. Before it sends.",
   summary:
     "Non-custodial at-send gate for ERC-20/721/1155 approval calldata — per-token spender allowlist + caps; unlimited always denied. Compose after send-allow. No keys/sim.",
@@ -151,7 +157,7 @@ export const sendApproveBound = {
     "ERC-20 raw caps · unlimited always denied",
     "MIT · after send-allow · no keys · no sim",
   ],
-  install: "npx send-approve-bound@0.1.0",
+  install: l2SendGuard.install,
   npm: "https://www.npmjs.com/package/send-approve-bound",
   repo: "yellowgram/send-approve-bound",
   github: "https://github.com/yellowgram/send-approve-bound",
@@ -175,19 +181,19 @@ export const sendApproveBoundHow = [
   },
 ];
 
-/** Publish gate 3c0840d39d5ed46b6e5a304c17cc79c61de65474. Catalog pin is npm 0.1.0. */
+/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
 export const sendAllow = {
   name: "send-allow",
-  badge: "Current · Open source",
+  badge: deprecatedBadge,
   tagline: "Allow the destination. Cap the native.",
   summary:
-    "Non-custodial JSON-RPC middleware: address allowlist and optional native spend caps in front of eth_sendRawTransaction. No simulation. Complementary to L2 Send Guard.",
+    "Non-custodial JSON-RPC middleware: address allowlist and optional native spend caps in front of eth_sendRawTransaction. No simulation.",
   facts: [
     "Address allowlist · optional native spend caps",
     "Definite misses fail closed · no simulation",
     "MIT · no key custody · not a sim proxy",
   ],
-  install: "npx send-allow@0.1.0",
+  install: l2SendGuard.install,
   npm: "https://www.npmjs.com/package/send-allow",
   repo: "yellowgram/send-allow",
   github: "https://github.com/yellowgram/send-allow",
@@ -211,10 +217,10 @@ export const sendAllowHow = [
   },
 ];
 
-/** Publish gate ca0bb4815218fb0e3ef5ea101ce1912723fa9391. Catalog pin is npm 0.1.0. */
+/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
 export const sendIdempotency = {
   name: "send-idempotency",
-  badge: "Current · Open source",
+  badge: deprecatedBadge,
   tagline: "Remember the key. Refuse the conflict.",
   summary:
     "Non-custodial at-send idempotency: a client key remembers the payload hash or a prior deny; a different payload conflicts; a down store fails closed. Not a nonce lease.",
@@ -223,7 +229,7 @@ export const sendIdempotency = {
     "Conflict on a different payload",
     "MIT · fail-closed on store-down · not a nonce lease",
   ],
-  install: "npx send-idempotency@0.1.0",
+  install: l2SendGuard.install,
   npm: "https://www.npmjs.com/package/send-idempotency",
   repo: "yellowgram/send-idempotency",
   github: "https://github.com/yellowgram/send-idempotency",
@@ -247,10 +253,10 @@ export const sendIdempotencyHow = [
   },
 ];
 
-/** Publish gate 37c0fdc65ac8c17b44ef1fdd45a3363ce97d199d. Catalog pin is npm 0.1.0. */
+/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
 export const recvSweepBrake = {
   name: "recv-sweep-brake",
-  badge: "Current · Open source",
+  badge: deprecatedBadge,
   tagline: "Brake the sweep. Until it is clear.",
   summary:
     "No-auto-sweep fence: sweep_policy.enabled defaults off; quarantine is clear, quarantine, or toxic; a send of non-clear is denied sweep_braked. No keys, signing, or auto-move.",
@@ -259,7 +265,7 @@ export const recvSweepBrake = {
     "Quarantine clear · quarantine · toxic",
     "MIT · deny sweep_braked · no keys · no auto-move",
   ],
-  install: "npx recv-sweep-brake@0.1.0",
+  install: l2SendGuard.install,
   npm: "https://www.npmjs.com/package/recv-sweep-brake",
   repo: "yellowgram/recv-sweep-brake",
   github: "https://github.com/yellowgram/recv-sweep-brake",
@@ -283,10 +289,10 @@ export const recvSweepBrakeHow = [
   },
 ];
 
-/** Publish gate 4e899bf8ab3639c53c4a37baa868868f9b81a736. Catalog pin is npm 0.1.0. */
+/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
 export const sendPermit2Bound = {
   name: "send-permit2-bound",
-  badge: "Current · Open source",
+  badge: deprecatedBadge,
   tagline: "Pin Permit2. Bound the calldata.",
   summary:
     "Non-custodial at-send gate: pin Permit2 by chain and bound approve, permit, and permitTransferFrom calldata. No phishing UX. Compose after send-approve-bound. No keys. No simulation.",
@@ -295,7 +301,7 @@ export const sendPermit2Bound = {
     "approve · permit · permitTransferFrom caps",
     "MIT · after send-approve-bound · no keys · no sim",
   ],
-  install: "npx send-permit2-bound@0.1.0",
+  install: l2SendGuard.install,
   npm: "https://www.npmjs.com/package/send-permit2-bound",
   repo: "yellowgram/send-permit2-bound",
   github: "https://github.com/yellowgram/send-permit2-bound",
@@ -319,10 +325,10 @@ export const sendPermit2BoundHow = [
   },
 ];
 
-/** Publish gate 2aeeae81a9aea6d90fff3223375b1f3d8a168a53. Catalog pin is npm 0.1.0. */
+/** Deprecated on npm: "Merged into l2-send-guard 1.x". Install L2 Send Guard instead. */
 export const recvApprovalWatch = {
   name: "recv-approval-watch",
-  badge: "Current · Open source",
+  badge: deprecatedBadge,
   tagline: "Watch the approval. Fail closed.",
   summary:
     "Receive-side watch for Approval and ApprovalForAll where the agent is owner or spender. Emits unexpected_approval. clearanceFromWatch fails closed. Revoke-intent never signs.",
@@ -331,7 +337,7 @@ export const recvApprovalWatch = {
     "unexpected_approval · clearance fails closed",
     "MIT · revoke intent never signs",
   ],
-  install: "npx recv-approval-watch@0.1.0",
+  install: l2SendGuard.install,
   npm: "https://www.npmjs.com/package/recv-approval-watch",
   repo: "yellowgram/recv-approval-watch",
   github: "https://github.com/yellowgram/recv-approval-watch",
@@ -477,10 +483,15 @@ export const surfaceGuard = {
   github: "https://github.com/yellowgram/surface-guard",
 };
 
-export type OssGroup = "agent" | "billing" | "send" | "other";
+export type OssGroup = "lead" | "agent" | "billing" | "send" | "other";
 
 /** /oss sections, in display order. */
 export const ossGroups: readonly { id: OssGroup; title: string; line: string }[] = [
+  {
+    id: "lead",
+    title: "Start here",
+    line: "Guard every agent send. Grant each billing event once. Pin the MCP surface.",
+  },
   {
     id: "agent",
     title: "Agent spend & safety",
@@ -493,8 +504,8 @@ export const ossGroups: readonly { id: OssGroup; title: string; line: string }[]
   },
   {
     id: "send",
-    title: "Send & receive guards",
-    line: "Non-custodial EVM guards in front of eth_sendRawTransaction, and watches on what lands.",
+    title: "Deprecated send & receive guards",
+    line: "Merged into L2 Send Guard 1.x and deprecated on npm. Kept for reference; install L2 Send Guard instead.",
   },
   {
     id: "other",
@@ -505,6 +516,8 @@ export const ossGroups: readonly { id: OssGroup; title: string; line: string }[]
 
 export type CatalogTool = {
   slug: string;
+  /** npm package name, when the tool is published on npm. Rendered as data-npm for the version guard. */
+  npmPackage?: string;
   name: string;
   badge: string;
   tagline: string;
@@ -521,6 +534,8 @@ export type CatalogTool = {
   install?: string;
   /** Shown in place of an install command. */
   delivery?: string;
+  /** Deprecated tools: what to install instead. */
+  replacement?: { name: string; install: string; href: string };
   facts?: readonly string[];
   whyTitle?: string;
   steps?: readonly { step: string; title: string; body: string }[];
@@ -536,10 +551,49 @@ export type CatalogTool = {
 const github = (href: string) => ({ label: "View on GitHub", href });
 const npmLink = (href: string) => ({ label: "View on npm", href });
 
-/** Shipped tools. Adding the next one is another entry here. */
+/** Shipped tools, in /oss display order: L2 Send Guard, HookSteel and SurfacePin lead. */
 export const tools: CatalogTool[] = [
   {
+    slug: "l2-send-guard",
+    npmPackage: "l2-send-guard",
+    name: l2SendGuard.name,
+    badge: l2SendGuard.badge,
+    tagline: l2SendGuard.tagline,
+    summary: l2SendGuard.summary,
+    repo: l2SendGuard.repo,
+    current: true,
+    oss: true,
+    group: "lead",
+    primary: github(l2SendGuard.github),
+    secondary: npmLink(l2SendGuard.npm),
+    install: l2SendGuard.install,
+    facts: l2SendGuard.facts,
+    whyTitle: "Proxy, check, refuse.",
+    steps: l2SendGuardHow,
+  },
+  {
+    slug: "hooksteel",
+    npmPackage: "hooksteel",
+    name: hooksteel.name,
+    badge: hooksteel.badge,
+    tagline: hooksteel.tagline,
+    summary: hooksteel.summary,
+    repo: hooksteel.repo,
+    current: true,
+    oss: true,
+    group: "lead",
+    primary: github(hooksteel.github),
+    secondary: npmLink(hooksteel.npm),
+    watch: { label: "Watch 60s demo", href: hooksteelDemo },
+    install: hooksteel.install,
+    facts: hooksteel.facts,
+    whyTitle: "Same transaction. Drain after commit.",
+    steps: hooksteelHow,
+    stepsNote: hooksteelStepsNote,
+  },
+  {
     slug: "surfacepin",
+    npmPackage: "surfacepin",
     name: surfacepin.name,
     badge: surfacepin.badge,
     tagline: surfacepin.tagline,
@@ -548,7 +602,7 @@ export const tools: CatalogTool[] = [
     productHref: "/surfacepin",
     current: true,
     oss: true,
-    group: "agent",
+    group: "lead",
     primary: github(surfacepin.github),
     secondary: npmLink(surfacepin.npm),
     install: surfacepin.install,
@@ -558,6 +612,7 @@ export const tools: CatalogTool[] = [
   },
   {
     slug: "burnbrake",
+    npmPackage: "burnbrake",
     name: burnbrake.name,
     badge: burnbrake.badge,
     tagline: burnbrake.tagline,
@@ -574,26 +629,8 @@ export const tools: CatalogTool[] = [
     steps: burnbrakeHow,
   },
   {
-    slug: "hooksteel",
-    name: hooksteel.name,
-    badge: hooksteel.badge,
-    tagline: hooksteel.tagline,
-    summary: hooksteel.summary,
-    repo: hooksteel.repo,
-    current: true,
-    oss: true,
-    group: "billing",
-    primary: github(hooksteel.github),
-    secondary: npmLink(hooksteel.npm),
-    watch: { label: "Watch 60s demo", href: hooksteelDemo },
-    install: hooksteel.install,
-    facts: hooksteel.facts,
-    whyTitle: "Same transaction. Drain after commit.",
-    steps: hooksteelHow,
-    stepsNote: hooksteelStepsNote,
-  },
-  {
     slug: "seattruth",
+    npmPackage: "seattruth",
     name: seattruth.name,
     badge: seattruth.badge,
     tagline: seattruth.tagline,
@@ -612,6 +649,7 @@ export const tools: CatalogTool[] = [
   },
   {
     slug: "maydo",
+    npmPackage: "@yellowgram/maydo",
     name: maydo.name,
     badge: maydo.badge,
     tagline: maydo.tagline,
@@ -644,114 +682,109 @@ export const tools: CatalogTool[] = [
     steps: creditLedgerHow,
   },
   {
-    slug: "l2-send-guard",
-    name: l2SendGuard.name,
-    badge: l2SendGuard.badge,
-    tagline: l2SendGuard.tagline,
-    summary: l2SendGuard.summary,
-    repo: l2SendGuard.repo,
-    current: true,
-    oss: true,
-    group: "send",
-    primary: github(l2SendGuard.github),
-    secondary: npmLink(l2SendGuard.npm),
-    install: l2SendGuard.install,
-    facts: l2SendGuard.facts,
-    whyTitle: "Proxy, check, refuse.",
-    steps: l2SendGuardHow,
-  },
-  {
     slug: "send-allow",
+    npmPackage: "send-allow",
     name: sendAllow.name,
-    badge: "Deprecated · Open source",
+    badge: sendAllow.badge,
     tagline: sendAllow.tagline,
-    summary: `Deprecated: merged into L2 Send Guard 1.x. ${sendAllow.summary}`,
+    summary: `${deprecatedLine} ${sendAllow.summary}`,
     repo: sendAllow.repo,
     oss: true,
     group: "send",
     primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
     secondary: github(sendAllow.github),
-    delivery: "Deprecated. Use L2 Send Guard 1.x instead.",
+    delivery: deprecatedDelivery,
+    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
     facts: sendAllow.facts,
     whyTitle: "Allow, cap, deny.",
     steps: sendAllowHow,
   },
   {
     slug: "send-approve-bound",
+    npmPackage: "send-approve-bound",
     name: sendApproveBound.name,
-    badge: "Deprecated · Open source",
+    badge: sendApproveBound.badge,
     tagline: sendApproveBound.tagline,
-    summary: `Deprecated: merged into L2 Send Guard 1.x. ${sendApproveBound.summary}`,
+    summary: `${deprecatedLine} ${sendApproveBound.summary}`,
     repo: sendApproveBound.repo,
     oss: true,
     group: "send",
     primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
     secondary: github(sendApproveBound.github),
-    delivery: "Deprecated. Use L2 Send Guard 1.x instead.",
+    delivery: deprecatedDelivery,
+    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
     facts: sendApproveBound.facts,
     whyTitle: "Bound, cap, deny.",
     steps: sendApproveBoundHow,
   },
   {
     slug: "send-permit2-bound",
+    npmPackage: "send-permit2-bound",
     name: sendPermit2Bound.name,
-    badge: "Deprecated · Open source",
+    badge: sendPermit2Bound.badge,
     tagline: sendPermit2Bound.tagline,
-    summary: `Deprecated: merged into L2 Send Guard 1.x. ${sendPermit2Bound.summary}`,
+    summary: `${deprecatedLine} ${sendPermit2Bound.summary}`,
     repo: sendPermit2Bound.repo,
     oss: true,
     group: "send",
     primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
     secondary: github(sendPermit2Bound.github),
-    delivery: "Deprecated. Use L2 Send Guard 1.x instead.",
+    delivery: deprecatedDelivery,
+    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
     facts: sendPermit2Bound.facts,
     whyTitle: "Pin, bound, deny.",
     steps: sendPermit2BoundHow,
   },
   {
     slug: "send-idempotency",
+    npmPackage: "send-idempotency",
     name: sendIdempotency.name,
-    badge: "Deprecated · Open source",
+    badge: sendIdempotency.badge,
     tagline: sendIdempotency.tagline,
-    summary: `Deprecated: merged into L2 Send Guard 1.x. ${sendIdempotency.summary}`,
+    summary: `${deprecatedLine} ${sendIdempotency.summary}`,
     repo: sendIdempotency.repo,
     oss: true,
     group: "send",
     primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
     secondary: github(sendIdempotency.github),
-    delivery: "Deprecated. Use L2 Send Guard 1.x instead.",
+    delivery: deprecatedDelivery,
+    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
     facts: sendIdempotency.facts,
     whyTitle: "Remember, conflict, halt.",
     steps: sendIdempotencyHow,
   },
   {
     slug: "recv-sweep-brake",
+    npmPackage: "recv-sweep-brake",
     name: recvSweepBrake.name,
-    badge: "Deprecated · Open source",
+    badge: recvSweepBrake.badge,
     tagline: recvSweepBrake.tagline,
-    summary: `Deprecated: merged into L2 Send Guard 1.x. ${recvSweepBrake.summary}`,
+    summary: `${deprecatedLine} ${recvSweepBrake.summary}`,
     repo: recvSweepBrake.repo,
     oss: true,
     group: "send",
     primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
     secondary: github(recvSweepBrake.github),
-    delivery: "Deprecated. Use L2 Send Guard 1.x instead.",
+    delivery: deprecatedDelivery,
+    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
     facts: recvSweepBrake.facts,
     whyTitle: "Classify, hold, deny.",
     steps: recvSweepBrakeHow,
   },
   {
     slug: "recv-approval-watch",
+    npmPackage: "recv-approval-watch",
     name: recvApprovalWatch.name,
-    badge: "Deprecated · Open source",
+    badge: recvApprovalWatch.badge,
     tagline: recvApprovalWatch.tagline,
-    summary: `Deprecated: merged into L2 Send Guard 1.x. ${recvApprovalWatch.summary}`,
+    summary: `${deprecatedLine} ${recvApprovalWatch.summary}`,
     repo: recvApprovalWatch.repo,
     oss: true,
     group: "send",
     primary: { label: "Migrate to L2 Send Guard", href: l2Migrating },
     secondary: github(recvApprovalWatch.github),
-    delivery: "Deprecated. Use L2 Send Guard 1.x instead.",
+    delivery: deprecatedDelivery,
+    replacement: { name: l2SendGuard.name, install: l2SendGuard.install, href: l2Migrating },
     facts: recvApprovalWatch.facts,
     whyTitle: "Watch, emit, hold.",
     steps: recvApprovalWatchHow,
@@ -786,6 +819,25 @@ export const tools: CatalogTool[] = [
     facts: surfaceGuard.facts,
   },
 ];
+
+export type ToolStatus = "current" | "deprecated" | "archived";
+
+/** Status shown by the badge. Rendered as data-status so the version guard checks what is displayed. */
+export function toolStatus(tool: Pick<CatalogTool, "badge">): ToolStatus {
+  if (/^deprecated\b/i.test(tool.badge)) return "deprecated";
+  if (/^archived\b/i.test(tool.badge)) return "archived";
+  return "current";
+}
+
+/** data-* attributes the version guard reads from the rendered HTML. */
+export function toolDataAttrs(tool: CatalogTool) {
+  return {
+    "data-tool": tool.slug,
+    "data-name": tool.name,
+    "data-status": toolStatus(tool),
+    ...(tool.npmPackage ? { "data-npm": tool.npmPackage } : {}),
+  };
+}
 
 /** Free open source. /oss, catalog order. Every tool is MIT. */
 export const ossProducts = tools.filter((tool) => tool.oss);
