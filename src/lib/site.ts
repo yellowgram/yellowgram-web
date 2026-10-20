@@ -164,7 +164,7 @@ export const seattruthDemo =
   "https://github.com/yellowgram/seattruth/releases/download/clip-60s-approved/seattruth-60s-approved.mp4";
 
 /*
- * BurnBrake, HookSteel and SeatTruth are on npm at 0.3.0, the MayDo SDK at 0.2.0 (MIT).
+ * BurnBrake is on npm at 0.4.0, HookSteel and SeatTruth at 0.3.0, the MayDo SDK at 0.3.0 (MIT).
  * Install lines pin those versions.
  */
 
@@ -178,7 +178,7 @@ export const burnbrake = {
     "HTTP 402 BUDGET_EXHAUSTED · not retryable · never 429",
     `${mitLine} · you run it`,
   ],
-  install: "npm install burnbrake@0.3.0 && npx burnbrake serve",
+  install: "npm install burnbrake@0.4.0 && npx burnbrake serve",
   npm: "https://www.npmjs.com/package/burnbrake",
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
@@ -235,7 +235,7 @@ export const maydo = {
     "Thin TypeScript SDK (@yellowgram/maydo) on npm · server from GitHub · cache off by default",
     `${mitLine} · decision only, no invoicing`,
   ],
-  install: "npm install @yellowgram/maydo@0.2.0",
+  install: "npm install @yellowgram/maydo@0.3.0",
   npm: "https://www.npmjs.com/package/@yellowgram/maydo",
   repo: "yellowgram/maydo",
   github: "https://github.com/yellowgram/maydo",
