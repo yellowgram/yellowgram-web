@@ -105,7 +105,8 @@ export const keelHow = [
 export const l2Migrating = "https://github.com/yellowgram/l2-safety-proxy#migrating";
 
 /**
- * The six earlier send/recv packages, deprecated on npm ("Merged into l2-send-guard 1.x").
+ * The six earlier send/recv packages, deprecated on npm ("Merged into l2-send-guard 1.x"; that npm
+ * text predates 2.0, and the README's migration section covers both 1.x and 2.0).
  * They appear on the site only in the L2 Send Guard replacement line (the version guard
  * enforces this); /oss#<name> anchors land on that line.
  */
@@ -129,7 +130,7 @@ export const l2SendGuard = {
     "JSON-RPC proxy or signer library · offline demo · MIT",
     "Arbitrum, OP, Base and their Sepolias, Ethereum, Sepolia (mainnets need your RPC) · no keys held · no warranty",
   ],
-  install: "npx l2-send-guard@1.0.0",
+  install: "npx l2-send-guard@2.0.0",
   npm: "https://www.npmjs.com/package/l2-send-guard",
   repo: "yellowgram/l2-safety-proxy",
   github: "https://github.com/yellowgram/l2-safety-proxy",
