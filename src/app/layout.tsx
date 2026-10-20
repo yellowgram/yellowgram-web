@@ -38,7 +38,7 @@ const mono = localFont({
 });
 
 const description =
-  "yellowgram is a software product studio that ships small, sharp tools. SurfacePin is an MCP list-lock: an exact hash of tools, resources, and prompts that fails CI when the surface changes.";
+  "yellowgram is a software product studio that ships small, sharp tools. SurfacePin is an MCP list-lock: an exact hash of tools, resources, prompts, titles and instructions that fails CI when the surface changes.";
 
 const title = "yellowgram — small software, sharp edges";
 
