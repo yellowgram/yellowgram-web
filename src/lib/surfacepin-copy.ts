@@ -7,7 +7,7 @@ export const surfacepinDescription =
 
 /** First body under the locked H2. */
 export const surfacepinBody =
-  "An exact hash of an MCP server’s tools, resources, and prompts. The check is not semantic. When the surface changes and the pin does not, CI fails.";
+  "An exact hash of an MCP server’s tools, resources, prompts, titles and instructions. The check is not semantic. When the surface changes and the pin does not, CI fails.";
 
 /** Boundary under the first body. Pass/fail stays digest equality. */
 export const surfacepinBoundary =
@@ -97,7 +97,7 @@ export const surfacepinJsonLd = {
       "@type": "SoftwareApplication",
       "@id": "https://www.yellowgram.dev/surfacepin#software",
       name: "SurfacePin",
-      softwareVersion: "1.5.0",
+      softwareVersion: "1.6.0",
       operatingSystem: "Node.js 20+",
       license: "https://spdx.org/licenses/MIT.html",
       url: "https://www.yellowgram.dev/surfacepin",

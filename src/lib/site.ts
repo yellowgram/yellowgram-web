@@ -35,13 +35,13 @@ export const surfacepin = {
   badge: "Current · Open source",
   tagline: "Pin the surface. Catch the silent drift.",
   summary:
-    "An exact hash of an MCP server’s tools, resources, and prompts. When the surface changes and the pin does not, CI fails.",
+    "An exact hash of an MCP server’s tools, resources, prompts, titles and instructions. When the surface changes and the pin does not, CI fails.",
   facts: [
-    "Exact hash of tools, resources, and prompts",
+    "Exact hash of tools, resources, prompts, titles and instructions",
     "Fails CI on unexpected surface change",
     "MIT · CLI · CI-ready",
   ],
-  install: "npx surfacepin@1.5.0",
+  install: "npx surfacepin@1.6.0",
   repo: "yellowgram/surfacepin",
   github: "https://github.com/yellowgram/surfacepin",
   npm: "https://www.npmjs.com/package/surfacepin",
@@ -52,7 +52,7 @@ export const howItWorks = [
   {
     step: "01",
     title: "Pin",
-    body: "Record an exact hash of the MCP tools, resources, and prompts.",
+    body: "Record an exact hash of the MCP tools, resources, prompts, titles and instructions.",
   },
   {
     step: "02",
@@ -107,15 +107,15 @@ export const l2Migrating = "https://github.com/yellowgram/l2-safety-proxy#migrat
 export const l2SendGuard = {
   name: "L2 Send Guard",
   badge: "Current · Open source",
-  tagline: "Abort the bad send. Before it broadcasts.",
+  tagline: "Check every send against your policy. Before it broadcasts.",
   summary:
-    "A multi-L2 JSON-RPC proxy that simulates eth_sendRawTransaction, aborts definite reverts, and optionally fences agent spend with a thin allowlist and caps. No key custody.",
+    "A policy guard for wallets that software controls: every signed EVM transaction is checked against a policy file you write, then simulated, before your RPC sees it. Never holds keys.",
   facts: [
-    "Sim abort · optional policy fence · Arb/OP/Base Sepolia",
-    "Offline dual-layer demo · MIT · npm pin",
-    "Not custody · not Safe · not mainnet SLA",
+    "Destinations, caps, approvals, Permit2, batches, EIP-7702, idempotency",
+    "JSON-RPC proxy or signer library · offline demo · MIT",
+    "Arbitrum, OP, Base and their Sepolias, Ethereum, Sepolia (mainnets need your RPC) · no keys held · no warranty",
   ],
-  install: "npx l2-send-guard@0.5.0",
+  install: "npx l2-send-guard@1.0.0",
   npm: "https://www.npmjs.com/package/l2-send-guard",
   repo: "yellowgram/l2-safety-proxy",
   github: "https://github.com/yellowgram/l2-safety-proxy",
@@ -125,17 +125,17 @@ export const l2SendGuardHow = [
   {
     step: "01",
     title: "Proxy",
-    body: "Point the wallet HTTP transport at the local Guard.",
+    body: "Point your wallet client at the local guard, or wrap your signer with the library.",
   },
   {
     step: "02",
-    title: "Simulate",
-    body: "Definite reverts abort before broadcast; policy can stop the rest.",
+    title: "Check",
+    body: "Each transaction and every call inside a batch is judged by your policy, then simulated.",
   },
   {
     step: "03",
-    title: "Halt",
-    body: "Agents treat policy deny as non-retryable and do not rebroadcast the same raw.",
+    title: "Refuse",
+    body: "A denied send never reaches your RPC. Agents treat the denial as final and do not retry.",
   },
 ];
 
@@ -365,8 +365,8 @@ export const seattruthDemo =
   "https://github.com/yellowgram/seattruth/releases/download/clip-60s-approved/seattruth-60s-approved.mp4";
 
 /*
- * BurnBrake, HookSteel, SeatTruth, and the MayDo SDK are on npm at 0.2.0 (MIT).
- * Install lines pin that version.
+ * BurnBrake, HookSteel and SeatTruth are on npm at 0.3.0, the MayDo SDK at 0.2.0 (MIT).
+ * Install lines pin those versions.
  */
 
 export const burnbrake = {
@@ -379,7 +379,7 @@ export const burnbrake = {
     "HTTP 402 BUDGET_EXHAUSTED · not retryable · never 429",
     `${mitLine} · you run it`,
   ],
-  install: "npm install burnbrake@0.2.0 && npx burnbrake serve",
+  install: "npm install burnbrake@0.3.0 && npx burnbrake serve",
   npm: "https://www.npmjs.com/package/burnbrake",
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
@@ -398,7 +398,7 @@ export const hooksteel = {
     "Outbox in the same Postgres transaction · replay CLI for dead letters",
     `${mitLine} · not a hosted gateway`,
   ],
-  install: "npm install hooksteel@0.2.0",
+  install: "npm install hooksteel@0.3.0",
   npm: "https://www.npmjs.com/package/hooksteel",
   repo: "yellowgram/hooksteel",
   github: "https://github.com/yellowgram/hooksteel",
@@ -418,7 +418,7 @@ export const seattruth = {
     "Dry-run is not all-clear · scheduled GitHub Action · Slack alert",
     `${mitLine} · read-only`,
   ],
-  install: "npx seattruth@0.2.0 --dry-run",
+  install: "npx seattruth@0.3.0 --dry-run",
   npm: "https://www.npmjs.com/package/seattruth",
   repo: "yellowgram/seattruth",
   github: "https://github.com/yellowgram/seattruth",
@@ -657,7 +657,7 @@ export const tools: CatalogTool[] = [
     secondary: npmLink(l2SendGuard.npm),
     install: l2SendGuard.install,
     facts: l2SendGuard.facts,
-    whyTitle: "Proxy, simulate, halt.",
+    whyTitle: "Proxy, check, refuse.",
     steps: l2SendGuardHow,
   },
   {
