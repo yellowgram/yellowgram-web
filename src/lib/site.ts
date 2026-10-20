@@ -131,7 +131,7 @@ export const l2SendGuard = {
     "JSON-RPC proxy or signer library · offline demo · MIT",
     "Arbitrum, OP, Base and their Sepolias, Ethereum, Sepolia (mainnets need your RPC) · no keys held · no warranty",
   ],
-  install: "npx l2-send-guard@2.0.0",
+  install: "npx l2-send-guard@2.1.0",
   npm: "https://www.npmjs.com/package/l2-send-guard",
   repo: "yellowgram/l2-safety-proxy",
   github: "https://github.com/yellowgram/l2-safety-proxy",
