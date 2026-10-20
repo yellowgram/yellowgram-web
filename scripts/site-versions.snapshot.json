@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T17:44:39.004Z",
+  "checkedAt": "2026-10-20T19:26:16.444Z",
   "packages": {
     "@yellowgram/maydo": {
       "latest": "0.3.0",
@@ -30,12 +30,13 @@
       ]
     },
     "l2-send-guard": {
-      "latest": "2.0.0",
+      "latest": "2.1.0",
       "deprecated": null,
       "versions": [
         "0.5.0",
         "1.0.0",
-        "2.0.0"
+        "2.0.0",
+        "2.1.0"
       ]
     },
     "recv-approval-watch": {
