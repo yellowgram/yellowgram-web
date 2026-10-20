@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "build": "node --test scripts/site-version-guard.test.mjs && next build --turbopack && node scripts/check-site-versions.mjs",
+    "test": "node --test scripts/site-version-guard.test.mjs",
+    "check:versions": "node scripts/check-site-versions.mjs",
     "start": "next start",
     "lint": "eslint"
   },
@@ -23,6 +25,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
+    "semver": "^7.8.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

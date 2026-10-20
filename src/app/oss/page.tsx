@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 import { email, interests, ossGroups, ossProducts } from "@/lib/site";
 
 const description =
-  "Open source yellowgram tools, all MIT and free. Agent spend & safety: SurfacePin pins an MCP surface and fails CI on drift; BurnBrake caps LLM spend and halts with HTTP 402. Billing & access kits: HookSteel fulfills each Stripe or Polar webhook once; SeatTruth reports paid-vs-entitled drift; MayDo answers allow(actor, action); Credit Ledger is a prepaid-credits template on your Stripe. Send & receive guards: L2 Send Guard, send-allow, send-approve-bound, send-permit2-bound, send-idempotency, recv-sweep-brake, recv-approval-watch. Other: Keel, and Surface Guard (archived).";
+  "Open source yellowgram tools, all MIT and free. Start here: L2 Send Guard checks every agent EVM send against your policy before it broadcasts; HookSteel fulfills each Stripe or Polar webhook once; SurfacePin pins an MCP surface and fails CI on drift. Also: BurnBrake caps LLM spend and halts with HTTP 402; SeatTruth reports paid-vs-entitled drift; MayDo answers allow(actor, action); Credit Ledger is a prepaid-credits template on your Stripe. Deprecated, merged into L2 Send Guard 1.x: send-allow, send-approve-bound, send-permit2-bound, send-idempotency, recv-sweep-brake, recv-approval-watch. Other: Keel, and Surface Guard (archived).";
 
 export const metadata: Metadata = pageMetadata({
   title: "Open source",

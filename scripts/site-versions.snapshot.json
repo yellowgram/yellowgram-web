@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-10-20T11:45:58.833Z",
+  "packages": {
+    "@yellowgram/maydo": {
+      "latest": "0.2.0",
+      "deprecated": null,
+      "versions": [
+        "0.0.0-stage",
+        "0.2.0"
+      ]
+    },
+    "burnbrake": {
+      "latest": "0.3.0",
+      "deprecated": null,
+      "versions": [
+        "0.0.0-stage",
+        "0.2.0",
+        "0.3.0"
+      ]
+    },
+    "hooksteel": {
+      "latest": "0.3.0",
+      "deprecated": null,
+      "versions": [
+        "0.0.0-stage",
+        "0.2.0",
+        "0.3.0"
+      ]
+    },
+    "l2-send-guard": {
+      "latest": "1.0.0",
+      "deprecated": null,
+      "versions": [
+        "0.5.0",
+        "1.0.0"
+      ]
+    },
+    "recv-approval-watch": {
+      "latest": "0.2.0",
+      "deprecated": "Merged into l2-send-guard 1.x: https://github.com/yellowgram/l2-safety-proxy#migrating",
+      "versions": [
+        "0.1.0",
+        "0.2.0"
+      ]
+    },
+    "recv-sweep-brake": {
+      "latest": "0.2.0",
+      "deprecated": "Merged into l2-send-guard 1.x: https://github.com/yellowgram/l2-safety-proxy#migrating",
+      "versions": [
+        "0.1.0",
+        "0.2.0"
+      ]
+    },
+    "seattruth": {
+      "latest": "0.3.0",
+      "deprecated": null,
+      "versions": [
+        "0.0.0-stage",
+        "0.2.0",
+        "0.3.0"
+      ]
+    },
+    "send-allow": {
+      "latest": "0.2.0",
+      "deprecated": "Merged into l2-send-guard 1.x: https://github.com/yellowgram/l2-safety-proxy#migrating",
+      "versions": [
+        "0.0.0-stage",
+        "0.1.0",
+        "0.2.0"
+      ]
+    },
+    "send-approve-bound": {
+      "latest": "0.2.0",
+      "deprecated": "Merged into l2-send-guard 1.x: https://github.com/yellowgram/l2-safety-proxy#migrating",
+      "versions": [
+        "0.1.0",
+        "0.2.0"
+      ]
+    },
+    "send-idempotency": {
+      "latest": "0.2.0",
+      "deprecated": "Merged into l2-send-guard 1.x: https://github.com/yellowgram/l2-safety-proxy#migrating",
+      "versions": [
+        "0.1.0",
+        "0.2.0"
+      ]
+    },
+    "send-permit2-bound": {
+      "latest": "0.2.0",
+      "deprecated": "Merged into l2-send-guard 1.x: https://github.com/yellowgram/l2-safety-proxy#migrating",
+      "versions": [
+        "0.1.0",
+        "0.2.0"
+      ]
+    },
+    "surfacepin": {
+      "latest": "1.6.0",
+      "deprecated": null,
+      "versions": [
+        "1.0.0",
+        "1.1.0",
+        "1.2.0",
+        "1.3.0",
+        "1.4.0",
+        "1.5.0",
+        "1.6.0"
+      ]
+    }
+  }
+}
