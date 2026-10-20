@@ -13,6 +13,15 @@ const retiredProductPaths = [
   "surface-guard",
 ] as const;
 
+const l2ReplacedPaths = [
+  "send-allow",
+  "send-approve-bound",
+  "send-permit2-bound",
+  "send-idempotency",
+  "recv-sweep-brake",
+  "recv-approval-watch",
+] as const;
+
 const nextConfig: NextConfig = {
   async redirects() {
     return [
@@ -22,6 +31,12 @@ const nextConfig: NextConfig = {
         permanent: true,
       })),
       { source: "/current", destination: "/oss", permanent: true },
+      // The six send/recv packages merged into L2 Send Guard 1.x; land on its replacement line.
+      ...l2ReplacedPaths.map((slug) => ({
+        source: `/${slug}`,
+        destination: `/oss#${slug}`,
+        permanent: true,
+      })),
     ];
   },
 };

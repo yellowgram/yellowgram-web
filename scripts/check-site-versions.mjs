@@ -36,7 +36,7 @@ if (!existsSync(built)) {
   console.error(`check-site-versions: FAIL: ${relative(root, built)} not found; run after next build`);
   process.exit(1);
 }
-const paths = [...walk(built, /\.(html|rsc|body)$/), ...walk(join(root, "public"), /\.(html?|txt|md|json|xml)$/)];
+const paths = [...walk(built, /\.(html|rsc|body|txt|xml)$/), ...walk(join(root, "public"), /\.(html?|txt|md|json|xml)$/)];
 const files = paths.map((p) => ({ path: relative(root, p), content: readFileSync(p, "utf8") }));
 
 const pkgs = discoverPackages(files);

@@ -12,6 +12,9 @@
  *   - a deprecated package's card/section is not data-status="deprecated", its badge says
  *     Current or lacks "Deprecated", or it does not name its replacement
  *   - "<pkg> N.x" prose that names a different line than npm latest
+ *   - a deprecated package name anywhere outside the one data-replaces="<replacement>"
+ *     line (HTML, .txt, .xml, .md, .json, .body), or that line missing, duplicated, not
+ *     naming all of KNOWN_DEPRECATED, not saying "deprecated" or not linking #migrating
  *   - an unparseable version spec, an unknown dist-tag, or no tool cards found at all
  * WARN only: a minor/patch lag on the same line; a range instead of an exact pin.
  */
@@ -362,6 +365,51 @@ export function checkSite(files, registry) {
   }
   for (const [key, n] of badgesSeen) {
     if (n === 0) errors.push(`${key.replace("|", ": ")} is rendered with no badge element (data-badge or class badge)`);
+  }
+
+  // Deprecated package names may appear only inside THE replacement line: exactly one
+  // element with data-replaces="<replacement>" (the package npm names in the deprecation
+  // message, e.g. l2-send-guard), which must say "deprecated" and link to the migration
+  // section. Checked in HTML text, attributes, hrefs and JSON-LD, and in every public text
+  // output (.txt, .xml, .md, .json, route .body). RSC payloads (.rsc and inline flight
+  // scripts) are skipped because they repeat the rendered text.
+  const depAlt2 = [...deprecated.keys()].map(nameRe).join("|");
+  const depAnyRe = new RegExp(String.raw`(?<![\w@.-])(${depAlt2})(?![\w-])`, "gi");
+  const allowed = new Set([...deprecated.keys()].map(replacementOf).filter(Boolean));
+  const allowedAlt = [...allowed].map(escapeRe).join("|") || "(?!)";
+  const REPLACES_RE = new RegExp(String.raw`<([a-z][\w-]*)\b[^>]*\sdata-replaces="(?:${allowedAlt})"[^>]*>[\s\S]*?<\/\1>`, "gi");
+  const namedInLines = new Set();
+  const lineWhere = [];
+  for (const { path, content } of files) {
+    if (/\.(rsc|meta)$/.test(path)) continue;
+    const isHtml = /\.html?$/.test(path);
+    const raw = isHtml
+      ? content.replace(/<!--[\s\S]*?-->/g, "").replace(/<script\b(?![^>]*application\/ld\+json)[^>]*>[\s\S]*?<\/script>/gi, " ")
+      : content;
+    if (isHtml) {
+      for (const m of raw.matchAll(REPLACES_RE)) {
+        lineWhere.push(path);
+        const text = textViews(m[0], { attributes: false })[1];
+        for (const n of text.matchAll(depAnyRe)) namedInLines.add(n[1].toLowerCase().replace(/\s+/g, "-"));
+        if (!/\bdeprecated\b/i.test(text)) errors.push(`${path}: replacement line does not say the packages are deprecated`);
+        if (!/href="[^"]*#migrating"/i.test(m[0])) errors.push(`${path}: replacement line does not link to the #migrating section`);
+      }
+    }
+    const outside = isHtml ? raw.replace(REPLACES_RE, " ") : raw;
+    const hits = new Set();
+    for (const view of [decodeEntities(outside), ...textViews(outside)]) {
+      for (const n of view.matchAll(depAnyRe)) hits.add(n[1].toLowerCase().replace(/\s+/g, "-"));
+    }
+    for (const h of hits) errors.push(`${path}: deprecated ${h} appears outside the replacement line (data-replaces)`);
+  }
+  if (files.some((f) => /\.html?$/.test(f.path))) {
+    if (lineWhere.length === 0) {
+      errors.push(`no data-replaces="${[...allowed].join("|")}" line found; the deprecated package names must be listed under their replacement`);
+    } else if (lineWhere.length > 1) {
+      errors.push(`${lineWhere.length} replacement lines found (${lineWhere.join(", ")}); exactly one is allowed`);
+    }
+    const missing = KNOWN_DEPRECATED.filter((n) => !namedInLines.has(n));
+    if (lineWhere.length > 0 && missing.length) errors.push(`replacement line does not name: ${missing.join(", ")}`);
   }
 
   // Attribute-free fallback: "Current" badge text right before a deprecated package name.
