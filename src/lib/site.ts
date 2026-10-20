@@ -41,11 +41,12 @@ export const surfacepin = {
     "Fails CI on unexpected surface change",
     "MIT · CLI · CI-ready",
   ],
-  install: "npx surfacepin@1.6.0",
+  install: "npx surfacepin@1.6.1",
   repo: "yellowgram/surfacepin",
   github: "https://github.com/yellowgram/surfacepin",
   npm: "https://www.npmjs.com/package/surfacepin",
-  spec: "https://github.com/yellowgram/surfacepin/blob/main/SPEC.md",
+  spec: "https://github.com/yellowgram/surfacepin/blob/v1.6.1/SPEC.md",
+  specFreeze: "https://github.com/yellowgram/surfacepin/blob/v1.6.1/SPEC.md#0-format-freeze-and-compatibility-promise",
 };
 
 export const howItWorks = [
