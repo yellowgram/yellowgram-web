@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageShell } from "@/components/SiteChrome";
 import { externalLinkProps } from "@/components/ToolListing";
 import { pageMetadata } from "@/lib/seo";
-import { specDescription, specIntro, specRows, specTitle } from "@/lib/surfacepin-copy";
+import { specDescription, specIntro, specPromises, specRows, specTitle } from "@/lib/surfacepin-copy";
 import { surfacepin } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -38,10 +38,19 @@ export default function SurfacePinSpecPage() {
           </tbody>
         </table>
 
-        <p className="mt-10 max-w-2xl muted">
-          Re-lock after upgrading to 1.4 so embedded surfaces and digests include annotations and outputSchema.
-          Older lockfiles still verify.
-        </p>
+        <section className="mt-16" id="compatibility">
+          <h2 className="title">Compatibility promise</h2>
+          <ul className="mt-6 max-w-2xl list-disc space-y-3 pl-6 muted">
+            {specPromises.map((p) => (
+              <li key={p}>{p}</li>
+            ))}
+          </ul>
+          <p className="mt-6 max-w-2xl">
+            <a className="text-link" href={surfacepin.specFreeze} {...externalLinkProps(surfacepin.specFreeze)}>
+              Format freeze and compatibility promise in SPEC.md
+            </a>
+          </p>
+        </section>
 
         <div className="actions mt-10">
           <Link className="btn btn-primary" href="/surfacepin">

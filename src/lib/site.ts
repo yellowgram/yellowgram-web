@@ -41,11 +41,12 @@ export const surfacepin = {
     "Fails CI on unexpected surface change",
     "MIT · CLI · CI-ready",
   ],
-  install: "npx surfacepin@1.6.0",
+  install: "npx surfacepin@1.6.1",
   repo: "yellowgram/surfacepin",
   github: "https://github.com/yellowgram/surfacepin",
   npm: "https://www.npmjs.com/package/surfacepin",
-  spec: "https://github.com/yellowgram/surfacepin/blob/main/SPEC.md",
+  spec: "https://github.com/yellowgram/surfacepin/blob/v1.6.1/SPEC.md",
+  specFreeze: "https://github.com/yellowgram/surfacepin/blob/v1.6.1/SPEC.md#0-format-freeze-and-compatibility-promise",
 };
 
 export const howItWorks = [
@@ -105,7 +106,8 @@ export const keelHow = [
 export const l2Migrating = "https://github.com/yellowgram/l2-safety-proxy#migrating";
 
 /**
- * The six earlier send/recv packages, deprecated on npm ("Merged into l2-send-guard 1.x").
+ * The six earlier send/recv packages, deprecated on npm ("Merged into l2-send-guard 1.x"; that npm
+ * text predates 2.0, and the README's migration section covers both 1.x and 2.0).
  * They appear on the site only in the L2 Send Guard replacement line (the version guard
  * enforces this); /oss#<name> anchors land on that line.
  */
@@ -129,7 +131,7 @@ export const l2SendGuard = {
     "JSON-RPC proxy or signer library · offline demo · MIT",
     "Arbitrum, OP, Base and their Sepolias, Ethereum, Sepolia (mainnets need your RPC) · no keys held · no warranty",
   ],
-  install: "npx l2-send-guard@1.0.0",
+  install: "npx l2-send-guard@2.0.0",
   npm: "https://www.npmjs.com/package/l2-send-guard",
   repo: "yellowgram/l2-safety-proxy",
   github: "https://github.com/yellowgram/l2-safety-proxy",
@@ -164,7 +166,7 @@ export const seattruthDemo =
   "https://github.com/yellowgram/seattruth/releases/download/clip-60s-approved/seattruth-60s-approved.mp4";
 
 /*
- * BurnBrake, HookSteel and SeatTruth are on npm at 0.3.0, the MayDo SDK at 0.2.0 (MIT).
+ * BurnBrake is on npm at 0.4.0, HookSteel and SeatTruth at 0.3.0, the MayDo SDK at 0.3.0 (MIT).
  * Install lines pin those versions.
  */
 
@@ -178,7 +180,7 @@ export const burnbrake = {
     "HTTP 402 BUDGET_EXHAUSTED · not retryable · never 429",
     `${mitLine} · you run it`,
   ],
-  install: "npm install burnbrake@0.3.0 && npx burnbrake serve",
+  install: "npm install burnbrake@0.4.0 && npx burnbrake serve",
   npm: "https://www.npmjs.com/package/burnbrake",
   repo: "yellowgram/burnbrake",
   github: "https://github.com/yellowgram/burnbrake",
@@ -235,7 +237,7 @@ export const maydo = {
     "Thin TypeScript SDK (@yellowgram/maydo) on npm · server from GitHub · cache off by default",
     `${mitLine} · decision only, no invoicing`,
   ],
-  install: "npm install @yellowgram/maydo@0.2.0",
+  install: "npm install @yellowgram/maydo@0.3.0",
   npm: "https://www.npmjs.com/package/@yellowgram/maydo",
   repo: "yellowgram/maydo",
   github: "https://github.com/yellowgram/maydo",

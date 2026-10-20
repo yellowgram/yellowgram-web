@@ -129,6 +129,12 @@ test("surfacepin patch/minor lag only warns", () => {
   assert.ok(r.warnings.some((w) => /surfacepin@1\.5\.0/.test(w)));
 });
 test("l2-send-guard@0.5.0 (pre-1.0 line) fails", () => fails(page({ l2: "npx l2-send-guard@0.5.0" }), /line/));
+test("l2-send-guard@1.0.0 after 2.0.0 publishes fails (major line); @2.0.0 passes", () => {
+  const reg = REGISTRY();
+  reg.set("l2-send-guard", pkg("2.0.0", ["0.5.0", "1.0.0", "2.0.0"]));
+  fails(page(), /l2-send-guard@1\.0\.0.*line/, reg);
+  passes(page({ l2: "npx l2-send-guard@2.0.0" }), reg);
+});
 
 // Markup that splits tokens.
 test("JSX-split pin (<!-- --> separators) fails", () =>
